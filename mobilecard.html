@@ -30,7 +30,7 @@
 
       .swiper {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1140px;
         height: auto;
         padding: 20px 0;
         position: relative;
@@ -82,9 +82,10 @@
       @media (max-width: 640px) {
         .swiper {
           padding: 0;
+          max-width: 350px;
         }
         .card {
-          width: 161px;
+          width: 150px;
           height: 100%;
           margin: 0 5px;
         }
@@ -212,46 +213,6 @@
           </div>
           <div class="swiper-slide">
             <div class="card">
-              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
-              <div class="card-content">
-                <h2 class="bike-model">Bike Model</h2>
-                <p class="model-year">Model: 2024</p>
-                <p class="price">$15,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card">
-              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
-              <div class="card-content">
-                <h2 class="bike-model">Bike Model</h2>
-                <p class="model-year">Model: 2024</p>
-                <p class="price">$15,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card">
-              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
-              <div class="card-content">
-                <h2 class="bike-model">Bike Model</h2>
-                <p class="model-year">Model: 2024</p>
-                <p class="price">$15,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card">
-              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
-              <div class="card-content">
-                <h2 class="bike-model">Bike Model</h2>
-                <p class="model-year">Model: 2024</p>
-                <p class="price">$15,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="card">
               <div class="card-content">
                 <h2 class="bike-model">View All</h2>
                 <p class="model-year">Explore More</p>
@@ -286,17 +247,9 @@
         },
 
         breakpoints: {
+        
           320: {
-            slidesPerView: 7,
-          },
-          450: {
             slidesPerView: 2.5,
-          },
-          640: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
             autoplay: false, // Autoplay disabled for larger screens
           },
         },
