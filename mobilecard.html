@@ -84,11 +84,12 @@
           padding: 0;
         }
         .card {
-          width: 100px;
-          height: auto;
+          width: 200px;
+          height: 100%;
+          margin: 0 5px;
         }
         .bike-image {
-          width: 100px;
+          width: 100%;
           height: auto;
         }
         .card-content {
@@ -200,7 +201,7 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="card">  
+            <div class="card">
               <div class="card-content">
                 <h2 class="bike-model">View All</h2>
                 <p class="model-year">Explore More</p>
@@ -223,7 +224,6 @@
         loop: false,
         autoplay: {
           delay: 2500,
-          disableOnInteraction: false,
         },
 
         // Remove pagination dots
@@ -236,46 +236,35 @@
         },
 
         breakpoints: {
+          320: {
+            slidesPerView: 4.4,
+          },
           450: {
             slidesPerView: 2.5,
-            spaceBetween: 10,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
           },
           640: {
-            slidesPerView: 3.5,
-            spaceBetween: 20,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
+            slidesPerView: 3,
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 30,
             autoplay: false, // Autoplay disabled for larger screens
-          },
-        },
-
-        // Initial state
-        on: {
-          init: function () {
-            document.querySelector(".swiper-button-next").style.display = "block";
           },
         },
       });
 
       // Show both arrows after clicking next
-      document.querySelector(".swiper-button-next").addEventListener("click", () => {
-        document.querySelector(".swiper-button-prev").style.display = "block";
-      });
+      document
+        .querySelector(".swiper-button-next")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-prev").style.display = "block";
+        });
 
       // Show both arrows after clicking prev
-      document.querySelector(".swiper-button-prev").addEventListener("click", () => {
-        document.querySelector(".swiper-button-next").style.display = "block";
-      });
+      document
+        .querySelector(".swiper-button-prev")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-next").style.display = "block";
+        });
     </script>
   </body>
 </html>
