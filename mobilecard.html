@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swiper-Slider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .swiper {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        padding: 20px 0;
+        position: relative;
+      }
+
+      .swiper-slide {
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 280px;
+        text-align: center;
+        margin: 10px;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .bike-image {
+        width: 100%;
+        height: auto;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .bike-model {
+        font-size: 1.5em;
+        margin: 10px 0;
+      }
+
+      .model-year,
+      .price {
+        color: #666;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 640px) {
+        .swiper {
+          padding: 0;
+        }
+        .card {
+          width: 100px;
+          height: auto;
+        }
+        .bike-image {
+          width: 100px;
+          height: auto;
+        }
+        .card-content {
+          padding: 10px;
+        }
+        .bike-model {
+          font-size: 1em;
+        }
+        .model-year,
+        .price {
+          font-size: 0.9em;
+        }
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        color: white;
+        width: 40px;
+        height: 40px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 16px;
+      }
+
+      .swiper-button-prev {
+        left: 10px;
+      }
+
+      .swiper-button-next {
+        right: 10px;
+      }
+
+      .swiper-button-next {
+        display: block;
+      }
+
+      .swiper-button-prev {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model">Bike Model</h2>
+                <p class="model-year">Model: 2024</p>
+                <p class="price">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model">Bike Model</h2>
+                <p class="model-year">Model: 2024</p>
+                <p class="price">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model">Bike Model</h2>
+                <p class="model-year">Model: 2024</p>
+                <p class="price">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model">Bike Model</h2>
+                <p class="model-year">Model: 2024</p>
+                <p class="price">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model">Bike Model</h2>
+                <p class="model-year">Model: 2024</p>
+                <p class="price">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">  
+              <div class="card-content">
+                <h2 class="bike-model">View All</h2>
+                <p class="model-year">Explore More</p>
+                <p class="price">➡️</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: false,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+
+        // Remove pagination dots
+        pagination: false,
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+          450: {
+            slidesPerView: 2.5,
+            spaceBetween: 10,
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+            },
+          },
+          640: {
+            slidesPerView: 3.5,
+            spaceBetween: 20,
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+            },
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            autoplay: false, // Autoplay disabled for larger screens
+          },
+        },
+
+        // Initial state
+        on: {
+          init: function () {
+            document.querySelector(".swiper-button-next").style.display = "block";
+          },
+        },
+      });
+
+      // Show both arrows after clicking next
+      document.querySelector(".swiper-button-next").addEventListener("click", () => {
+        document.querySelector(".swiper-button-prev").style.display = "block";
+      });
+
+      // Show both arrows after clicking prev
+      document.querySelector(".swiper-button-prev").addEventListener("click", () => {
+        document.querySelector(".swiper-button-next").style.display = "block";
+      });
+    </script>
+  </body>
+</html>

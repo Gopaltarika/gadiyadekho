@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Staff Bus Cards</title>
+    <style>
+      /* Reset and basic styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 12px;
+      }
+      .card {
+        position: relative; /* Ensure position relative for absolute positioning */
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out;
+        max-width: 350px;
+      }
+      .col-lg-4 {
+        padding: 0 12px;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .price-tag {
+        position: absolute;
+        top: 40%;
+        right: 0px;
+        background-color: #ff725e;
+        color: #fff;
+        padding: 5px 20px;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+
+      .card-inner {
+        padding: 20px;
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;   
+      }
+
+      .card-text {
+        text-align: center;
+      }
+
+      .upper-text {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .middle-text {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 12px;
+      }
+
+      .lower-text {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+
+      .variant-part {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .variant-part p {
+        font-size: 14px;
+        color: #333;
+      }
+
+      .variant-part img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+      }
+
+      .compare-btn {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: #e5360c;
+        border: 2px solid #e5360c;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .compare-btn:hover {
+        background-color: #e5360c;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+          <div class="card w-100">
+            <div class="price-tag">₹123 -- ₹123</div>
+            <img src="./image/noimg.png" alt="Bus Image" />
+            <div class="card-text card-inner">
+              <p class="upper-text">SML Isuzu S7 Staff Bus BS6</p>
+              <p class="middle-text">
+                SML Isuzu S7 Staff Bus (22+D Seater) BS6
+              </p>
+              <p class="lower-text">Variets :-</p>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <button class="compare-btn">COMPARE VEHICLE</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+          <div class="card w-100">
+            <div class="price-tag">₹123 -- ₹123</div>
+            <img src="./image/noimg.png" alt="Bus Image" />
+            <div class="card-text card-inner">
+              <p class="upper-text">SML Isuzu S7 Staff Bus BS6</p>
+              <p class="middle-text">
+                SML Isuzu S7 Staff Bus (22+D Seater) BS6
+              </p>  
+              <p class="lower-text">Variets :-</p>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <button class="compare-btn">COMPARE VEHICLE</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 d-flex justify-content-center">
+          <div class="card w-100">
+            <div class="price-tag">₹123 -- ₹123</div>
+            <img src="./image/noimg.png" alt="Bus Image" />
+            <div class="card-text card-inner">
+              <p class="upper-text">SML Isuzu S7 Staff Bus BS6</p>
+              <p class="middle-text">
+                SML Isuzu S7 Staff Bus (22+D Seater) BS6
+              </p>
+              <p class="lower-text">Variets :-</p>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <div class="variant-part">
+                <p>SML Isuzu S7 Staff Bus (22+D Seater) ..</p>
+                <img src="./image/bus-svgrepo-com.svg" alt="Small Image" />
+              </div>
+              <button class="compare-btn">COMPARE VEHICLE</button>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+
+      <!-- Repeat the above card structure twice more for the other two cards -->
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
