@@ -17,16 +17,25 @@
       .container-custom {
         max-width: 1140px;
       }
+      @media (max-width:576px) {
+        h1{
+        font-size: 25px;
+      }
       .searches-card {
         border: 2px solid black;
         border-radius: 20px;
         overflow: hidden;
         background: white;
-        height: 200px;
       }
-      h1{
-        font-size: 25px;
+     
       }
+      .searches-card {
+        border: 2px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+      }
+     
       .bg-color{
         background: linear-gradient(120deg, rgba(255,180,243,1) 0%, rgba(255,255,255,1) 110%);
       }
@@ -36,7 +45,7 @@
     <div class=" bg-color">
         <div class="container container-custom pt-4">
           <h1 class="text-center m-0 pb-4 w-100 text-nowrap text-white">
-            <span class="d-md-block d-none"
+            <span class="d-md-inline d-none"
               ><svg
                 width="256"
                 height="12"
@@ -51,7 +60,7 @@
               </svg>
             </span>
             Most Searches Vehicle
-            <span class="d-md-block d-none"
+            <span class="d-md-inline d-none"
               ><svg
                 width="256"
                 height="12"
