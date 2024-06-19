@@ -138,13 +138,15 @@
       .card-img {
         width: 100%;
       }
+      .card-img {
+        min-height: 240px;
+      }
       @media (max-width: 768px) {
         .tabs-menu li.tt {
           display: none;
         }
         .tabs-menu li.tt.active {
           display: flex;
-          /* position: absolute; */
         }
         .navbar-icon {
           display: block;
@@ -159,6 +161,9 @@
           background: white;
           z-index: 1;
         }
+        .card-img {
+        min-height: unset;
+      }
       }
       @media (max-width: 576px) {
         h1 {
@@ -169,10 +174,10 @@
           height: 15px !important;
           margin-right: 2px;
         }
-        .tabs-menu li a{
+        .tabs-menu li a {
           font-size: 12px;
         }
-        .card-body{
+        .card-body {
           padding: 10px;
         }
         .searches-card {
@@ -181,7 +186,6 @@
           overflow: hidden;
           background: white;
         }
-        
       }
       .searches-card {
         border: 2px solid black;
@@ -189,9 +193,7 @@
         overflow: hidden;
         background: white;
       }
-    .card-img{
-      min-height: 240px;
-    }
+     
     </style>
   </head>
   <body>
