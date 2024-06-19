@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming, Latest and Popular</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 1320px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .tabs-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        border-radius: 8px;
+        justify-content: space-around;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+
+      .tabs-menu li {
+        position: relative;
+        margin: 0;
+      }
+
+      .tabs-menu li a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .tabs-menu li a:hover {
+        border-bottom: 2px solid #e5360c;
+        color: #e5360c;
+        background-color: #fff;
+      }
+
+      ul li a {
+        white-space: nowrap;
+      }
+      .card-img {
+        width: 100%;
+        min-height: 240px;
+      }
+      @media (max-width: 768px) {
+        .tabs-menu {
+          flex-wrap: nowrap;
+        }
+        .card-img {
+          min-height: unset;
+        }
+      }
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 25px;
+        }
+        .tabs-menu li a {
+          font-size: 12px;
+        }
+        .card-body {
+          padding: 10px;
+        }
+        .searches-card {
+          border: 2px solid black;
+          border-radius: 20px;
+          overflow: hidden;
+          background: white;
+        }
+      }
+      .searches-card {
+        border: 2px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center pb-4">Upcoming, Latest and Popular</h1>
+      <div>
+        <ul class="tabs-menu tabed-menu-New catetabs-menu">
+          <li class="current" onclick="clickcatvec(this)">
+            <a
+              id="two-wheeler-tab"
+              data-toggle="tab"
+              role="button"
+              divattr="#two-wheeler"
+            >
+              Upcoming
+            </a>
+          </li>
+          <li>
+            <a
+              id="three-wheeler-tab"
+              data-toggle="tab"
+              role="button"
+              divattr="#three-wheeler"
+            >
+              Latest
+            </a>
+          </li>
+          <li onclick="clickcatvec(this)">
+            <a role="button" id="four-wheeler-tab" divattr="#four-wheeler">
+              Popular
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content pt-3" id="myTabContent">
+        <!-- Upcoming Tab Content -->
+        <div
+          class="tab-pane fade show active"
+          id="two-wheeler"
+          role="tabpanel"
+          aria-labelledby="two-wheeler-tab"
+        >
+          <div class="row pt-5">
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img class="card-img" src="./image/bike.jpg" alt="" />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 5,000</h5>
+                  <p class="card-text text-center">Scooter model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img class="card-img" src="./image/car.jpg" alt="" />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 5,000</h5>
+                  <p class="card-text text-center">Scooter model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img class="card-img" src="./image/bus.png" alt="" />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 5,000</h5>
+                  <p class="card-text text-center">Scooter model</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Latest Tab Content -->
+        <div
+          class="tab-pane fade"
+          id="three-wheeler"
+          role="tabpanel"
+          aria-labelledby="three-wheeler-tab"
+        >
+          <div class="row pt-5">
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/scooty.jpg"
+                  class="card-img"
+                  alt="Auto Rickshaw Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 3,000</h5>
+                  <p class="card-text text-center">Auto Rickshaw model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/bike.jpg"
+                  class="card-img"
+                  alt="Auto Rickshaw Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 3,000</h5>
+                  <p class="card-text text-center">Auto Rickshaw model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/auto.png"
+                  class="card-img"
+                  alt="Auto Rickshaw Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 3,000</h5>
+                  <p class="card-text text-center">Auto Rickshaw model</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Popular Tab Content -->
+        <div
+          class="tab-pane fade"
+          id="four-wheeler"
+          role="tabpanel"
+          aria-labelledby="four-wheeler-tab"
+        >
+          <div class="row pt-5">
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/car.jpg"
+                  class="card-img"
+                  alt="Four Wheeler Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 10,000</h5>
+                  <p class="card-text text-center">Four Wheeler model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/car.jpg"
+                  class="card-img"
+                  alt="Four Wheeler Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 10,000</h5>
+                  <p class="card-text text-center">Four Wheeler model</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
+              <div class="searches-card">
+                <img
+                  src="./image/car.jpg"
+                  class="card-img"
+                  alt="Four Wheeler Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 text-center">$ 10,000</h5>
+                  <p class="card-text text-center">Four Wheeler model</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript -->
+    <script>
+      $(document).ready(function () {
+        // Activate the first tab on page load
+        $("#four-wheeler-tab").tab("show");
+        // Handle tab click event
+        $(".tabs-menu a").on("click", function (e) {
+          e.preventDefault();
+          var target = $(this).attr("divattr");
+          $(".tab-pane").removeClass("show active");
+          $(target).addClass("show active");
+        });
+      });
+    </script>
+  </body>
+</html>
