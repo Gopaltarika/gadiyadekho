@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Examination Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            background-image: url(./image/bg-exam.webp);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: rgba(255, 0, 0, 0.7);
+            transition: height 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            overflow: hidden; /* Ensure content is hidden initially */
+        }
+
+        .card:hover .overlay {
+            height: 100%;
+        }
+
+        .content {
+            text-align: center;
+            opacity: 0; /* Hide content by default */
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card:hover .content {
+            opacity: 1; /* Show content on hover */
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 40%;
+            display: none; /* Hide the icon initially */
+        }
+
+        .card:hover .icon {
+            display: block; /* Display the icon on hover */
+        }
+
+        button {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .heading {
+            position: absolute;
+            bottom: 4%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            margin: 0;
+            opacity: 1; /* Show heading by default */
+            transition: opacity 0.3s ease;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .card:hover .heading {
+            opacity: 0; /* Hide heading on hover */
+        }
+        .text{
+            font-size: 20px;
+            color: white;
+            font-weight: 600;
+            max-width: 550px;
+            text-align: center;
+           
+        }
+        .text-bg{
+            background: #060606a3;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="text-bg">
+        <p class="text">Now you don't need to depend on others to purchase used vehicle be expert your self</p>
+    </div> -->
+    <div class="card">
+        <div class="image-container">
+            <img src="./image/crain3.jpg" alt="Image Name">
+            <div class="overlay">
+                <div class="content">
+                    <img src="./image/document-svgrepo-com.svg" alt="Document Icon" class="icon">
+                    <p>Document Examination</p>
+                    <button>View More</button>
+                </div>
+            </div>
+        </div>
+        <h2 class="heading">Document Examination</h2>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Selling Page</title>
+    <style>
+      body {
+        background-color: #e5370c;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+      }
+
+      .banner {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .banner-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: slide 4s infinite;
+        opacity: 0;
+      }
+
+      .banner-image:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .banner-image:nth-child(2) {
+        animation-delay: 1s;
+      }
+      .banner-image:nth-child(3) {
+        animation-delay: 2s;
+      }
+      .banner-image:nth-child(4) {
+        animation-delay: 3s;
+      }
+
+      @keyframes slide {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+
+      .content {
+        text-align: center;
+        background-color: #fff;
+        color: #e5370c;
+        padding: 15px;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 400px;
+        margin: -50px auto 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #e5370c;
+      }
+
+      .input-section {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .car-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #e5370c;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 300px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .car-input:hover,
+      .car-input:focus {
+        border-color: #fff;
+        box-shadow: 0 0 5px #fff;
+      }
+
+      .submit-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #e5370c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 300px;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .submit-button:hover {
+        background-color: #bf2e09;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <img src="./image/car.jpg" alt="Car" class="banner-image" />
+      <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
+      <img src="./image/auto.png" alt="Auto" class="banner-image" />
+      <img src="./image/crai.jpg" alt="Crain" class="banner-image" />
+    </div>
+
+    <div class="content">
+      <h2>Enter Gadi Number</h2>
+      <div class="input-section">
+        <input type="text" placeholder="Enter Gadi Number" class="car-input" />
+        <button class="submit-button">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>

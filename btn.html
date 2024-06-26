@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .button {
+        width: 220px;
+       padding: 30px 20px;
+        text-align: center;
+        color: #000;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .button-2 {
+        color: #fff;
+        border: 3px solid #e5360c;
+        border-radius: 50px;
+        background-image: -webkit-linear-gradient(
+          30deg,
+          #e5360c 50%,
+          transparent 50%
+        );
+        background-image: linear-gradient(30deg, #e5360c 50%, transparent 50%);
+        background-size: 600px;
+        background-repeat: no-repeat;
+        background-position: 0%;
+        -webkit-transition: background 300ms ease-in-out;
+        transition: background 300ms ease-in-out;
+      }
+      .button-2:hover {
+        background-position: 100%;
+        color: #e5360c;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; align-items: center; justify-content: space-around;">
+      <div class="button button-2">SCHOOL BUS</div>
+      <div class="button button-2">Commercial Vehicle</div>
+      <div class="button button-2">SCRAP VEHICLE</div>
+      <div class="button button-2">BANK KIT VEHICLE</div>
+    </div>
+  </body>
+</html>
