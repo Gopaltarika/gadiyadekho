@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Categories</title>
+    <style>
+      body {
+        background-color: #e5370c;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .card {
+        background-color: #fff;
+        color: #e5370c;
+        width: 100%;
+        max-width: 300px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s, border-color 0.3s;
+        border: 2px solid #000;
+        cursor: pointer;
+      }
+
+      .card img {
+        width: 100%;
+        height: 150px;
+      }
+
+      .card h3 {
+        margin: 15px 0;
+        font-size: 20px;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 600px) {
+        .card {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Choose Your Vehicle Category</h1>
+    </div>
+    <div class="cards-container">
+      <div class="card" onclick="location.href='vehicle-details.html?type=Two Wheeler'">
+        <img src="./image/scooty.jpg" alt="Two Wheeler" />
+        <h3>Two Wheeler</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Three Wheeler'">
+        <img src="./image/auto.png" alt="Three Wheeler" />
+        <h3>Three Wheeler</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Four Wheeler'">
+        <img src="./image/car.jpg" alt="Four Wheeler" />
+        <h3>Four Wheeler</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Constructor Equipment'">
+        <img src="./image/crai.jpg" alt="Constructor Equipment" />
+        <h3>Constructor Equipment</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Bus'">
+        <img src="./image/bus.png" alt="Bus" />
+        <h3>Bus</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Truck'">
+        <img src="./image/truck.jpg" alt="Truck" />
+        <h3>Truck</h3>
+      </div>
+      <div class="card" onclick="location.href='vehicle-details.html?type=Commercial Vehicle'">
+        <img src="./image/truck3.jpg" alt="Commercial Vehicle" />
+        <h3>Commercial Vehicle</h3>
+      </div>
+    </div>
+  </body>
+</html>

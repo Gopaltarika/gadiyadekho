@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Selling Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
     <style>
       body {
         background-color: #e5370c;
@@ -52,7 +52,6 @@
           opacity: 0;
         }
       }
-
       .content {
         text-align: center;
         background-color: #fff;
@@ -61,7 +60,7 @@
         border-radius: 15px;
         width: 80%;
         max-width: 400px;
-        margin: -50px auto 0 auto;
+        margin: -25px auto 0 auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
       }
@@ -74,27 +73,23 @@
       }
 
       .input-section {
-        margin-top: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
       }
 
-      .car-input {
+      .dropdown {
         padding: 10px;
         font-size: 16px;
         border: 1px solid #e5370c;
         border-radius: 5px;
-        margin-bottom: 10px;
         width: 100%;
         max-width: 300px;
-        transition: border-color 0.3s, box-shadow 0.3s;
-      }
-
-      .car-input:hover,
-      .car-input:focus {
-        border-color: #fff;
-        box-shadow: 0 0 5px #fff;
+        cursor: pointer;
+        appearance: none;
+        background-color: #fff;
+        color: #e5370c;
       }
 
       .submit-button {
@@ -115,7 +110,7 @@
         transform: scale(1.05);
       }
 
-      .selling-section {
+      .details-section {
         text-align: center;
         background-color: #fff;
         color: #e5370c;
@@ -127,12 +122,12 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
-      .selling-section h3 {
+      .details-section h3 {
         margin-top: 0;
         font-size: 22px;
       }
 
-      .selling-section p {
+      .details-section p {
         font-size: 16px;
         line-height: 1.5;
       }
@@ -140,34 +135,36 @@
   </head>
   <body>
     <div class="banner">
-      <img src="./image/car.jpg" alt="Car" class="banner-image" />
-      <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
-      <img src="./image/auto.png" alt="Auto" class="banner-image" />
-      <img src="./image/crai.jpg" alt="Crain" class="banner-image" />
-    </div>
+        <img src="./image/car.jpg" alt="Car" class="banner-image" />
+        <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
+        <img src="./image/auto.png" alt="Auto" class="banner-image" />
+        <img src="./image/crai.jpg" alt="Crain" class="banner-image" />
+      </div>
 
     <div class="content">
-      <h2>Enter Car Number</h2>
+      <h2>Select Your Vehicle</h2>
       <div class="input-section">
-        <input type="text" placeholder="Enter Car Number" class="car-input" />
-        <button class="submit-button" onclick="redirectToCategory()">Submit</button>
+        <select class="dropdown" id="modelDropdown">
+          <option value="" disabled selected>Select Model</option>
+          <option value="Model1">Model 1</option>
+          <option value="Model2">Model 2</option>
+          <option value="Model3">Model 3</option>
+        </select>
+        <select class="dropdown" id="variantDropdown">
+          <option value="" disabled selected>Select Variant</option>
+          <option value="Variant1">Variant 1</option>
+          <option value="Variant2">Variant 2</option>
+          <option value="Variant3">Variant 3</option>
+        </select>
+        <button class="submit-button">Submit</button>
       </div>
     </div>
 
-    <div class="selling-section">
-      <h3>Sell Your Car and Get the Best Price</h3>
+    <div class="details-section">
+      <h3>Vehicle Models and Variants</h3>
       <p>
-        Are you looking to sell your old car at a great price? With us, you can get the best and most reasonable value for your car. Our team will properly evaluate your car and offer you the best deal.
-      </p>
-      <p>
-        Enter your car details today and get an instant evaluation. The process is simple and fast. Sell your car now and start a new journey!
+        Find the best vehicle model and variant that suits your needs. Our comprehensive selection ensures that you can find the perfect vehicle, whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each model and variant is designed to provide you with the best performance and comfort.
       </p>
     </div>
-
-    <script>
-      function redirectToCategory() {
-        window.location.href = "category.html";
-      }
-    </script>
   </body>
 </html>
