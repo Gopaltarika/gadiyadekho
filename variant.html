@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Vehicle Variant</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 80%;
+        position: relative;
+        max-width: 600px;
+        margin-top: -20px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .banner {
+        position: relative;
+        overflow: hidden;
+        height: 200px; /* Adjust height as needed */
+        border-radius: 8px;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .banner-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: fadeInOut 4s infinite; /* Adjust timing as needed */
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .banner-image:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .banner-image:nth-child(2) {
+        animation-delay: 1s;
+      }
+
+      .banner-image:nth-child(3) {
+        animation-delay: 2s;
+      }
+
+      .banner-image:nth-child(4) {
+        animation-delay: 3s;
+      }
+
+      .variant-buttons {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(100px, 1fr)
+        ); /* Adjust column width as needed */
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .variant-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .variant-button:hover {
+        background-color: #45a049;
+      }
+
+      .variant-button img {
+        max-width: 50px; /* Adjust as needed */
+        display: block;
+        margin: 0 auto 5px;
+        border-radius: 50%;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <img src="./image/car.jpg" alt="Car" class="banner-image" />
+      <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
+      <img src="./image/auto.png" alt="Auto" class="banner-image" />
+      <img src="./image/crai.jpg" alt="Crane" class="banner-image" />
+    </div>
+
+    <div class="card">
+      <h2>Select the Variant of Your Vehicle</h2>
+      <div class="variant-buttons">
+        <div class="variant-button" onclick="navigateToVariant('petrol')">
+          <img src="./image/petrol.svg" alt="Petrol" />
+          <span>Petrol</span>
+        </div>
+        <div class="variant-button" onclick="navigateToVariant('diesel')">
+          <img src="./image/Diesel.svg" alt="Diesel" />
+          <span>Diesel</span>
+        </div>
+        <div class="variant-button" onclick="navigateToVariant('electric')">
+          <img src="./image/electric.svg" alt="Electric" />
+          <span>Electric</span>
+        </div>
+        <div class="variant-button" onclick="navigateToVariant('hybrid')">
+          <img src="./image/Hybrid.png" alt="Hybrid" />
+          <span>Hybrid</span>
+        </div>
+        <div class="variant-button" onclick="navigateToVariant('lpg')">
+          <img src="./image/lpg.jpeg" alt="LPG" />
+          <span>LPG</span>
+        </div>
+        <div class="variant-button" onclick="navigateToVariant('other')">
+          <img src="./image/other.svg" alt="Other" />
+          <span>Other</span>
+        </div>
+      </div>
+    </div>
+    <script>
+        function navigateToVariant(variant) {
+          window.location.href = "variant.html?" + variant;
+        }
+      </script>
+  </body>
+</html>

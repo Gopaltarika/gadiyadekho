@@ -219,17 +219,15 @@
         <h3>Hisar</h3>
       </div>
     </div>
-
     <script>
       function selectCityAndNavigate(city) {
         document.getElementById('citySearch').value = city;
         navigateToDetailsPage();
       }
-
       function navigateToDetailsPage() {
         const city = document.getElementById('citySearch').value;
         if (city) {
-          window.location.href = `year.html?city=${city}`;
+          window.location.href = `manufaturing-year.html?city=${city}`;
         } else {
           alert('Please select a city.');
         }

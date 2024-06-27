@@ -127,9 +127,8 @@
       <div class="form-card">
         <input type="text" placeholder="Name" id="name" required>
         <input type="email" placeholder="Email" id="email" required>
-        <input type="tel" placeholder="Phone Number" id="phone" required>
-        <input type="text" placeholder="City" id="city" required>
         <input type="text" placeholder="State" id="state" required>
+        <input type="text" placeholder="City" id="city" required>
         <input type="number" placeholder="Pincode" id="pincode" required>
         <button onclick="submitForm()">Submit</button>
       </div>
@@ -138,7 +137,7 @@
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p>successfully posted vehicle</p>
+        <p>Successfully posted vehicle</p>
         <button onclick="closeModal()">Done</button>
       </div>
     </div>
@@ -154,12 +153,11 @@
       function submitForm() {
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const city = document.getElementById('city').value;
         const state = document.getElementById('state').value;
+        const city = document.getElementById('city').value;
         const pincode = document.getElementById('pincode').value;
 
-        if (name && email && phone && city && state && pincode) {
+        if (name && email && state && city && pincode) {
           showModal();
         } else {
           alert('Please fill out all the details.');
