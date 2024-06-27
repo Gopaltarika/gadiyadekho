@@ -113,21 +113,26 @@
 <body>
   <div class="banner">
     <img src="./image/car.jpg" alt="Car" class="banner-image" />
-    <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
-    <img src="./image/auto.png" alt="Auto" class="banner-image" />
-    <img src="./image/crai.jpg" alt="Crane" class="banner-image" />
+    <img src="./image/halftruck.jpg" alt="Truck" class="banner-image" />
+    <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
+    <img src="./image/bus2.jpg" alt="Crane" class="banner-image" />
   </div>
 
   <div class="card">
     <h2>Select the Ownership History of Your Vehicle</h2>
     <div class="ownership-buttons">
-      <div class="ownership-button">1st Owner</div>
-      <div class="ownership-button">2nd Owner</div>
-      <div class="ownership-button">3rd Owner</div>
-      <div class="ownership-button">4th Owner</div>
-      <div class="ownership-button">Beyond 4th Owner</div>
-      <div class="ownership-button">I am a Vehicle Dealer</div>
+      <div class="ownership-button" onclick="navigateToKilometers('1st_owner')">1st Owner</div>
+      <div class="ownership-button" onclick="navigateToKilometers('2nd_owner')">2nd Owner</div>
+      <div class="ownership-button" onclick="navigateToKilometers('3rd_owner')">3rd Owner</div>
+      <div class="ownership-button" onclick="navigateToKilometers('4th_owner')">4th Owner</div>
+      <div class="ownership-button" onclick="navigateToKilometers('beyond_4th_owner')">Beyond 4th Owner</div>
     </div>
   </div>
+
+  <script>
+    function navigateToKilometers(ownerType) {
+      window.location.href = `kilometers.html?owner=${ownerType}`;
+    }
+  </script>
 </body>
 </html>

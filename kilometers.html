@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Select Vehicle Manufacturing Year</title>
+<title>Put the Kilometers Driven by Your Vehicle</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -22,7 +22,9 @@
     padding: 20px;
     text-align: center;
     width: 80%;
+    position: relative;
     max-width: 600px;
+    margin-top: -20px;
   }
 
   h2 {
@@ -46,21 +48,15 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: fadeInOut 4s infinite; /* Adjust timing as needed */
+    animation: fadeInOut 5s infinite; /* Adjust timing as needed */
   }
 
   @keyframes fadeInOut {
-    0% {
+    0%, 100% {
       opacity: 0;
     }
-    25% {
+    20%, 80% {
       opacity: 1;
-    }
-    75% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
     }
   }
 
@@ -80,59 +76,66 @@
     animation-delay: 3s;
   }
 
-  .year-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjust column width as needed */
-    gap: 10px;
+  .banner-image:nth-child(5) {
+    animation-delay: 4s;
+  }
+
+  .card .form {
     margin-top: 20px;
   }
 
-  .year-button {
-    background-color: #4CAF50;
-    border: none;
+  input[type="number"] {
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  button[type="submit"] {
+    background-color: #007bff;
     color: white;
+    border: none;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    width: 80%;
     transition: background-color 0.3s ease;
   }
 
-  .year-button:hover {
-    background-color: #45a049;
+  button[type="submit"]:hover {
+    background-color: #0056b3;
   }
 </style>
 </head>
 <body>
   <div class="banner">
     <img src="./image/car.jpg" alt="Car" class="banner-image" />
-    <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
-    <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
-    <img src="./image/bus2.jpg" alt="Crane" class="banner-image" />
+    <img src="./image/halftruck.jpg" alt="Truck" class="banner-image" />
+    <img src="./image/truck.jpg" alt="Auto" class="banner-image" />
+    <img src="./image/crai.jpg" alt="Crane" class="banner-image" />
+    <img src="./image/bus2.jpg" alt="Bus" class="banner-image" />
   </div>
 
   <div class="card">
-    <h2>Select the Vehicle Manufacturing Year</h2>
-    <div class="year-buttons">
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const yearButtonsContainer = document.querySelector('.year-buttons');
-
-          for (let year = 2024; year >= 2001; year--) {
-            const button = document.createElement('button');
-            button.classList.add('year-button');
-            button.textContent = year;
-            button.addEventListener('click', function() {
-              window.location.href = `variant.html?year=${year}`;
-            });
-            yearButtonsContainer.appendChild(button);
-          }
-        });
-      </script>
+    <h2>Put the Kilometers Driven by Your Vehicle</h2>
+    <div class="form">
+      <label for="kilometers">Enter Kilometers:</label><br>
+      <input type="number" id="kilometers" name="kilometers" required><br><br>
+      <button type="submit" onclick="move()">Submit</button>
     </div>
   </div>
+  <script>
+    function move() {
+      window.location.href="contact.html"
+    }
+  </script>
 </body>
 </html>
