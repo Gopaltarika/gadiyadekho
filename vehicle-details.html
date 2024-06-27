@@ -162,7 +162,7 @@
           <option value="Variant2">Variant 2</option>
           <option value="Variant3">Variant 3</option>
         </select>
-        <button class="submit-button">Submit</button>
+        <button class="submit-button" onclick="city()">Submit</button>
       </div>
     </div>
 
@@ -172,5 +172,10 @@
         Find the best vehicle model and variant that suits your needs. Our comprehensive selection ensures that you can find the perfect vehicle, whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each model and variant is designed to provide you with the best performance and comfort.
       </p>
     </div>
+    <script>
+      function city() {
+        window.location.href = `select-city.html?select-city`
+      }
+    </script>
   </body>
 </html>
