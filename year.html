@@ -1,399 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enter Vehicle Details</title>
-  <style>
-    body {
-      background-color: #a7df9f;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-    }
-
-    .banner {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .banner-image {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: slide 4s infinite;
-      opacity: 0;
-    }
-
-    .banner-image:nth-child(1) {
-      animation-delay: 0s;
-    }
-    .banner-image:nth-child(2) {
-      animation-delay: 1s;
-    }
-    .banner-image:nth-child(3) {
-      animation-delay: 2s;
-    }
-    .banner-image:nth-child(4) {
-      animation-delay: 3s;
-    }
-
-    @keyframes slide {
-      0%,
-      100% {
-        opacity: 1;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Vehicle Details</title>
+    <style>
+      body {
+        background-color: #a7df9f;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #fff;
       }
-      25%,
-      75% {
+
+      .banner {
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .banner-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: slide 4s infinite;
         opacity: 0;
       }
-    }
-    
-    .content {
-      text-align: center;
-      background-color: #fff;
-      color: #FFAD49;
-      padding: 15px;
-      border-radius: 15px;
-      width: 80%;
-      max-width: 400px;
-      margin: -25px auto 0 auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
 
-    .content h2 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-size: 20px;
-      color: #000;
-    }
-
-    .input-section {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .upload-box {
-      padding: 10px;
-      border: 2px dashed #000;
-      border-radius: 5px;
-      width: 80%;
-      max-width: 300px;
-      height: 150px;
-      margin: 10px auto;
-      background-color: #fff;
-      color: #000;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .upload-box:hover {
-      background-color: #FFE3C2;
-    }
-
-    .upload-box input {
-      display: none;
-    }
-
-    .upload-box label {
-      display: block;
-      cursor: pointer;
-    }
-
-    .image-preview-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .image-preview-wrapper {
-      position: relative;
-      margin: 5px;
-    }
-
-    .image-preview-wrapper img {
-      max-width: 60px;
-      max-height: 100px;
-      border-radius: 5px;
-    }
-
-    .image-preview-wrapper .remove-image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: rgba(255, 0, 0, 0.7);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      width: 15px;
-      height: 15px;
-      padding: 0px;
-      font-size: 12px;
-    }
-
-    .view-all {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      height: 100px;
-      margin: 5px;
-      background-color: #000;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .view-all:hover {
-      background-color: #FF9A1F;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding-top: 60px;
-    }
-
-    .modal-content {
-      margin: 5% auto;
-      padding: 20px;
-      background-color: #fff;
-      width: 80%;
-      max-width: 800px;
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      color: #aaa;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close-modal:hover,
-    .close-modal:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .modal-images {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .modal-images .image-wrapper {
-      position: relative;
-      margin: 5px;
-    }
-
-    .modal-images .image-wrapper img {
-      max-width: 200px;
-      max-height: 200px;
-      border-radius: 5px;
-    }
-
-    .modal-images .remove-image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: rgba(255, 0, 0, 0.7);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .input-section select,
-    .input-section input {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #000;
-      border-radius: 5px;
-      width: 80%;
-      max-width: 300px;
-      cursor: pointer;
-      appearance: none;
-      background-color: #fff;
-      color: #000;
-      margin-top: 10px;
-    }
-
-    .input-section input[type="file"] {
-      border: none;
-    }
-
-    .input-section button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .input-section button:hover {
-      background-color: #FF9A1F;
-    }
-
-    .details-content {
-      text-align: center;
-      margin-top: 20px;
-      background-color: #fff;
-      color: #000;
-      padding: 15px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 800px;
-      margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-<body>
-  <div class="banner">
-    <img src="./image/car.jpg" alt="Car" class="banner-image" />
-    <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
-    <img src="./image/auto.png" alt="Auto" class="banner-image" />
-    <img src="./image/crai.jpg" alt="Crain" class="banner-image" />
-  </div>
-
-  <div class="content">
-    <h2>Enter Details</h2>
-    <div class="input-section">
-      <div class="upload-box">
-        <label for="imageUpload">Upload Vehicle</label>
-        <input type="file" id="imageUpload" accept="image/*" multiple onchange="showImages(event)">
-      </div>
-      <div class="image-preview-container" id="imagePreviewContainer">
-      </div>
-      <select id="yearSelect">
-        <option value="" disabled selected>Select vehicle manufacturing year</option>
-        <script>
-          for (let year = 2000; year <= 2024; year++) {
-            document.write(`<option value="${year}">${year}</option>`);
-          }
-        </script>
-      </select>
-      <input type="number" id="kilometersInput" placeholder="Enter Kilometers Driven" min="0">
-      <button onclick="submitDetails()">Enter</button>
-    </div>
-  </div>
-
-  <div class="details-content">
-    <p>
-      The vehicle details you provide are crucial in determining its value and performance.
-      By selecting the appropriate year and entering the accurate kilometers driven,
-      you help ensure that your vehicle's assessment is precise and reliable.
-    </p>
-    <p>
-      Older vehicles with higher mileage may require more maintenance, but they can also be
-      more affordable and still reliable with proper care. Newer vehicles with lower mileage
-      generally offer better performance and require less maintenance.
-    </p>
-  </div>
-
-  <div id="imageModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <div class="modal-images" id="modalImages">
-      </div>
-    </div>
-  </div>
-
-  <script>
-    let images = [];
-
-    function showImages(event) {
-      const imagePreviewContainer = document.getElementById('imagePreviewContainer');
-      const modalImages = document.getElementById('modalImages');
-      imagePreviewContainer.innerHTML = '';
-      modalImages.innerHTML = '';
-      
-      images = [...event.target.files];
-
-      images.forEach((image, index) => {
-        const imageWrapper = document.createElement('div');
-        imageWrapper.className = 'image-preview-wrapper';
-
-        const imgElement = document.createElement('img');
-        imgElement.src = URL.createObjectURL(image);
-        imageWrapper.appendChild(imgElement);
-
-        const removeButton = document.createElement('button');
-        removeButton.className = 'remove-image';
-        removeButton.innerHTML = '&times;';
-        removeButton.onclick = () => removeImage(index);
-        imageWrapper.appendChild(removeButton);
-
-        if (index < 3) {
-          imagePreviewContainer.appendChild(imageWrapper);
-        } else if (index === 3) {
-          const viewAllButton = document.createElement('div');
-          viewAllButton.className = 'view-all';
-          viewAllButton.innerHTML = 'View All';
-          viewAllButton.onclick = openModal;
-          imagePreviewContainer.appendChild(viewAllButton);
-        }
-
-        const modalImageWrapper = imageWrapper.cloneNode(true);
-        modalImageWrapper.querySelector('.remove-image').onclick = () => removeImage(index);
-        modalImages.appendChild(modalImageWrapper);
-      });
-    }
-
-    function removeImage(index) {
-      images.splice(index, 1);
-      document.getElementById('imageUpload').value = '';
-      showImages({ target: { files: images } });
-    }
-
-    function openModal() {
-      document.getElementById('imageModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('imageModal').style.display = 'none';
-    }
-
-    function submitDetails() {
-      const year = document.getElementById('yearSelect').value;
-      const kilometers = document.getElementById('kilometersInput').value;
-
-      if (year && kilometers) {
-        const url = `details.html?year=${year}&kilometers=${kilometers}`;
-        window.location.href = url;
-      } else {
-        alert('Please fill out all the details.');
+      .banner-image:nth-child(1) {
+        animation-delay: 0s;
       }
-    }
-  </script>
-</body>
+      .banner-image:nth-child(2) {
+        animation-delay: 1s;
+      }
+      .banner-image:nth-child(3) {
+        animation-delay: 2s;
+      }
+      .banner-image:nth-child(4) {
+        animation-delay: 3s;
+      }
+
+      @keyframes slide {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+      
+      .content {
+        text-align: center;
+        background-color: #fff;
+        color: #FFAD49;
+        padding: 15px;
+        border-radius: 15px;
+        width: 80%;
+        max-width: 400px;
+        margin: -25px auto 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: #000;
+      }
+
+      .input-section {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .upload-box {
+        padding: 10px;
+        border: 2px dashed #000;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 300px;
+        height: 150px;
+        margin: 10px auto;
+        background-color: #fff;
+        color: #000;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .upload-box:hover {
+        background-color: #FFE3C2;
+      }
+
+      .upload-box input {
+        display: none;
+      }
+
+      .upload-box label {
+        display: block;
+        cursor: pointer;
+      }
+
+      .image-preview {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 5px;
+        display: none;
+        position: absolute;
+        width: 100%;
+      }
+
+      .input-section select,
+      .input-section input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 300px;
+        cursor: pointer;
+        appearance: none;
+        background-color: #fff;
+        color: #000;
+        margin-top: 10px;
+      }
+
+      .input-section input[type="file"] {
+        border: none;
+      }
+
+      .input-section button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .input-section button:hover {
+        background-color: #FF9A1F;
+      }
+
+      .details-content {
+        text-align: center;
+        margin-top: 20px;
+        background-color: #fff;
+        color: #000;
+        padding: 15px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <img src="./image/car.jpg" alt="Car" class="banner-image" />
+      <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
+      <img src="./image/auto.png" alt="Auto" class="banner-image" />
+      <img src="./image/crai.jpg" alt="Crain" class="banner-image" />
+    </div>
+
+    <div class="content">
+      <h2>Enter Details</h2>
+      <div class="input-section">
+        <div class="upload-box">
+          <label for="imageUpload">Upload Vehicle</label>
+          <input type="file" id="imageUpload" accept="image/*" onchange="showImage(event)">
+          <img id="imagePreview" class="image-preview" src="#" alt="Vehicle Image">
+        </div>
+        <select id="yearSelect">
+          <option value="" disabled selected>Select vehicle manufacturing year</option>
+          <script>
+            for (let year = 2000; year <= 2024; year++) {
+              document.write(`<option value="${year}">${year}</option>`);
+            }
+          </script>
+        </select>
+        <input type="number" id="kilometersInput" placeholder="Enter Kilometers Driven" min="0">
+        <button onclick="submitDetails()">Enter</button>
+      </div>
+    </div>
+
+    <div class="details-content">
+      <p>
+        The vehicle details you provide are crucial in determining its value and performance.
+        By selecting the appropriate year and entering the accurate kilometers driven,
+        you help ensure that your vehicle's assessment is precise and reliable.
+      </p>
+      <p>
+        Older vehicles with higher mileage may require more maintenance, but they can also be
+        more affordable and still reliable with proper care. Newer vehicles with lower mileage
+        generally offer better performance and require less maintenance.
+      </p>
+    </div>
+
+    <script>
+      function showImage(event) {
+        const image = document.getElementById('imagePreview');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        image.style.display = 'block';
+      }
+
+      function submitDetails() {
+        const year = document.getElementById('yearSelect').value;
+        const kilometers = document.getElementById('kilometersInput').value;
+
+        if (year && kilometers) {
+          const url = `details.html?year=${year}&kilometers=${kilometers}`;
+          window.location.href = url;
+        } else {
+          alert('Please fill out all the details.');
+        }
+      }
+    </script>
+  </body>
 </html>
