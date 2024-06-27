@@ -89,6 +89,7 @@
         width: 100%;
         max-width: 300px;
         transition: border-color 0.3s, box-shadow 0.3s;
+        text-transform: uppercase;
       }
 
       .car-input:hover,
@@ -149,7 +150,12 @@
     <div class="content">
       <h2>Enter Car Number</h2>
       <div class="input-section">
-        <input type="text" placeholder="Enter Car Number" class="car-input" />
+        <input
+          type="text"
+          placeholder="Enter Car Number"
+          class="car-input"
+          oninput="this.value = this.value.toUpperCase()"
+        />
         <button class="submit-button" onclick="redirectToCategory()">Submit</button>
       </div>
     </div>
