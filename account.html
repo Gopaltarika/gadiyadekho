@@ -12,6 +12,13 @@
         margin: 0;
         padding: 0;
       }
+      .marquee {
+        background-color: #000080;
+        color: #fff;
+        padding: 10px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
       .navbar {
         display: flex;
         justify-content: space-between;
@@ -137,6 +144,9 @@
     </style>
   </head>
   <body>
+    <div class="marquee">
+      <marquee behavior="scroll" direction="left">Welcome to Gadiyadekho.com</marquee>
+    </div>
     <div class="navbar">
       <div class="customer-info">
         <img src="./image/account.svg" alt="Customer Image" />
@@ -191,6 +201,16 @@
         <div class="flex-option">
           <img src="./image/wishlist.svg" alt="Wishlist Icon" />
           <span>Wishlist</span>
+        </div>
+        <div class="arrow">
+          <img src="./image/arrow.svg" alt="Arrow Icon" />
+        </div>
+      </div>
+      <div class="border"></div>
+      <div class="option flex-option">
+        <div class="flex-option">
+          <img src="./image/faq.svg" alt="FAQs Icon" />
+          <span>FAQs</span>
         </div>
         <div class="arrow">
           <img src="./image/arrow.svg" alt="Arrow Icon" />
