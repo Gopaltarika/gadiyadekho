@@ -33,13 +33,13 @@
         animation-delay: 0s;
       }
       .banner-image:nth-child(2) {
-        animation-delay: 1s;
-      }
-      .banner-image:nth-child(3) {
         animation-delay: 2s;
       }
+      .banner-image:nth-child(3) {
+        animation-delay: 4s;
+      }
       .banner-image:nth-child(4) {
-        animation-delay: 3s;
+        animation-delay: 6s;
       }
 
       @keyframes slide {
@@ -70,7 +70,7 @@
         margin-top: 0;
         margin-bottom: 20px;
         font-size: 24px;
-        color: #e5370c;
+        color: #ae3a4e;
       }
 
       .input-section {
@@ -101,7 +101,7 @@
       .submit-button {
         padding: 10px 20px;
         font-size: 16px;
-        background-color: #e5370c;
+        background-color: #ae3a4e;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -119,23 +119,25 @@
       .selling-section {
         text-align: center;
         background-color: #fff;
-        color: #e5370c;
         padding: 15px;
         border-radius: 15px;
         width: 90%;
         max-width: 800px;
         margin: 20px auto;
         box-shadow: 0 -10px 8px rgba(0, 0, 0, 0.1);
+        border: 2px solid #ae3a4e;
       }
 
       .selling-section h3 {
         margin-top: 0;
         font-size: 22px;
+        color: #ae3a4e;
       }
 
       .selling-section p {
         font-size: 16px;
         line-height: 1.5;
+        color: black;
       }
     </style>
   </head>
@@ -148,11 +150,11 @@
     </div>
 
     <div class="content">
-      <h2>Enter Car Number</h2>
+      <h2>Enter vehichle Number</h2>
       <div class="input-section">
         <input
           type="text"
-          placeholder="Enter Car Number"
+          placeholder="HR21Q0000"
           class="car-input"
           oninput="this.value = this.value.toUpperCase()"
         />
