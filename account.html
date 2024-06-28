@@ -24,10 +24,12 @@
         border-radius: 50%;
         width: 40px;
         height: 40px;
+        cursor: pointer;
       }
       .navbar .customer-info {
         display: flex;
         align-items: center;
+        cursor: pointer;
       }
       .navbar .customer-info img {
         margin-right: 10px;
@@ -45,6 +47,7 @@
         width: 24px;
         height: 24px;
         margin-left: 10px;
+        cursor: pointer;
       }
       .navbar .icon:hover {
         filter: brightness(1.2); /* Example hover effect */
@@ -62,23 +65,22 @@
         padding: 20px;
         border-radius: 10px;
         width: 80%;
+        cursor: pointer;
+        transition: transform 0.2s;
       }
       .header .box img {
         width: 100px;
         height: 100px;
       }
-      .box-p{
-        font-size: 18px;
-        font-weight: 600;
+      .header .box:hover {
+        transform: scale(1.05); /* Example hover effect */
       }
       .card {
         background-color: #fff;
         color: #000080;
         margin: 5px;
-        padding: 20px;
+        padding: 10px;
         border-radius: 10px;
-        font-size: 18px;
-        font-weight: 600;
       }
       .flex-option {
         display: flex;
@@ -87,11 +89,17 @@
       }
       .card .option {
         justify-content: space-between;
-        margin-bottom: 15px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 20px;
       }
       .card .option img {
         width: 24px;
         height: 24px;
+      }
+      .card .option:hover {
+        filter: brightness(1.2);
+        background: #ccc;
       }
       .card .arrow {
         background-color: #000080;
@@ -104,6 +112,10 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .card .arrow:hover {
+        transform: scale(1.2); /* Example hover effect */
       }
       .card .border {
         border-bottom: 1px solid #000080;
@@ -117,7 +129,7 @@
         border-radius: 25px;
         cursor: pointer;
         width: 100%;
-        margin-top: 60px;
+        margin-top: 20px;
       }
       .card button:hover {
         background-color: #ffe066; /* Example hover effect color */
@@ -134,23 +146,23 @@
         </div>
       </div>
       <div class="icons">
-          <img src="./image/wishlist.svg" alt="Wishlist Icon" class="icon" />
-          <img
-            src="./image/notification.svg"
-            alt="Notification Icon"
-            class="icon"
-          />
+        <img
+          src="./image/notification.svg"
+          alt="Notification Icon"
+          class="icon"
+        />
+        <img src="./image/wishlist.svg" alt="Wishlist Icon" class="icon" />
       </div>
     </div>
 
     <div class="header">
       <div class="box">
         <img src="./image/buying.svg" alt="Buying Vehicle" />
-        <p class="box-p">Buying vehicle</p>
+        <p>Buying vehicle</p>
       </div>
       <div class="box">
         <img src="./image/sell.png" alt="Posted Vehicle" />
-        <p class="box-p">Posted vehicle</p>
+        <p>Posted vehicle</p>
       </div>
     </div>
 
