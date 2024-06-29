@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Registration City</title>
     <style>
       body {
@@ -12,47 +12,15 @@
         padding: 0;
         color: #fff;
       }
-
       .banner {
-        position: relative;
+        background: #000080;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        gap: 5px;
         width: 100%;
-        height: 200px;
-        overflow: hidden;
       }
 
-      .banner-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        animation: slide 4s infinite;
-        opacity: 0;
-      }
-
-      .banner-image:nth-child(1) {
-        animation-delay: 0s;
-      }
-      .banner-image:nth-child(2) {
-        animation-delay: 1s;
-      }
-      .banner-image:nth-child(3) {
-        animation-delay: 2s;
-      }
-      .banner-image:nth-child(4) {
-        animation-delay: 3s;
-      }
-
-      @keyframes slide {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        25%,
-        75% {
-          opacity: 0;
-        }
-      }
-      
       .content {
         text-align: center;
         background-color: #fff;
@@ -61,7 +29,7 @@
         border-radius: 15px;
         width: 80%;
         max-width: 400px;
-        margin: -25px auto 0 auto;
+        margin: 25px auto 0 auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
       }
@@ -154,17 +122,11 @@
     </style>
   </head>
   <body>
-    <div class="banner">
-      <img src="./image/channai.webp" alt="Car" class="banner-image" />
-      <img src="./image/mumbai.svg" alt="Truck" class="banner-image" />
-      <img src="./image/gurgaon.jpg" alt="Auto" class="banner-image" />
-      <img src="./image/kolkata.jpg" alt="Crain" class="banner-image" />
-    </div>
-
+    <div class="banner"></div>
     <div class="content">
       <h2>Select Registration City of Your Vehicle</h2>
       <div class="input-section">
-        <input type="text" placeholder="Search your city..." id="citySearch">
+        <input type="text" placeholder="Search your city..." id="citySearch" />
         <button onclick="navigateToDetailsPage()">Select</button>
       </div>
     </div>
@@ -186,25 +148,9 @@
         <img src="./image/mumbai.svg" alt="City 4" />
         <h3>Mumbai</h3>
       </div>
-      <div class="card" onclick="selectCityAndNavigate('Chennai')">
-        <img src="./image/channai.webp" alt="City 5" />
-        <h3>Chennai</h3>
-      </div>
       <div class="card" onclick="selectCityAndNavigate('Gurgaon')">
         <img src="./image/gurgaon.jpg" alt="City 6" />
         <h3>Gurgaon</h3>
-      </div>
-      <div class="card" onclick="selectCityAndNavigate('Kolkata')">
-        <img src="./image/kolkata.jpg" alt="City 7" />
-        <h3>Kolkata</h3>
-      </div>
-      <div class="card" onclick="selectCityAndNavigate('Pune')">
-        <img src="./image/pune.jpg" alt="City 8" />
-        <h3>Pune</h3>
-      </div>
-      <div class="card" onclick="selectCityAndNavigate('Lucknow')">
-        <img src="./image/lucknow.jpg" alt="City 9" />
-        <h3>Lucknow</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Jaipur')">
         <img src="./image/jaipur.avif" alt="City 9" />
@@ -221,15 +167,15 @@
     </div>
     <script>
       function selectCityAndNavigate(city) {
-        document.getElementById('citySearch').value = city;
+        document.getElementById("citySearch").value = city;
         navigateToDetailsPage();
       }
       function navigateToDetailsPage() {
-        const city = document.getElementById('citySearch').value;
+        const city = document.getElementById("citySearch").value;
         if (city) {
           window.location.href = `manufaturing-year.html?city=${city}`;
         } else {
-          alert('Please select a city.');
+          alert("Please select a city.");
         }
       }
     </script>

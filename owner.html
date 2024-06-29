@@ -24,7 +24,7 @@
     width: 80%;
     position: relative;
     max-width: 600px;
-    margin-top: -20px;
+    margin-top: 20px;
   }
 
   h2 {
@@ -32,56 +32,13 @@
   }
 
   .banner {
-    position: relative;
-    overflow: hidden;
-    height: 200px; /* Adjust height as needed */
-    border-radius: 8px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .banner-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    animation: fadeInOut 4s infinite; /* Adjust timing as needed */
-  }
-
-  @keyframes fadeInOut {
-    0% {
-      opacity: 0;
-    }
-    25% {
-      opacity: 1;
-    }
-    75% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  .banner-image:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  .banner-image:nth-child(2) {
-    animation-delay: 1s;
-  }
-
-  .banner-image:nth-child(3) {
-    animation-delay: 2s;
-  }
-
-  .banner-image:nth-child(4) {
-    animation-delay: 3s;
-  }
-
+        background: #000080;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        gap: 5px;
+        width: 100%;
+      }
   .ownership-buttons {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* Adjust column width as needed */
@@ -112,12 +69,7 @@
 </style>
 </head>
 <body>
-  <div class="banner">
-    <img src="./image/car.jpg" alt="Car" class="banner-image" />
-    <img src="./image/halftruck.jpg" alt="Truck" class="banner-image" />
-    <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
-    <img src="./image/bus2.jpg" alt="Crane" class="banner-image" />
-  </div>
+  <div class="banner"></div>
 
   <div class="card">
     <h2>Select the Ownership History of Your Vehicle</h2>

@@ -24,63 +24,22 @@
         width: 80%;
         max-width: 600px;
         position: relative;
-        margin-top: -20px;
+        margin-top: 20px;
       }
 
       h2 {
         color: #333;
         margin: 0;
+        font-size: 20px;
       }
 
       .banner {
-        position: relative;
-        overflow: hidden;
-        height: 200px; /* Adjust height as needed */
-        border-radius: 8px;
+        background: #000080;
+        color: #fff;
+        padding: 30px;
+        display: flex;
+        gap: 5px;
         width: 100%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .banner-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        animation: fadeInOut 4s infinite; /* Adjust timing as needed */
-      }
-
-      @keyframes fadeInOut {
-        0% {
-          opacity: 0;
-        }
-        25% {
-          opacity: 1;
-        }
-        75% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-
-      .banner-image:nth-child(1) {
-        animation-delay: 0s;
-      }
-
-      .banner-image:nth-child(2) {
-        animation-delay: 1s;
-      }
-
-      .banner-image:nth-child(3) {
-        animation-delay: 2s;
-      }
-
-      .banner-image:nth-child(4) {
-        animation-delay: 3s;
       }
 
       .year-buttons {
@@ -97,7 +56,7 @@
         background-color: #fff;
         border: 2px solid #000;
         color: black;
-        padding: 10px 20px;
+        padding: 5px 15px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -114,13 +73,7 @@
     </style>
   </head>
   <body>
-    <div class="banner">
-      <img src="./image/car.jpg" alt="Car" class="banner-image" />
-      <img src="./image/truck.jpg" alt="Truck" class="banner-image" />
-      <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
-      <img src="./image/bus2.jpg" alt="Crane" class="banner-image" />
-    </div>
-
+    <div class="banner"></div>
     <div class="card">
       <h2>Select the Vehicle Manufacturing Year</h2>
       <div class="year-buttons">
@@ -129,7 +82,7 @@
             const yearButtonsContainer =
               document.querySelector(".year-buttons");
 
-            for (let year = 2024; year >= 2001; year--) {
+            for (let year = 2024; year >= 2004; year--) {
               const button = document.createElement("button");
               button.classList.add("year-button");
               button.textContent = year;
