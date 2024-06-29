@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vehicle Details</title>
     <style>
       body {
@@ -54,12 +54,12 @@
       .content {
         text-align: center;
         background-color: #fff;
-        color: #DFEA89;
+        color: #dfea89;
         padding: 15px;
         border-radius: 15px;
         width: 80%;
         max-width: 400px;
-        margin: -25px auto 0 auto;
+        margin: 25px auto 0 auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
       }
@@ -81,7 +81,7 @@
       .dropdown {
         padding: 10px;
         font-size: 16px;
-        border: 1px solid #DFEA89;
+        border: 1px solid #dfea89;
         border-radius: 5px;
         width: 100%;
         max-width: 300px;
@@ -133,15 +133,17 @@
         line-height: 1.5;
         margin: 0;
       }
+      .nav {
+        background: #000080;
+        color: #fff;
+        padding: 30px;
+      }
     </style>
   </head>
   <body>
-    <div class="banner">
-        <img src="./image/car.jpg" alt="Car" class="banner-image" />
-        <img src="./image/halftruck.jpg" alt="Truck" class="banner-image" />
-        <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
-        <img src="./image/bus2.jpg" alt="Crain" class="banner-image" />
-      </div>
+    <div class="nav">
+      <marquee>Select Vehicle</marquee>
+    </div>
 
     <div class="content">
       <h2>Select Your Vehicle</h2>
@@ -165,12 +167,19 @@
     <div class="details-section">
       <h3>Vehicle Models and Variants</h3>
       <p>
-        Find the best vehicle model and variant that suits your needs. Our comprehensive selection ensures that you can find the perfect vehicle, whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each model and variant is designed to provide you with the best performance and comfort.
+        Find the best vehicle model and variant that suits your needs. Our
+        comprehensive selection ensures that you can find the perfect vehicle,
+        whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each
+        model and variant is designed to provide you with the best performance
+        and comfort.
       </p>
+    </div>
+    <div class="nav">
+      <marquee>Select Vehicle</marquee>
     </div>
     <script>
       function city() {
-        window.location.href = `select-city.html?select-city`
+        window.location.href = `select-city.html?select-city`;
       }
     </script>
   </body>
