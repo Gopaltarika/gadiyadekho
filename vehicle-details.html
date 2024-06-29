@@ -1,186 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Details</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #fff;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
 
-      .banner {
-        position: relative;
-        width: 100%;
-        height: 200px;
-        overflow: hidden;
-      }
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
 
-      .banner-image {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        animation: slide 4s infinite;
+    .banner-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: slide 4s infinite;
+      opacity: 0;
+    }
+
+    .banner-image:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .banner-image:nth-child(2) {
+      animation-delay: 1s;
+    }
+    .banner-image:nth-child(3) {
+      animation-delay: 2s;
+    }
+    .banner-image:nth-child(4) {
+      animation-delay: 3s;
+    }
+
+    @keyframes slide {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      25%,
+      75% {
         opacity: 0;
       }
+    }
 
-      .banner-image:nth-child(1) {
-        animation-delay: 0s;
-      }
-      .banner-image:nth-child(2) {
-        animation-delay: 1s;
-      }
-      .banner-image:nth-child(3) {
-        animation-delay: 2s;
-      }
-      .banner-image:nth-child(4) {
-        animation-delay: 3s;
-      }
+    .content {
+      text-align: center;
+      background-color: #fff;
+      color: #dfea89;
+      padding: 15px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      margin: 25px auto 0 auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
 
-      @keyframes slide {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        25%,
-        75% {
-          opacity: 0;
-        }
-      }
-      .content {
-        text-align: center;
-        background-color: #fff;
-        color: #dfea89;
-        padding: 15px;
-        border-radius: 15px;
-        width: 80%;
-        max-width: 400px;
-        margin: 25px auto 0 auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        position: relative;
-      }
+    .content h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #000;
+    }
 
-      .content h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-size: 24px;
-        color: #000;
-      }
+    .input-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-      .input-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
+    .dropdown {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #dfea89;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 300px;
+      cursor: pointer;
+      appearance: none;
+      background-color: #fff;
+      color: #000;
+    }
 
-      .dropdown {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #dfea89;
-        border-radius: 5px;
-        width: 100%;
-        max-width: 300px;
-        cursor: pointer;
-        appearance: none;
-        background-color: #fff;
-        color: #000;
-      }
+    .submit-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #000080;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
 
-      .submit-button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #000080;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-        max-width: 300px;
-        transition: background-color 0.3s, transform 0.3s;
-      }
+    .submit-button:hover {
+      background-color: #bf2e09;
+      transform: scale(1.05);
+    }
 
-      .submit-button:hover {
-        background-color: #bf2e09;
-        transform: scale(1.05);
-      }
+    .details-section {
+      text-align: center;
+      background-color: #fff;
+      color: #000;
+      padding: 15px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto;
+      box-shadow: 0 -10px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid #000;
+    }
 
-      .details-section {
-        text-align: center;
-        background-color: #fff;
-        color: #000;
-        padding: 15px;
-        border-radius: 15px;
-        width: 90%;
-        max-width: 800px;
-        margin: 20px auto;
-        box-shadow: 0 -10px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid #000;
-      }
+    .details-section h3 {
+      margin-top: 0;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
 
-      .details-section h3 {
-        margin-top: 0;
-        font-size: 22px;
-        margin-bottom: 5px;
-      }
+    .details-section p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0;
+    }
 
-      .details-section p {
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 0;
-      }
-      .nav {
-        background: #000080;
-        color: #fff;
-        padding: 30px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="nav">
-      <marquee>Select Vehicle</marquee>
+    .nav {
+      background: #000080;
+      color: #fff;
+      padding: 30px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .nav button {
+      background-color: red;
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .nav button:hover {
+      background-color: #333399;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <button id="vehicleNumberButton" onclick="redirectToInput()">Vehicle Number</button>
+    <button id="categoryButton" onclick="goBackToCategory()">Category</button>
+  </div>
+
+  <div class="content">
+    <h2>Select Your Vehicle</h2>
+    <div class="input-section">
+      <select class="dropdown" id="brandDropdown">
+        <option value="" disabled selected>Select Brand</option>
+        <option value="MARUTI">maruti</option>
+        <option value="HONDA">honda</option>
+        <option value="VERNA">VERNA</option>
+      </select>
+      <select class="dropdown" id="modelDropdown">
+        <option value="" disabled selected>Select Model</option>
+        <option value="VENUE">venue</option>
+        <option value="SWIFT">swift</option>
+        <option value="TATA ACE">TATA ACE</option>
+      </select>
+      <button class="submit-button" onclick="city()">Submit</button>
     </div>
+  </div>
 
-    <div class="content">
-      <h2>Select Your Vehicle</h2>
-      <div class="input-section">
-        <select class="dropdown" id="brandDropdown">
-          <option value="" disabled selected>Select Brand</option>
-          <option value="Brand1">Brand 1</option>
-          <option value="Brand2">Brand 2</option>
-          <option value="Brand3">Brand 3</option>
-        </select>
-        <select class="dropdown" id="modelDropdown">
-          <option value="" disabled selected>Select Model</option>
-          <option value="Model1">Model 1</option>
-          <option value="Model2">Model 2</option>
-          <option value="Model3">Model 3</option>
-        </select>
-        <button class="submit-button" onclick="city()">Submit</button>
-      </div>
-    </div>
-
-    <div class="details-section">
-      <h3>Vehicle Models and Variants</h3>
-      <p>
-        Find the best vehicle model and variant that suits your needs. Our
-        comprehensive selection ensures that you can find the perfect vehicle,
-        whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each
-        model and variant is designed to provide you with the best performance
-        and comfort.
-      </p>
-    </div>
-    <div class="nav">
-      <marquee>Select Vehicle</marquee>
-    </div>
-    <script>
-      function city() {
-        window.location.href = `select-city.html?select-city`;
+  <div class="details-section">
+    <h3>Vehicle Models and Variants</h3>
+    <p>
+      Find the best vehicle model and variant that suits your needs. Our comprehensive selection ensures that you can find the perfect vehicle, whether it's a two-wheeler, three-wheeler, or a commercial vehicle. Each model and variant is designed to provide you with the best performance and comfort.
+    </p>
+  </div>
+  
+  <script>
+    function city() {
+      const brand = document.getElementById('brandDropdown').value;
+      const model = document.getElementById('modelDropdown').value;
+      if (brand && model) {
+        window.location.href = `select-city.html?brand=${brand}&model=${model}`;
+      } else {
+        alert('Please select both brand and model.');
       }
-    </script>
-  </body>
+    }
+
+    function goBackToCategory() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const category = urlParams.get('category');
+      window.location.href = `category.html?vehicleNumber=${urlParams.get('vehicleNumber')}&category=${category}`;
+    }
+
+    function redirectToInput() {
+      const urlParams = new URLSearchParams(window.location.search);
+      window.location.href = `carsell.html?vehicleNumber=${urlParams.get('vehicleNumber')}&category=${urlParams.get('category')}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vehicleNumber = urlParams.get('vehicleNumber');
+      const category = urlParams.get('category');
+      
+      if (vehicleNumber) {
+        const vehicleNumberButton = document.getElementById('vehicleNumberButton');
+        vehicleNumberButton.textContent = vehicleNumber;
+      }
+
+      if (category) {
+        const categoryButton = document.getElementById('categoryButton');
+        categoryButton.textContent = category;
+      }
+    });
+  </script>
+</body>
 </html>

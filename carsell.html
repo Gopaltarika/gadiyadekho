@@ -147,14 +147,15 @@
       <img src="./image/car.jpg" alt="Car" class="banner-image" />
       <img src="./image/halftruck.jpg" alt="Truck" class="banner-image" />
       <img src="./image/loading-vehicle.jpg" alt="Auto" class="banner-image" />
-      <img src="./image/bus2.jpg" alt="Crain" class="banner-image" />
+      <img src="./image/bus2.jpg" alt="Crane" class="banner-image" />
     </div>
 
     <div class="content">
-      <h2>Enter vehichle Number</h2>
+      <h2>Enter Vehicle Number</h2>
       <div class="input-section">
         <input
           type="text"
+          id="vehicleNumber"
           placeholder="HR21Q0000"
           class="car-input"
           oninput="this.value = this.value.toUpperCase()"
@@ -166,15 +167,16 @@
     <div class="selling-section">
       <h3>Sell Your Vehicle and Get the Best Price</h3>
       <p>
-        Are you looking to sell your old vehichle at a great price? With us, you can get the best and most reasonable value for your vehichle. Our team will properly evaluate your vehichle and offer you the best deal.
+        Are you looking to sell your old vehicle at a great price? With us, you can get the best and most reasonable value for your vehicle. Our team will properly evaluate your vehicle and offer you the best deal.
       </p>
       <p>
-        Enter your vehichle details today . Now vehicle sell process is simple and fast with <strong>Gadiyadekho.com</strong>. Sell your vehichle now and start a new journey!
+        Enter your vehicle details today. Now vehicle sell process is simple and fast with <strong>Gadiyadekho.com</strong>. Sell your vehicle now and start a new journey!
       </p>
     </div>
     <script>
       function redirectToCategory() {
-        window.location.href = "category.html";
+        const vehicleNumber = document.getElementById("vehicleNumber").value;
+        window.location.href = `category.html?vehicleNumber=${vehicleNumber}`;
       }
     </script>
   </body>

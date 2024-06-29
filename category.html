@@ -1,146 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Categories</title>
-    <style>
-      body {
-        background-color: #fff;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding:0px 10px;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Categories</title>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 10px;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-      .header {
-        text-align: center;
-        margin-bottom: 20px;
-        margin-top: 40px;
-      }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
 
-      .header h1 {
-        margin: 0;
-        font-size: 20px;
-        color: black;
-        
-      }
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+      color: black;
+    }
 
-      .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 50px;
-      }
+    .vehicle-number-btn {
+      background-color: red;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.3s;
+    }
 
+    .vehicle-number-btn:hover {
+      background-color: #333399;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background-color: #fff;
+      color: #C4BCFE;
+      width: 100%;
+      max-width: 180px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+      border: 2px solid #000;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 40px;
+      max-width: 40px;
+    }
+
+    .card h3 {
+      margin: 7px 0;
+      font-size: 12px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .flex {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+    .nav {
+      background: #000080;
+      color: #fff;
+      padding: 30px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
       .card {
-        background-color: #fff;
-        color: #C4BCFE;
         width: 100%;
-        max-width: 180px;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        text-align: center;
-        transition: transform 0.3s, border-color 0.3s;
-        border: 2px solid #000;
-        cursor: pointer;
-      }
-
-      .card img {
-        width: 100%;
-        height: 40px;
-        max-width: 40px;
-      }
-
-      .card h3 {
-        margin: 7px 0;
-        font-size: 12px;
-        font-weight: 700;
-        color: #000;
-      }
-
-      .card:hover {
-        transform: scale(1.05);
-      }
-
-      .flex {
+        max-width: 170px;
+        padding: 5px 10px;
         display: flex;
-        gap: 10px;
-        width: 100%;
-        justify-content: center;
+        gap: 8px;
+        align-items: center;
       }
-      .nav {
-        background: #000080;
-        color: #fff;
-        padding: 30px;
-        width: 100%;
-      }
-      @media (max-width: 600px) {
-        .card {
-          width: 100%;
-          max-width: 170px;
-          padding: 5px 10px;
-          display: flex;
-          gap: 8px;
-          align-items: center;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="nav">
-      <marquee>Select Vehicle</marquee>
-    </div>
-    <div class="header">
-      <h1>Choose Your Vehicle Category</h1>
-    </div>
-    <div class="cards-container">
-      <div class="flex">
-        <div class="card" onclick="location.href='vehicle-details.html?type=Two Wheeler'">
-          <img src="./image/scooter.svg" alt="Two Wheeler" />
-          <h3>Two Wheeler</h3>
-        </div>
-        <div class="card" onclick="location.href='vehicle-details.html?type=Three Wheeler'">
-          <img src="./image/auto.svg" alt="Three Wheeler" />
-          <h3>Three Wheeler</h3>
-        </div>
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <button class="vehicle-number-btn" id="vehicleNumberBtn" onclick="redirectToInput()">
+      Vehicle Number
+    </button>
+  </div>
+  <div class="header">
+    <h1>Choose Your Vehicle Category</h1>
+  </div>
+  <div class="cards-container">
+    <div class="flex">
+      <div class="card" onclick="redirectToDetails('Two Wheeler')">
+        <img src="./image/scooter.svg" alt="Two Wheeler">
+        <h3>Two Wheeler</h3>
       </div>
-      <div class="flex">
-        <div class="card" onclick="location.href='vehicle-details.html?type=Four Wheeler'">
-          <img src="./image/car.svg" alt="Four Wheeler" />
-          <h3>Four Wheeler</h3>
-        </div>
-        <div class="card" onclick="location.href='vehicle-details.html?type=Commercial Vehicle'">
-          <img src="./image/truck.svg" alt="Commercial Vehicle" />
-          <h3>Commercial Vehicle</h3>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="card" onclick="location.href='vehicle-details.html?type=Constructor Equipment'">
-          <img src="./image/scrap.svg" alt="Constructor Equipment" />
-          <h3>Constructor Equipment</h3>
-        </div>
-        <div class="card" onclick="location.href='vehicle-details.html?type=Bus'">
-          <img src="./image/bus.svg" alt="Bus" />
-          <h3>Bus</h3>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="card" onclick="location.href='vehicle-details.html?type=Tractor'">
-          <img src="./image/tractor.svg" alt="Tractor" />
-          <h3>Tractor</h3>
-        </div>
-        <div class="card" onclick="location.href='vehicle-details.html?type=Scrap Vehicle'">
-          <img src="./image/scrab.jpg" alt="Scrap Vehicle" />
-          <h3>Scrap Vehicle</h3>
-        </div>
+      <div class="card" onclick="redirectToDetails('Three Wheeler')">
+        <img src="./image/auto.svg" alt="Three Wheeler">
+        <h3>Three Wheeler</h3>
       </div>
     </div>
-  </body>
+    <div class="flex">
+      <div class="card" onclick="redirectToDetails('Four Wheeler')">
+        <img src="./image/car.svg" alt="Four Wheeler">
+        <h3>Four Wheeler</h3>
+      </div>
+      <div class="card" onclick="redirectToDetails('Commercial Vehicle')">
+        <img src="./image/truck.svg" alt="Commercial Vehicle">
+        <h3>Commercial Vehicle</h3>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="card" onclick="redirectToDetails('Constructor Equipment')">
+        <img src="./image/scrap.svg" alt="Constructor Equipment">
+        <h3>Constructor Equipment</h3>
+      </div>
+      <div class="card" onclick="redirectToDetails('Bus')">
+        <img src="./image/bus.svg" alt="Bus">
+        <h3>Bus</h3>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="card" onclick="redirectToDetails('Tractor')">
+        <img src="./image/tractor.svg" alt="Tractor">
+        <h3>Tractor</h3>
+      </div>
+      <div class="card" onclick="redirectToDetails('Scrap Vehicle')">
+        <img src="./image/scrab.jpg" alt="Scrap Vehicle">
+        <h3>Scrap Vehicle</h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToInput() {
+      window.location.href = "carsell.html";
+    }
+
+    function redirectToDetails(category) {
+      const vehicleNumber = new URLSearchParams(window.location.search).get("vehicleNumber");
+      window.location.href = `vehicle-details.html?category=${category}&vehicleNumber=${vehicleNumber}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const vehicleNumber = urlParams.get("vehicleNumber");
+      if (vehicleNumber) {
+        const vehicleNumberBtn = document.getElementById("vehicleNumberBtn");
+        vehicleNumberBtn.textContent = vehicleNumber;
+      }
+    });
+  </script>
+</body>
 </html>
