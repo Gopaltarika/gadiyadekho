@@ -40,6 +40,7 @@
             text-align: left;
             transition: background-color 0.3s ease;
             position: relative;
+            margin-top: 15px;
         }
         .accordion-item:hover {
             background-color: #f1f1f1;
@@ -52,6 +53,9 @@
         .accordion-item .accordion-header{
             font-size: 16px; 
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .accordion-item.active .accordion-content {
             max-height: 200px;
@@ -69,9 +73,6 @@
             margin: 0;
         }
         .accordion-item .icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
             transform: translateY(-50%);
             transition: transform 0.3s ease;
         }
