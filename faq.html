@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle App - FAQs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000080;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #000080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .card {
+            background-color: #fff;
+            color: #000080;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .accordion {
+            margin: 10px 0;
+        }
+        .accordion-item {
+            background-color: #fff;
+            color: #000080;
+            border-bottom: 1px solid #000080;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: left;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+        .accordion-item:hover {
+            background-color: #f1f1f1;
+            border-radius: 12px;
+        }
+        .accordion-item.active {
+            background-color: #f1f1f1;
+            border-radius: 12px;
+        }
+        .accordion-item .accordion-header{
+            font-size: 16px; 
+            font-weight: 600;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding: 15px;
+        }
+        .accordion-item .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #f9f9f9;
+            font-size: 12px;
+            border-radius: 12px;
+        }
+        .accordion-item .accordion-content p {
+            margin: 0;
+        }
+        .accordion-item .icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.active .icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">FAQs (Frequently Asked Questions)</div>
+    <div class="card">
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How do I list my vehicle for sale?
+                    <img src="./image/down-arrow.svg" class="icon" alt="Down Arrow Icon">
+                </div>
+                <div class="accordion-content">
+                    <p>To list your vehicle for sale, log in to your account, click on "Sell Vehicle," and fill in the required details about your vehicle.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    What information do I need to provide to sell my vehicle?
+                    <img src="./image/down-arrow.svg" class="icon" alt="Down Arrow Icon">
+                </div>
+                <div class="accordion-content">
+                    <p>You will need to provide details such as the vehicle's make, model, year, mileage, condition, and upload clear photos of the vehicle.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How can I edit my vehicle listing?
+                    <img src="./image/down-arrow.svg" class="icon" alt="Down Arrow Icon">
+                </div>
+                <div class="accordion-content">
+                    <p>You can edit your vehicle listing by logging into your account, going to "My Listings," selecting the vehicle you want to edit, and making the necessary changes.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    How do I contact a seller?
+                    <img src="./image/down-arrow.svg" class="icon" alt="Down Arrow Icon">
+                </div>
+                <div class="accordion-content">
+                    <p>To contact a seller, go to the vehicle's listing page and use the provided contact form or phone number to reach out to the seller directly.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    What should I look for when buying a used vehicle?
+                    <img src="./image/down-arrow.svg" class="icon" alt="Down Arrow Icon">
+                </div>
+                <div class="accordion-content">
+                    <p>When buying a used vehicle, check the vehicle's history report, have a trusted mechanic inspect the vehicle, take it for a test drive, and review its maintenance records.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const activeItem = document.querySelector('.accordion-item.active');
+                if (activeItem && activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    activeItem.querySelector('.accordion-content').style.maxHeight = '0';
+                    activeItem.querySelector('.icon').src = './image/down-arrow.svg';
+                }
+                item.classList.toggle('active');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.icon');
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.src = './image/down-arrow.svg';
+                } else {
+                    content.style.maxHeight = '0';
+                    icon.src = './image/down-arrow.svg';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
