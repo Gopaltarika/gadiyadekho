@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gadiyadekho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000080;
+            color: #000080;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            padding: 20px 15px;
+            border-radius: 20px;
+            background: #fff;
+        }
+
+        marquee {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            padding: 10px 0px;
+            border-radius: 10px;
+            color: white;
+            background: #000080;
+        }
+
+        .card {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 265px;
+            margin: 0 auto;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .pin-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .pin-inputs input[type="number"] {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .pin-inputs input[type="number"]:focus {
+            border-color: #000080;
+            box-shadow: 0 0 5px #000080;
+        }
+
+        .card button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #000080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #3333cc;
+            transform: scale(1.05);
+        }
+
+        .card a {
+            display: block;
+            margin: 10px 0;
+            color: #000080;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .card a:hover {
+            color: #3333cc;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .social-buttons button {
+            width: 48%;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 20px;
+            background-color: #000080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+
+        }
+
+        .social-buttons button:hover {
+            background-color: #3333cc;
+            transform: scale(1.05);
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 20px;
+            background-color: #000080;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .register-button:hover {
+            background-color: #3333cc;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <marquee>Welcome To Gadiyadekho.com</marquee>
+        <h1>Login</h1>
+        <div class="card">
+            <p>Enter your login pin</p>
+            <div class="pin-inputs">
+                <input type="number" maxlength="1" oninput="moveFocus(this, 'next')">
+                <input type="number" maxlength="1" oninput="moveFocus(this, 'next')">
+                <input type="number" maxlength="1" oninput="moveFocus(this, 'next')">
+                <input type="number" maxlength="1" oninput="moveFocus(this, 'next')">
+            </div>
+            <button>Login</button>
+            <a href="#">Forget pin</a>
+        </div>
+        <p>Or</p>
+        <div class="social-buttons">
+            <button style="display: flex; align-items: center; justify-content: center; gap: 10px;"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+              </svg></span>Google</button>
+            <button style="display: flex; align-items: center; justify-content: center; gap: 10px;"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+              </svg></span>Facebook</button>
+        </div>
+        <button class="register-button" onclick="location.href=`register.html`">Registration</button>
+    </div>
+
+    <script>
+        function moveFocus(current, direction) {
+            if (current.value.length === 1 && direction === 'next') {
+                let nextInput = current.nextElementSibling;
+                if (nextInput) {
+                    nextInput.focus();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
