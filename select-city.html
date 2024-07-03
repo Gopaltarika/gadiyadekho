@@ -6,7 +6,6 @@
     <title>Select Registration City</title>
     <style>
       body {
-        background-color: #02cdcf;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -18,7 +17,7 @@
         padding: 30px;
         display: flex;
         gap: 5px;
-        width: 100%;
+        width: 88%;
       }
 
       .content {
@@ -102,6 +101,7 @@
         width: 40px;
         height: 40px;
         margin-bottom: 5px;
+        border-radius: 50%;
       }
 
       .card h3 {
@@ -112,7 +112,16 @@
       .card:hover {
         transform: scale(1.05);
       }
-
+      .foot{
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        background: #000080;
+        border-radius: 30px 30px 0px 0px;
+      }
       @media (max-width: 600px) {
         .card {
           width: 70px;
@@ -132,39 +141,56 @@
     </div>
 
     <div class="cards-container">
-      <div class="card" onclick="selectCityAndNavigate('Delhi')">
-        <img src="./image/delhi.svg" alt="City 1" />
-        <h3>Delhi</h3>
+      <div class="card" onclick="selectCityAndNavigate('hisar')">
+        <img src="image/hisar.jpg" alt="City 1" />
+        <h3>Hisar</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Noida')">
-        <img src="./image/noida.jpg" alt="City 2" />
+        <img src="image/noida.jpg" alt="City 2" />
         <h3>Noida</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Agra')">
-        <img src="./image/channai.webp" alt="City 3" />
+        <img src="image/channai.webp" alt="City 3" />
         <h3>Agra</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Mumbai')">
-        <img src="./image/mumbai.svg" alt="City 4" />
+        <img src="image/mumbai.svg" alt="City 4" />
         <h3>Mumbai</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Gurgaon')">
-        <img src="./image/gurgaon.jpg" alt="City 6" />
+        <img src="image/gurgaon.jpg" alt="City 6" />
         <h3>Gurgaon</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Jaipur')">
-        <img src="./image/jaipur.avif" alt="City 9" />
+        <img src="image/jaipur.avif" alt="City 9" />
         <h3>Jaipur</h3>
       </div>
       <div class="card" onclick="selectCityAndNavigate('Chandigarh')">
-        <img src="./image/chandigarh.jpg" alt="City 9" />
+        <img src="image/chandigarh.jpg" alt="City 9" />
         <h3>Chandigarh</h3>
       </div>
-      <div class="card" onclick="selectCityAndNavigate('Hisar')">
-        <img src="./image/hisar.jpg" alt="City 9" />
-        <h3>Hisar</h3>
+      <div class="card" onclick="selectCityAndNavigate('Delhi')">
+        <img src="image/delhi.svg" alt="City 9" />
+        <h3>Delhi</h3>
+      </div>
+      <div class="card" onclick="selectCityAndNavigate('Kolkata')">
+        <img src="image/kolkata.jpg" alt="City 6" />
+        <h3>KolKata</h3>
+      </div>
+      <div class="card" onclick="selectCityAndNavigate('Amritsar')">
+        <img src="image/amritsar.cms" alt="City 9" />
+        <h3>Amritsar</h3>
+      </div>
+      <div class="card" onclick="selectCityAndNavigate('Banglore')">
+        <img src="image/bangalor.jpg" alt="City 9" />
+        <h3>Bangalore</h3>
+      </div>
+      <div class="card" onclick="selectCityAndNavigate('Bhiwani')">
+        <img src="image/bhiwani.jpeg" alt="City 9" />
+        <h3>Bhiwani</h3>
       </div>
     </div>
+    <div class="foot"></div>
     <script>
       function selectCityAndNavigate(city) {
         document.getElementById("citySearch").value = city;

@@ -37,7 +37,7 @@
         padding: 30px;
         display: flex;
         gap: 5px;
-        width: 100%;
+        width: 88%;
       }
       .variant-buttons {
         display: grid;
@@ -76,6 +76,16 @@
         border-radius: 50%;
         height: 50px;
       }
+      .foot{
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        background: #000080;
+        border-radius: 30px 30px 0px 0px;
+      }
     </style>
   </head>
   <body>
@@ -110,6 +120,7 @@
         </div>
       </div>
     </div>
+    <div class="foot"></div>
     <script>
       function navigateToVariant(variant) {
         window.location.href = "owner.html?" + variant;

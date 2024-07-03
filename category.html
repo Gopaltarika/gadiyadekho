@@ -95,7 +95,16 @@
       padding: 30px;
       width: 100%;
     }
-
+    .foot{
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 60px;
+        position: fixed;
+        bottom: 0;
+        background: #000080;
+        border-radius: 30px 30px 0px 0px;
+      }
     @media (max-width: 600px) {
       .card {
         width: 100%;
@@ -120,51 +129,50 @@
   <div class="cards-container">
     <div class="flex">
       <div class="card" onclick="redirectToDetails('Two Wheeler')">
-        <img src="./image/scooter.svg" alt="Two Wheeler">
+        <img src="image/scooter.svg" alt="Two Wheeler">
         <h3>Two Wheeler</h3>
       </div>
       <div class="card" onclick="redirectToDetails('Three Wheeler')">
-        <img src="./image/auto.svg" alt="Three Wheeler">
+        <img src="image/auto.svg" alt="Three Wheeler">
         <h3>Three Wheeler</h3>
       </div>
     </div>
     <div class="flex">
       <div class="card" onclick="redirectToDetails('Four Wheeler')">
-        <img src="./image/car.svg" alt="Four Wheeler">
+        <img src="image/car.svg" alt="Four Wheeler">
         <h3>Four Wheeler</h3>
       </div>
       <div class="card" onclick="redirectToDetails('Commercial Vehicle')">
-        <img src="./image/truck.svg" alt="Commercial Vehicle">
+        <img src="image/truck.svg" alt="Commercial Vehicle">
         <h3>Commercial Vehicle</h3>
       </div>
     </div>
     <div class="flex">
       <div class="card" onclick="redirectToDetails('Constructor Equipment')">
-        <img src="./image/scrap.svg" alt="Constructor Equipment">
+        <img src="image/scrap.svg" alt="Constructor Equipment">
         <h3>Constructor Equipment</h3>
       </div>
       <div class="card" onclick="redirectToDetails('Bus')">
-        <img src="./image/bus.svg" alt="Bus">
+        <img src="image/bus.svg" alt="Bus">
         <h3>Bus</h3>
       </div>
     </div>
     <div class="flex">
       <div class="card" onclick="redirectToDetails('Tractor')">
-        <img src="./image/tractor.svg" alt="Tractor">
+        <img src="image/tractor.svg" alt="Tractor">
         <h3>Tractor</h3>
       </div>
       <div class="card" onclick="redirectToDetails('Scrap Vehicle')">
-        <img src="./image/scrab.jpg" alt="Scrap Vehicle">
+        <img src="image/scrab.jpg" alt="Scrap Vehicle">
         <h3>Scrap Vehicle</h3>
       </div>
     </div>
   </div>
-
+  <div class="foot"></div>
   <script>
     function redirectToInput() {
-      window.location.href = "carsell.html";
+      window.location.href = "index.html";
     }
-
     function redirectToDetails(category) {
       const vehicleNumber = new URLSearchParams(window.location.search).get("vehicleNumber");
       window.location.href = `vehicle-details.html?category=${category}&vehicleNumber=${vehicleNumber}`;
