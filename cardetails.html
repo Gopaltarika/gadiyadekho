@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maruti Suzuki LXI BS6</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .small-image {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: -30px;
+        flex-wrap: wrap;
+      }
+      .small-image img {
+        width: 80px;
+        height: 70px;
+        border-radius: 8px;
+      }
+      h2 {
+        color: #333;
+        margin: 20px 0 10px;
+        text-align: center;
+      }
+      p {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+        margin: 5px 0 20px;
+      }
+      button {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #000000a3;
+      }
+      .price-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: 0;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        border-radius: 5px;
+        width: 60%;
+      }
+      .price-container p {
+        margin: 0;
+        font-size: 16px;
+        color: #666;
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+        }
+        h2 {
+          font-size: 22px;
+        }
+        p {
+          font-size: 14px;
+        }
+        button {
+          padding: 8px;
+          font-size: 14px;
+        }
+        input[type="text"] {
+          padding: 8px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./image/car.jpg" alt="Maruti Suzuki LXI BS6" class="image" />
+      <div class="small-image">
+        <img src="./image/car.jpg" alt="car"> 
+        <img src="./image/car.jpg" alt="car"> 
+        <img src="./image/car.jpg" alt="car"> 
+      </div>
+      <h2>Maruti Suzuki LXI BS6</h2>
+      <p>$588690-593566*</p>
+      <button>Change Vehicle</button>
+      <button>Change Variant</button>
+      <div class="price-container">
+        <input type="text" placeholder="Select City" />
+        <p>Get on Road Price</p>
+      </div>
+    </div>
+  </body>
+</html>

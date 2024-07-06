@@ -8,158 +8,999 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       .container-custom {
         max-width: 1140px;
       }
-      @media (max-width:576px) {
-        h1{
-        font-size: 25px;
+      ul {
+        width: 355px;
+      }
+      .tabs-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        border-radius: 8px;
+        justify-content: space-around;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+
+      .tabs-menu li {
+        position: relative;
+        margin: 0;
+        margin-top: 10px;
+        border: 2px solid #000;
+        border-radius: 8px;
+      }
+
+      .tabs-menu li a {
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .tabs-menu li a svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        fill: #000;
+      }
+      .tabs-menu li a svg path {
+        transition: fill 0.3s;
+      }
+      .tabs-menu li a:hover {
+        border-bottom: 2px solid cadetblue;
+        color: cadetblue;
+        background-color: #fff;
+      }
+      ul li a {
+        white-space: nowrap;
+      }
+      .card-body {
+        padding: 0px 10px!important;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .input-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .dropdown-m {
+        padding: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        border: 1px solid #dfea89;
+        border-radius: 20px;
+        width: 100%;
+        /* max-width: 300px; */
+        cursor: pointer;
+        appearance: none;
+        background-color: #cddaff;
+        color: #000;
+        height: 120px;
+      }
+      /* Responsive styles */
+      .navbar-icon {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s;
+      }
+      .navbar-icon svg {
+        width: 30px;
+        height: 30px;
+        fill: #333;
+      }
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 25px;
+        }
+        .searches-card {
+          overflow: hidden;
+        }
+        .tabs-menu li a svg {
+          width: 20px !important;
+          height: 20px !important;
+          margin-right: 5px;
+        }
+        .tabs-menu li a {
+          font-size: 18px;
+          font-weight: 700;
+        }
       }
       .searches-card {
-        border: 2px solid black;
-        border-radius: 20px;
         overflow: hidden;
-        background: white;
-      }
-     
-      }
-      .searches-card {
-        border: 2px solid black;
         border-radius: 20px;
+        color: #000;
+        display: flex;
+        flex-direction: column;
+        background-image: url(./image/back.jpg);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+      }
+      .searches-card img {
+        height: 126px;
+        width: 150px;
+      }
+      h5 {
+        font-size: 18px !important;
+      }
+      .col-4 {
+        padding-bottom: 10px;
+      }
+      .bg-color {
+        background: #fffbf7;
+      }
+      .card-img-top{
+  
+        border-radius: 20px;
+      }
+      p{
+        font-weight: 600;
+      }
+      button{
+        background: #69bcff;
+        border: 2px solid white;
+        padding:15px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        position: fixed;
+        z-index: 2;
+        bottom: 1%;
+        right: 3%;
+      }
+      /* Slider */
+  
+      h1 {
+        text-align: center;
+        font-weight: 700;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin-top: 10px;
+      }
+
+      .swiper {
+        width: 100%;
+        max-width: 1140px;
+        height: auto;
+        padding: 20px 0;
+        position: relative;
+        margin: 15px;
+      }
+
+      .swiper-slide {
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-slide {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        background: white;
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 280px;
+        text-align: center;
+        margin: 4px;
       }
-     
-      .bg-color{
-        background: white;
+
+      .card-slide:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
-    </style>
+
+      .bike-image {
+        width: 100%;
+        height: auto;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .bike-model {
+        font-size: 1.5em;
+        margin: 0px 0;
+      }
+
+      .model-year,
+      .price {
+        color: #666;
+        margin: 5px 0;
+      }
+      .view{
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      @media (max-width: 640px) {
+        .swiper {
+          padding: 0;
+          max-width: 356px;
+        }
+        .card {
+          width: 120px;
+          height: 100%;
+          margin: 0 5px;
+        }
+        .bike-image {
+          width: 100%;
+          height: auto;
+        }
+        .card-content {
+          padding: 0px;
+        }
+        .bike-model {
+          font-size: 1em;
+        }
+        .model-year,
+        .price {
+          font-size: 0.9em;
+        }
+        .view{
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        color: white;
+        width: 25px;
+        height: 25px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 16px;
+      }
+
+      .swiper-button-prev {
+        left: 10px;
+      }
+
+      .swiper-button-next {
+        right: 10px;
+      }
+
+      .swiper-button-next {
+        display: block;
+      }
+
+      .swiper-button-prev {
+        display: none;
+      }
+       .bg-slide{
+        border-radius: 20px;
+       }
+   </style>
   </head>
   <body>
-    <div class=" bg-color">
-        <div class="container container-custom pt-4">
-          <h1 class="text-center m-0 pb-4 w-100 text-nowrap">
-            <span class="d-md-inline d-none"
+    <div class="bg-color">
+      <div class="container container-custom pt-4">
+        <div
+          style="
+            width: 100%;
+            border-radius: 30px;
+            padding: 0px 10px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+          "
+        >
+          <span style="margin-right: 10px"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="#000"
+              class="bi bi-geo-alt"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"
+              />
+              <path
+                d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"
+              /></svg
+          ></span>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              border-right: 2px solid #000;
+            "
+          >
+            <p
+              style="
+                margin-bottom: -3px;
+                margin-left: -8px;
+                font-weight: 600;
+                color: #000;
+              "
+            >
+              your location is
+            </p>
+            <input
+              type="text"
+              style="
+                border: 0;
+                outline: none;
+                background: #fffbf7;
+                font-size: 18px;
+                color: #000;
+                font-weight: 700;
+                width: 200px;
+              "
+              placeholder="Shri Nagar"
+            />
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              padding-left: 4px;
+            "
+            onclick="location.href=`select-city.html`"
+          >
+            <span
               ><svg
-                width="256"
-                height="12"
-                viewBox="0 0 256 12"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="#000"
+                class="bi bi-crosshair"
+                viewBox="0 0 16 16"
               >
                 <path
-                  d="M255.353 5.75018C255.353 2.80466 252.966 0.41685 250.02 0.41685C247.074 0.41685 244.687 2.80466 244.687 5.75018C244.687 8.6957 247.074 11.0835 250.02 11.0835C252.966 11.0835 255.353 8.6957 255.353 5.75018ZM250.02 4.75018L-1.56152e-05 4.75018V6.75018L250.02 6.75018V4.75018Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-            Most Searches Vehicle
-            <span class="d-md-inline d-none"
-              ><svg
-                width="256"
-                height="12"
-                viewBox="0 0 256 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0.666667 6C0.666667 8.94552 3.05448 11.3333 6 11.3333C8.94552 11.3333 11.3333 8.94552 11.3333 6C11.3333 3.05448 8.94552 0.666667 6 0.666667C3.05448 0.666667 0.666667 3.05448 0.666667 6ZM6 7H256V5H6V7Z"
-                  fill="black"
-                />
-              </svg>
-            </span>
-          </h1>
-          <div class="row">
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+                  d="M8.5.5a.5.5 0 0 0-1 0v.518A7 7 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7 7 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7 7 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7 7 0 0 0 8.5 1.018zm-6.48 7A6 6 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6 6 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6 6 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6 6 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                /></svg
+            ></span>
+            <p style="margin: 0; color: #000">Select city</p>
+          </div>
+        </div>
+        <button><img src="./image/filter-svgrepo-com.svg" alt="filter"></button>
+        <div class="row mt-4 justify-content-center">
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/car-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class="card-title text-center m-0">$ 15,000</h5>
-                  <p class="card-text text-center m-0">Tractor modal</p>
+                  <h5 class="card-title  m-0"><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text  m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
             </div>
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/bike-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class=" m-0 text-center">$ 15,000</h5>
-                  <p class="card-text text-center">Tractor modal</p>
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
             </div>
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/auto-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class=" m-0 text-center">$ 15,000</h5>
-                  <p class="card-text text-center">Tractor modal</p>
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
             </div>
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/bus2-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class=" m-0 text-center">$ 15,000</h5>
-                  <p class="card-text text-center">Tractor modal</p>
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
             </div>
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/cv-img-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class=" m-0 text-center">$ 15,000</h5>
-                  <p class="card-text text-center">Tractor modal</p>
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
             </div>
-            <div class="col-md-4 col-6 mb-md-4 mb-2 px-2">
-              <div class="searches-card">
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
                 <img
-                  src="./image/tractor.png"
+                  src="./image/CE-removebg-preview.png"
                   class="card-img-top"
                   alt="Card Image"
                 />
                 <div class="card-body">
-                  <h5 class=" m-0 text-center">$ 15,000</h5>
-                  <p class="card-text text-center">Tractor modal</p>
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
                 </div>
               </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="bg-slide">
+            <h1>recommended vehicle</h1>
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+      
+              <!-- Navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/tractor-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="card-title  m-0"><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text  m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/auto-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/bus2-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/bike-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/car-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/CE-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/bike-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/car-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="bg-slide">
+            <h1>Similarly vehicle</h1>
+              <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card-slide">
+                      <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                      <div class="card-content">
+                        <h2 class="bike-model">Bike Model</h2>
+                        <p class="model-year">Model: 2024</p>
+            
+                      </div>
+                    </div>
+                  </div>
+            
+                </div>
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/CE-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/bike-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/car-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="col-12 mb-md-4 mb-2 px-1">
+            <div class="searches-card">
+              <div style="display: flex; padding:10px;">
+                <img
+                  src="./image/CE-removebg-preview.png"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <div class="card-body">
+                  <h5 class="m-0 "><img src="./image/money-bag-svgrepo-com.svg" alt="money" style="width: 30px; margin-right:10px; height:30px;">$ 15,000</h5>
+                  <p class="card-text m-0"><img src="./image/modal.svg" alt="money" style="width: 30px; height:30px; margin-right:10px">Tractor modal</p>
+                  <p><img src="./image/owner-svgrepo-com.svg" alt="money" style="width: 30px; height:30px; margin-right:10px"> 1st Owner</p>
+                </div>
+              </div>
+              <p class="text-center">Show full modal name replace in this content</p>
+            </div>
+          </div>
+          <div class="bg-slide">
+            <h1>Recently view vehicle</h1>
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card-slide">
+                    <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+                    <div class="card-content">
+                      <h2 class="bike-model">Bike Model</h2>
+                      <p class="model-year">Model: 2024</p>
+                
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+      
+              <!-- Navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Activate the first tab on page load
+        $("#four-wheeler-tab").tab("show");
+        // Handle tab click event
+        $(".tabs-menu a").on("click", function (e) {
+          e.preventDefault();
+          var target = $(this).attr("divattr");
+          $(".tab-pane").removeClass("show active");
+          $(target).addClass("show active");
+          // Scroll the clicked tab into view
+          $(this).get(0).scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        });
+        // Handle tab click event for the tab container
+        $(".tab").on("click", function () {
+          var target = $(this).attr("divattr");
+          $(".tab-pane").removeClass("show active");
+          $(target).addClass("show active");
+          // Scroll the clicked tab into view
+          $(this).get(0).scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        });
+      });
+      function toggleNavbar() {
+        $(".tt").toggleClass("active");
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: false,
+        // Remove pagination dots
+        pagination: false,
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+        
+          320: {
+            slidesPerView: 3.2,
+          
+          },
+        },
+      });
+
+      // Show both arrows after clicking next
+      document
+        .querySelector(".swiper-button-next")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-prev").style.display = "block";
+        });
+
+      // Show both arrows after clicking prev
+      document
+        .querySelector(".swiper-button-prev")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-next").style.display = "block";
+        });
+    </script>
   </body>
 </html>
