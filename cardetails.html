@@ -2,7 +2,13 @@
 <html>
   <head>
     <title>Maruti Suzuki LXI BS6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -31,10 +37,31 @@
         margin-top: -30px;
         flex-wrap: wrap;
       }
+      .small-image .image-wrapper {
+        position: relative;
+      }
       .small-image img {
         width: 80px;
         height: 70px;
         border-radius: 8px;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .overlay span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
       }
       h2 {
         color: #333;
@@ -48,13 +75,13 @@
         margin: 5px 0 20px;
       }
       button {
-        background-color: #000000;
+        background-color: #000080;
         color: #fff;
-        padding: 10px;
+        padding: 15px 10px;
         border: none;
-        border-radius: 5px;
+        border-radius: 20px;
         cursor: pointer;
-        width: 100%;
+        width: 40%;
         margin-top: 10px;
       }
       button:hover {
@@ -71,7 +98,6 @@
         padding: 10px;
         border: 0;
         text-align: center;
-        border-bottom: 1px solid #000;
         border-radius: 5px;
         width: 60%;
       }
@@ -80,9 +106,55 @@
         font-size: 16px;
         color: #666;
       }
+      .accordion {
+        margin-top: 20px;
+      }
+      .accordion-item {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+      .accordion-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: #f4f4f4;
+      }
+      .accordion-item-header:hover {
+        background-color: #e9e9e9;
+      }
+      .accordion-item-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-item-body-content {
+        padding: 10px;
+      }
+      .accordion-item.open .accordion-item-body {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .accordion-item-header span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000080;
+        color: #fff;
+      }
       @media (max-width: 480px) {
         .container {
           padding: 15px;
+          max-width: 100%;
         }
         h2 {
           font-size: 22px;
@@ -91,7 +163,6 @@
           font-size: 14px;
         }
         button {
-          padding: 8px;
           font-size: 14px;
         }
         input[type="text"] {
@@ -99,24 +170,685 @@
           font-size: 14px;
         }
       }
+      .table {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 0;
+      }
+      .table p{
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 0px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <img src="./image/car.jpg" alt="Maruti Suzuki LXI BS6" class="image" />
       <div class="small-image">
-        <img src="./image/car.jpg" alt="car"> 
-        <img src="./image/car.jpg" alt="car"> 
-        <img src="./image/car.jpg" alt="car"> 
+        <div class="image-wrapper">
+          <img src="./image/car.jpg" alt="car" />
+          <div class="overlay"><span>Total img</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/car.jpg" alt="car" />
+          <div class="overlay"><span>Color</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/car.jpg" alt="car" />
+          <div class="overlay"><span>Dealer</span></div>
+        </div>
       </div>
       <h2>Maruti Suzuki LXI BS6</h2>
       <p>$588690-593566*</p>
-      <button>Change Vehicle</button>
-      <button>Change Variant</button>
-      <div class="price-container">
-        <input type="text" placeholder="Select City" />
+      <div style="display: flex; gap: 10px; justify-content: center">
+        <button>Change Vehicle</button>
+        <button>Change Variant</button>
+      </div>
+      <div class="price-container" style="margin-top: 20px">
+        <div
+          style="border-bottom: 2px solid #ccc; border-radius: 8px"
+          onclick="location.href=`details-selectcity.html`"
+        >
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+              /></svg
+          ></span>
+          <input
+            type="text"
+            placeholder="Select City"
+            onclick="location.href=`details-selectcity.html`"
+          />
+        </div>
         <p>Get on Road Price</p>
       </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Specifications
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">Specification</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>CC</p>
+                  <p>1197 cc</p>
+                </div>
+                <div class="table">
+                  <p>Mileage</p>
+                  <p>23.26 kmpl</p>
+                </div>
+                <div class="table">
+                  <p>Engine Description</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Type</p>
+                  <p>Petrol</p>
+                </div>
+                <div class="table">
+                  <p>Seating Capacity</p>
+                  <p>5</p>
+                </div>
+                <div class="table">
+                  <p>Transmission Type</p>
+                  <p>Manual</p>
+                </div>
+                <div class="table">
+                  <p>Front Brake</p>
+                  <p>Disc</p>
+                </div>
+                <div class="table">
+                  <p>Rear Brake</p>
+                  <p>Drum</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Tank Capacity</p>
+                  <p>37 L</p>
+                </div>
+                <div class="table">
+                  <p>Acceleration</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Fuel supply System</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Front Suspension</p>
+                  <p>Mc Pherson Strut</p>
+                </div>
+                <div class="table">
+                  <p>Rear Suspension</p>
+                  <p>Torsion Beam</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Engine and Transmission
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">ENGINE & TRANSMISSION</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Engine Capacity</p>
+                  <p>1197 cc</p>
+                </div>
+                <div class="table">
+                  <p>Engine Type</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Max. Power</p>
+                  <p>66 kw @ 6000 rpm</p>
+                </div>
+                <div class="table">
+                  <p>Max. Torque </p>
+                  <p>113 Nm @ 4400 rpm</p>
+                </div>
+                <div class="table">
+                  <p>No of Cylinders</p>
+                  <p>4</p>
+                </div>
+                <div class="table">
+                  <p>Transmission Type</p>
+                  <p>Manual</p>
+                </div>
+                <div class="table">
+                  <p>Gear Box</p>
+                  <p>5-speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Dimensions
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">DIMENSIONS</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Lenght</p>
+                  <p>3995 mm</p>
+                </div>
+                <div class="table">
+                  <p>Width</p>
+                  <p>1735 mm</p>
+                </div>
+                <div class="table">
+                  <p>Height</p>
+                  <p>1515 mm</p>
+                </div>
+                <div class="table">
+                  <p>Kerb Weight </p>
+                  <p>880kg-915kg</p>
+                </div>
+                <div class="table">
+                  <p>Gross Vehicle Weight</p>
+                  <p>1335 Kg</p>
+                </div>
+                <div class="table">
+                  <p>Tyre Size</p>
+                  <p>165/80 R14 , 185/65 R15</p>
+                </div>
+                <div class="table">
+                  <p>Wheel Size</p>
+                  <p>14 Inch , 15 inch</p>
+                </div>
+                <div class="table">
+                  <p>Boot Space</p>
+                  <p>378 I</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Exterior Features
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">EXTERIOR FEATURES</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Adjustable Headlights</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Adjustable Rear View Mirror</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Fog light Front</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Fog Light Rear</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Rear Window Wiper</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Wheel Covers</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Alloy Wheel</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Sun Roof</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Power Antenna</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Center Lock</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Roof carrier</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Chrome Grille</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Chrome Garnish</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Tinted Glass</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Rain Sensing Wiper</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Rear Window Defogger</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Headlamp Washer</p>
+                  <p>Na</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Interior Features
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">INTERIOR FEATURES</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Air Conditioner</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Heater</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Rear AC Vent</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Steering</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Adjustable Steering Wheel</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Multifunction Steering Wheel</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Window Front</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Window Rear</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Digital Clock</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Digital Odometer</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Dual Tone Dashboard</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Engine Start/ Stop Push Button</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Rear Seat Headrest</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Rear Seat Center Armrest</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Foldable Rear Seat</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Leather Seats</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Adjustable Seats</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Automatic Climate Control</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Remote Trunk Opener</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Remote Fuel Lid Opener</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Number Of Airbags</p>
+                  <p>2</p>
+                </div>
+                <div class="table">
+                  <p>Driver Airbag</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Passenger Airbag</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Side Airbag Front</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Side Airbag Rear</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Child Safety Lock</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Door Locks</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Reverse Camera</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Anti Theft Alarm</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Navigation System</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Passenger Side Rear View mirror</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Rear Seat Belts</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Seat Belt Warning</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Door Ajar Warning</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Low Fuel Warning Light</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Engine Check Warning</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Side Impact Beams</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Front Impact Beams</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Automatic Headlamps</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Follow Me Home Headlamps</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Parking Sensors</p>
+                  <p>Rear</p>
+                </div>
+                <div class="table">
+                  <p>Keyless Entry</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Anti Lock Braking System</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Radio</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>CD Player</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>DVD Player</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>No Of Speakers</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Speaker Front</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Speaker Rear</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Bluetooth</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Touch Screen</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Voice Control</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>USB Charger</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>USB & Auxilliary Input</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Glove Compartment</p>
+                  <p>2</p>
+                </div>
+                <div class="table">
+                  <p>Glove Box Cooling</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Trunk Light</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Cigratte Lighter</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Cup Holder Front</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Day & Night Rear View Mirror</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Gear Shift Indicator</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Power Boot</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Accesory Power Outlet</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Remote Horn & Light Control</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Vanity Mirror</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Rear Reading Lamp</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Heated Seats Front</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Heated Seats Rear</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Seat Lumbar Support</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Ventilated Seats</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Steering Wheel Gear Shift Paddles</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Tailgate Ajar</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Hands Free Tailgate</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Battery Saver</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Lane Change Indicator</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Engine Immobilizer</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Find My Car Location</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Crash Sensors</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Speed Alert</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Speed Sensing Auto Door lock</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Wireless phone Charging</p>
+                  <p>No</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Compare
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Compare details -->
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Images
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Images content -->
+              <div class="small-image">
+                <div class="image-wrapper">
+                  <img src="./image/car.jpg" alt="car" />
+                </div>
+                <!-- Add more images as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script>
+      function toggleAccordion(element) {
+        const accordionItem = element.parentElement;
+        const body = accordionItem.querySelector(".accordion-item-body");
+        const icon = element.querySelector("span");
+        if (accordionItem.classList.contains("open")) {
+          body.style.maxHeight = "0px";
+          icon.textContent = "+";
+        } else {
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.textContent = "-";
+        }
+        accordionItem.classList.toggle("open");
+      }
+    </script>
   </body>
 </html>

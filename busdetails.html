@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maruti Suzuki LXI BS6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .small-image {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: -15px;
+        flex-wrap: wrap;
+      }
+      .small-image .image-wrapper {
+        position: relative;
+      }
+      .small-image img {
+        width: 80px;
+        height: 70px;
+        border-radius: 8px;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .overlay span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+        margin: 20px 0 10px;
+        text-align: center;
+      }
+      p {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+        margin: 5px 0 20px;
+      }
+      button {
+        background-color: #000080;
+        color: #fff;
+        padding: 15px 10px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        width: 40%;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #000000a3;
+      }
+      .price-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: 0;
+        text-align: center;
+        border-radius: 5px;
+        width: 60%;
+      }
+      .price-container p {
+        margin: 0;
+        font-size: 16px;
+        color: #666;
+      }
+      .accordion {
+        margin-top: 20px;
+      }
+      .accordion-item {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+      .accordion-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: #f4f4f4;
+      }
+      .accordion-item-header:hover {
+        background-color: #e9e9e9;
+      }
+      .accordion-item-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-item-body-content {
+        padding: 10px;
+      }
+      .accordion-item.open .accordion-item-body {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .accordion-item-header span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000080;
+        color: #fff;
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+          max-width: 100%;
+        }
+        h2 {
+          font-size: 19px;
+        }
+        p {
+          font-size: 14px;
+        }
+        button {
+          font-size: 14px;
+        }
+        input[type="text"] {
+          padding: 8px;
+          font-size: 14px;
+        }
+      }
+      .table {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 0;
+      }
+      .table p{
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./image/bus2.jpg" alt="Maruti Suzuki LXI BS6" class="image" />
+      <div class="small-image">
+        <div class="image-wrapper">
+          <img src="./image/bus2.jpg" alt="car" />
+          <div class="overlay"><span>Total img</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/bus2.jpg" alt="car" />
+          <div class="overlay"><span>Color</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/bus2.jpg" alt="car" />
+          <div class="overlay"><span>Dealer</span></div>
+        </div>
+      </div>
+      <h2>Yamaha FZ-FI Mattallic Black BS6</h2>
+      <p>$106000-118239*</p>
+      <div style="display: flex; gap: 10px; justify-content: center">
+        <button>Change Vehicle</button>
+        <button>Change Variant</button>
+      </div>
+      <div class="price-container" style="margin-top: 20px">
+        <div
+          style="border-bottom: 2px solid #ccc; border-radius: 8px"
+          onclick="location.href=`details-selectcity.html`"
+        >
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+              /></svg
+          ></span>
+          <input
+            type="text"
+            placeholder="Select City"
+            onclick="location.href=`details-selectcity.html`"
+          />
+        </div>
+        <p>Get on Road Price</p>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+           Specifications
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">SPECIFICATIONS</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Chasis Type</p>
+                  <p>Domex 650</p>
+                </div>
+                <div class="table">
+                  <p>Chasis Parameters</p>
+                  <p>200X75X5</p>
+                </div>
+                <div class="table">
+                  <p>Seating Capacity</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Seat Layout</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Tank capacity</p>
+                  <p>100 L</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Type</p>
+                  <p>Diesel</p>
+                </div>
+                <div class="table">
+                  <p>Tyre Size</p>
+                  <p>7.50 X 16 -16 PR</p>
+                </div>
+                <div class="table">
+                  <p>Tyre Type</p>
+                  <p>Radial</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Dimensions
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">DIMENSIONS</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Overall Lenght</p>
+                  <p>6534 mm</p>
+                </div>
+                <div class="table">
+                  <p>Overall Width</p>
+                  <p>1990 mm</p>
+                </div>
+                <div class="table">
+                  <p>Overall Height</p>
+                  <p>2480 mm</p>
+                </div>
+                <div class="table">
+                    <p>Wheel Base</p>
+                    <p>3515 mm</p>
+                </div>
+                <div class="table">
+                  <p>Gross Weight</p>
+                  <p>7500 Kg</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+          Engine and Suspension
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">ENGINE AND SUSPENSION</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                    <p>Engine Type</p>
+                    <p>E474</p>
+                  </div>
+                  <div class="table">
+                    <p>Engine Power</p>
+                    <p>120hp (90kW) @ 3200rpm</p>
+                  </div>
+                <div class="table">
+                  <p>Displacement</p>
+                  <p>2960 cc</p>
+                </div>
+                <div class="table">
+                  <p>Front Suspension</p>
+                  <p>Semi elliptic</p>
+                </div>
+                <div class="table">
+                  <p>Rear Suspension</p>
+                  <p>Semi elliptic</p>
+                </div>
+                  <div class="table">
+                    <p>Maximum Torque</p>
+                    <p>350Nm @ 1200-2500rpm</p>
+                  </div>
+                <div class="table">
+                  <p>Alternator</p>
+                  <p>110A</p>
+                </div>
+                <div class="table">
+                  <p>Clutch</p>
+                  <p>310 mm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+         Grar and Brakes
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">GEAR AND BRAKES</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Gear Box</p>
+                  <p>5 SPeed+1Reverse</p>
+                </div>
+                <div class="table">
+                  <p>Transmission</p>
+                  <p>Synchromesh</p>
+                </div>
+                <div class="table">
+                  <p>Brakes</p>
+                  <p>Dual Circuit 'S' Cam Full Air brakes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+          Features
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:20px;">FEATURE</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>streeing</p>
+                  <p>Power Steering</p>
+                </div>
+                <div class="table">
+                  <p>Emergency Exit</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>First aid Kit</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>A.C</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Battery</p>
+                  <p>12V, 130Ah</p>
+                </div>
+                <div class="table">
+                  <p>Floor</p>
+                  <p>Na</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Compare
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Compare details -->
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Images
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Images content -->
+              <div class="small-image">
+                <div class="image-wrapper">
+                  <img src="./image/bus2.jpg" alt="Truck" />
+                </div>
+                <!-- Add more images as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleAccordion(element) {
+        const accordionItem = element.parentElement;
+        const body = accordionItem.querySelector(".accordion-item-body");
+        const icon = element.querySelector("span");
+        if (accordionItem.classList.contains("open")) {
+          body.style.maxHeight = "0px";
+          icon.textContent = "+";
+        } else {
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.textContent = "-";
+        }
+        accordionItem.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

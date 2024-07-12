@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maruti Suzuki LXI BS6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .small-image {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: -15px;
+        flex-wrap: wrap;
+      }
+      .small-image .image-wrapper {
+        position: relative;
+      }
+      .small-image img {
+        width: 80px;
+        height: 70px;
+        border-radius: 8px;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .overlay span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+        margin: 20px 0 10px;
+        text-align: center;
+      }
+      p {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+        margin: 5px 0 20px;
+      }
+      button {
+        background-color: #000080;
+        color: #fff;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+      button:hover {
+        background-color: #000000a3;
+      }
+      .price-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        border: 0;
+        text-align: center;
+        border-radius: 5px;
+        width: 60%;
+      }
+      .price-container p {
+        margin: 0;
+        font-size: 16px;
+        color: #666;
+      }
+      .accordion {
+        margin-top: 20px;
+        padding: 15px;
+    box-shadow: 0 0 4px 4px #ccc;
+    border-radius: 12px;
+      }
+      .accordion-item {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        overflow: hidden;
+      }
+      .accordion-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        background-color: #f4f4f4;
+      }
+      .accordion-item-header:hover {
+        background-color: #e9e9e9;
+      }
+      .accordion-item-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-item-body-content {
+        padding: 10px;
+      }
+      .accordion-item.open .accordion-item-body {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .accordion-item-header span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000080;
+        color: #fff;
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+          max-width: 100%;
+        }
+        h2 {
+          font-size: 19px;
+        }
+        p {
+          font-size: 14px;
+        }
+        button {
+          font-size: 14px;
+        }
+        input[type="text"] {
+          padding: 8px;
+          font-size: 14px;
+        }
+      }
+      .table {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 0;
+        margin-bottom: 0;
+      }
+      .table p {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 0px;
+      }
+      .searches-card {
+        overflow: hidden;
+        border-radius: 20px;
+        color: #000;
+        display: flex;
+        flex-direction: column;
+        background-repeat: no-repeat;
+        margin-top: 15px;
+        background-size: 100% 100%;
+      }
+      .searches-card img {
+        height: 80px;
+        width: 110px;
+      }
+      .nav-link.active {
+        border: 0;
+        border-bottom: 2px solid #000080 !important;
+        border-radius: 8px !important;
+      }
+      .nav-link {
+        padding: 10px;
+      }
+      .swiper {
+        width: 100%;
+        max-width: 1140px;
+        height: auto;
+        padding: 20px 0;
+        position: relative;
+        margin: 15px;
+      }
+      .swiper-slide {
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-slide {
+        background-color: white;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        width: 280px;
+        text-align: center;
+        margin: 4px;
+      }
+      .card-slide img{
+        width: 100%;
+      }
+      .card-slide:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .view{
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        color: white;
+        width: 25px;
+        height: 25px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 16px;
+      }
+
+      .swiper-button-prev {
+        left: 10px;
+      }
+
+      .swiper-button-next {
+        right: 10px;
+      }
+
+      .swiper-button-next {
+        display: block;
+      }
+
+      .swiper-button-prev {
+        display: none;
+      }
+      @media (max-width: 640px) {
+        .swiper {
+          padding: 0;
+          max-width: 356px;
+        }
+        .card-content {
+          padding: 0px;
+        }
+        .bike-model {
+          font-size: 1em;
+        }
+        .model-year,
+        .price {
+          font-size: 0.9em;
+        }
+        .view{
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+      }
+      .vehicle-card {
+            width: 100%;
+            background-color: rgb(185 184 182);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .vehicle-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .color-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        .color-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 5px;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .color-circle.tick::after {
+            content: '✔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./image/truck3.jpg" alt="Maruti Suzuki LXI BS6" class="image" />
+      <div class="small-image">
+        <div class="image-wrapper">
+          <img src="./image/truck3.jpg" alt="car" />
+          <div class="overlay"><span>Total img</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/truck3.jpg" alt="car" />
+          <div class="overlay"><span>Color</span></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="./image/truck3.jpg" alt="car" />
+          <div class="overlay"><span>Dealer</span></div>
+        </div>
+      </div>
+      <h2>Yamaha FZ-FI Mattallic Black BS6</h2>
+      <p>$106000-118239*</p>
+      <div style="display: flex; gap: 10px; justify-content: center">
+        <button onclick="location.href=`changevehicle.html`">Change Vehicle</button>
+        <button onclick="location.href=`variantlist.html`">Change Variant</button>
+      </div>
+      <div class="price-container" style="margin-top: 20px">
+        <div
+          style="border-bottom: 2px solid #ccc; border-radius: 8px"
+          onclick="location.href=`details-selectcity.html`"
+        >
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+              /></svg
+          ></span>
+          <input
+            type="text"
+            placeholder="Select City"
+            onclick="location.href=`details-selectcity.html`"
+          />
+        </div>
+        <p>Get on Road Price</p>
+      </div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+           Engine and Gear
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:16px; font-weight:700;">ENGINE AND GEAR</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Engine Type</p>
+                  <p>mDi Tech, BS-VI (With EGR + SCR Technology)</p>
+                </div>
+                <div class="table">
+                  <p>Engine Power</p>
+                  <p>103 kW @ 2400 r/min</p>
+                </div>
+                <div class="table">
+                  <p>Engine Capacity</p>
+                  <p>3500cc</p>
+                </div>
+                <div class="table">
+                  <p>No of Cylinders</p>
+                  <p>4</p>
+                </div>
+                <div class="table">
+                  <p>Torque</p>
+                  <p>525 Nm @ 1250 - 1800 r/min (with multi-mode)</p>
+                </div>
+                <div class="table">
+                  <p>Gear Box</p>
+                  <p>6-Speed</p>
+                </div>
+                <div class="table">
+                  <p>Transmission</p>
+                  <p>Manual</p>
+                </div>
+                <div class="table">
+                  <p>Clutch type</p>
+                  <p>Diameter organic clutch</p>
+                </div>
+                <div class="table">
+                  <p>Clutch</p>
+                  <p>362 mm</p>
+                </div>
+                <div class="table">
+                  <p>Emission Type</p>
+                  <p>BS6</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Type</p>
+                  <p>Diesel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Dimensions
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:18px; font-weight:700;">DIMENSIONS</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Overall Lenght</p>
+                  <p>5796 mm / 6100 mm / 6711 mm / 7320 mm</p>
+                </div>
+                <div class="table">
+                  <p>Overall Width</p>
+                  <p>2135 mm / 2288 mm</p>
+                </div>
+                <div class="table">
+                  <p>Overall Height</p>
+                  <p>1900 mm</p>
+                </div>
+                <div class="table">
+                  <p>Loading Area Length</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                    <p>Wheel Base</p>
+                    <p>4500 mm</p>
+                  </div>
+                <div class="table">
+                  <p>Kerb Weight</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Gross Weight</p>
+                  <p>14050kg</p>
+                </div>
+                <div class="table">
+                  <p>Fuel Tank Capacity</p>
+                  <p>190 L (160 litre Optional)</p>
+                </div>
+                <div class="table">
+                  <p>Chassis Frame</p>
+                  <p>Ladder Type</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+          Tyres
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:18px; font-weight:700;">TYRES</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                    <p>No of Tyres</p>
+                    <p>6</p>
+                  </div>
+                  <div class="table">
+                    <p>Front Tyre</p>
+                    <p>8.25 R 20</p>
+                  </div>
+                <div class="table">
+                  <p>Rear Tyre</p>
+                  <p>8.25 R 20</p>
+                </div>
+                <div class="table">
+                  <p>Tyre Type</p>
+                  <p>Tube/Radial</p>
+                </div>
+                <div class="table">
+                  <p>Wheel Size</p>
+                  <p>20 Inch</p>
+                </div>
+                             
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+           Brakes and Steering
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:18px; font-weight:700;">BRAKES AND STEERING</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Parking Brakes</p>
+                  <p>Air brakes and ABS</p>
+                </div>
+                <div class="table">
+                  <p>Front Brakes</p>
+                  <p>Air brakes and ABS</p>
+                </div>
+                <div class="table">
+                  <p>Rear Brakes</p>
+                  <p>Air brakes and ABS</p>
+                </div>
+                <div class="table">
+                  <p>Service Brakes</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Steering</p>
+                  <p>Power Steering</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Axle & Suspension
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:18px; font-weight:700;">AXLE & SUSPENSION</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Front Axle</p>
+                  <p>Forget I Beam-Reverse Elliot Type</p>
+                </div>
+                <div class="table">
+                  <p>Rear Axle</p>
+                  <p>Na</p>
+                </div>
+                <div class="table">
+                  <p>Front Suspension</p>
+                  <p>Parabolic leaf spring</p>
+                </div>
+                <div class="table">
+                  <p>Rear Suspension</p>
+                  <p>Semi Elliptical Leaf Spring</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Features
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <h3 style="padding-bottom:10px; font-size:18px; font-weight:700;">FEATURES</h3>
+              <div style="width: 100%; height:200px; overflow-y:scroll">
+                <div class="table">
+                  <p>Driver Seat Type</p>
+                  <p>Standard</p>
+                </div>
+                <div class="table">
+                  <p>AC</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Music System</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Navigation System</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Cruise Control</p>
+                  <p>No</p>
+                </div>
+                <div class="table">
+                  <p>Mobile Charger Point</p>
+                  <p>Yes</p>
+                </div>
+                <div class="table">
+                  <p>Battery</p>
+                  <p>Na</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Compare
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Compare details -->
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-item-header" onclick="toggleAccordion(this)">
+            Images
+            <span>+</span>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+              <!-- Images content -->
+              <div class="small-image">
+                <div class="image-wrapper">
+                  <img src="./image/truck3.jpg" alt="Truck" />
+                </div>
+                <!-- Add more images as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5 class="text-center m-0 pt-4" style="font-size: 18px; font-weight:800;">Preet 3049 Price List <br> (By Variant)</h5>
+      <!-- Tabs and Cards -->
+      <div style="margin-top: 20px;">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+            <p>35</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="petrol-tab" data-toggle="tab" href="#petrol" role="tab" aria-controls="petrol" aria-selected="false">Petrol</a>
+            <p>35</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="diesel-tab" data-toggle="tab" href="#diesel" role="tab" aria-controls="diesel" aria-selected="false">Diesel</a>
+            <p>35</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="hybrid-tab" data-toggle="tab" href="#hybrid" role="tab" aria-controls="hybrid" aria-selected="false">Hybrid</a>
+            <p>35</p>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="cng-tab" data-toggle="tab" href="#cng" role="tab" aria-controls="cng" aria-selected="false">CNG</a>
+            <p>35</p>
+          </li>
+        </ul>
+        <div class="tab-content" style="height: 460px; overflow:scroll; border-radius: 12px;
+        box-shadow: 0 0 4px 4px #ccc;
+        margin-bottom: 35px;" id="myTabContent">
+          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant
+                  </p>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    $00-00* 
+                  </p>
+                  <button>Compare</button>
+                </div>
+              </div>
+            </div>
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant
+                  </p>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    $00-00* 
+                  </p>
+                  <button>Compare</button>
+                </div>
+              </div>
+            </div>
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant
+                  </p>
+                  <p
+                  style="
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 5px;
+                  "
+                >
+                  $00-00* 
+                </p>
+                <button>Compare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="petrol" role="tabpanel" aria-labelledby="petrol-tab">
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant Petrol
+                  </p>
+                  <p
+                  style="
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 5px;
+                  "
+                >
+                  $00-00* 
+                </p>
+                <button>Compare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="diesel" role="tabpanel" aria-labelledby="diesel-tab">
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant Diesel
+                  </p>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    $00-00* 
+                  </p>
+                  <button>Compare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="hybrid" role="tabpanel" aria-labelledby="hybrid-tab">
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant Hybrid
+                  </p>
+                  <p
+                  style="
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 5px;
+                  "
+                >
+                  $00-00* 
+                </p>
+                <button>Compare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="cng" role="tabpanel" aria-labelledby="cng-tab">
+            <div class="searches-card">
+              <div style="display: flex; gap: 20px; padding: 10px">
+                <img src="./image/cv-img-removebg-preview.png" alt="vehicle" />
+                <div>
+                  <p
+                    style="
+                      font-size: 17px;
+                      font-weight: 700;
+                      color: #000;
+                      margin-bottom: 5px;
+                    "
+                  >
+                    Truck Modal Variant CNG
+                  </p>
+                  <p
+                  style="
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #000;
+                    margin-bottom: 5px;
+                  "
+                >
+                  $00-00* 
+                </p>
+                <button>Compare</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vehicle-card">
+        <div class="vehicle-image" id="vehicleImage" style="background-image: url('./image/car2.jpg');"></div>
+        <div class="color-selector">
+            <div class="color-circle black tick" style="background-color: black;" data-color="black" data-image="./image/car2.jpg"></div>
+            <div class="color-circle white" style="background-color: white;" data-color="white" data-image="./image/car4.jpg"></div>
+            <div class="color-circle red" style="background-color: rgb(17, 58, 12);" data-color="red" data-image="./image/car3.jpg"></div>
+        </div>
+       </div>
+      <div style="display: flex; align-items:center; margin:0; justify-content:center; gap:10px;" class="pt-4">
+        <hr style="width: 100%; background:#000; height:2px; margin:0px;">
+        <h5 class="text-center m-0" style="font-size: 22px; font-weight:700; text-wrap:nowrap;">Similar Vehicle</h5>
+        <hr style="width: 100%; background:#000; height:2px; margin:5px;">
+      </div>
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <div style="display: flex; align-items:center; margin:0; justify-content:center; gap:10px;" class="pt-4">
+        <hr style="width: 100%; background:#000; height:2px; margin:0px;">
+        <h5 class="text-center m-0" style="font-size: 22px; font-weight:700; text-wrap:nowrap;">Used Vehicle</h5>
+        <hr style="width: 100%; background:#000; height:2px; margin:5px;">
+      </div>
+      <div class="swiper2 swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper2 = new Swiper(".swiper2", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+        autoplay: {
+          delay: 2500,
+        },
+        // Remove pagination dots
+        pagination: false,
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.2,
+          spaceBetween:10
+          },
+        },
+      });
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+    
+        // Remove pagination dots
+        pagination: false,
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1.2,
+          spaceBetween:10
+          },
+        },
+      });
+      // Show both arrows after clicking next
+      document
+        .querySelector(".swiper-button-next")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-prev").style.display = "block";
+        });
+      // Show both arrows after clicking prev
+      document
+        .querySelector(".swiper-button-prev")
+        .addEventListener("click", () => {
+          document.querySelector(".swiper-button-next").style.display = "block";
+        });
+    </script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.querySelectorAll('.accordion-item-header').forEach((header) => {
+        header.addEventListener('click', function () {
+          // Close all other accordion items
+          document.querySelectorAll('.accordion-item').forEach((item) => {
+            if (item !== this.parentElement) {
+              item.classList.remove('open');
+            }
+          });
+          // Toggle the clicked accordion item
+          const item = this.parentElement;
+          item.classList.toggle('open');
+        });
+      });
+    </script>
+    <script>
+      const colorCircles = document.querySelectorAll('.color-circle');
+      const vehicleImage = document.getElementById('vehicleImage');
+      colorCircles.forEach(circle => {
+          circle.addEventListener('click', () => {
+              // Remove tick from all circles
+              colorCircles.forEach(c => c.classList.remove('tick'));
+              // Add tick to the selected circle
+              circle.classList.add('tick');
+              // Update vehicle image
+              vehicleImage.style.backgroundImage = `url('${circle.getAttribute('data-image')}')`;
+          });
+      });
+  </script>
+  </body>
+</html>

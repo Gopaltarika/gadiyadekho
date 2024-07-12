@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .swiper-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+    }
+    .swiper-slide1 {
+      background-repeat: no-repeat;
+      height: 200px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-size: cover;
+      padding: 15px;
+    }
+    .swiper-slide1 h2 {
+      font-size: 25px;
+      color: #fff;
+      margin: 0;
+    }
+    .swiper-slide1 p {
+      font-size: 20px;
+      color: #fff;
+      margin: 0;
+    }
+    .swiper-pagination {
+      bottom: 30px !important;
+    }
+    .swiper-pagination-bullet {
+      background: #007bff;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background: #ff4081;
+    }
+    .car-logos {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .car-logos .logo-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    .car-logos .logo-box {
+      /* width: 23%; */
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .car-logos .logo-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .car-logos .logo-box img {
+      width: 70px;
+      height: 50px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+    .car-logos .logo-box p {
+      font-size: 12px;
+      color: #333;
+      margin: 0;
+      text-wrap: nowrap;
+    }
+    .car-logos .view-all {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      border: 0;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+    .car-logos .view-all:hover {
+      background-color: #0056b3;
+    }
+    /* tabs */
+    .tabs-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        border-radius: 8px;
+        justify-content: space-around;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+
+      .tabs-menu li {
+        position: relative;
+        margin: 0;
+      }
+
+      .tabs-menu li a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .tabs-menu li a svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        fill: #000;
+      }
+
+      .tabs-menu li a svg path {
+        transition: fill 0.3s;
+      }
+
+      .tabs-menu li a:hover {
+        border-bottom: 2px solid #e5360c;
+        color: #e5360c;
+        background-color: #fff;
+      }
+
+      .tabs-menu li a:hover svg path {
+        fill: #e5360c !important;
+      }
+
+      ul li a {
+        white-space: nowrap;
+      }
+.tab-content{
+    overflow: hidden;
+}
+      /* Dropdown styles */
+      .dropdown-content {
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        z-index: 2;
+        min-width: 200px;
+        left: 31%;
+        top: 85px;
+      }
+
+      .dropdown-content a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-icon {
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+        fill: #555;
+        transition: fill 0.3s;
+      }
+
+      /* Responsive styles */
+      .navbar-icon {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s;
+      }
+
+      .navbar-icon svg {
+        width: 30px;
+        height: 30px;
+        fill: #333;
+      }
+      .card-img {
+        width: 100%;
+      }
+      .card-img {
+        min-height: 240px;
+      }
+      ul{
+  overflow-x: scroll;
+  overflow-y: visible;
+  width: 355px;
+  flex-wrap: nowrap !important;
+}
+      @media (max-width: 768px) {
+        .card-img {
+          min-height: 194px;
+          height: 100px;
+        }
+      }
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 25px;
+        }
+        .tabs-menu li a svg {
+          width: 20px !important;
+          height: 20px !important;
+          margin-right: 5px;
+        }
+        .tabs-menu li a {
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .card-body {
+          padding: 10px;
+        }
+        .searches-card {
+          border: 2px solid black;
+          border-radius: 20px;
+          overflow: hidden;
+          background: white;
+        }
+      }
+      .searches-card {
+        border: 2px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+      }
+      .swiper {
+        width: 100%;
+        max-width: 1140px;
+        height: auto;
+        padding: 20px 0;
+        position: relative;
+      }
+      .swiper-slide {
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @media (max-width: 640px) {
+        .swiper {
+          padding: 0;
+          max-width: 350px;
+        }
+        .bike-image {
+          width: 290px;
+          height: 170px;
+        }
+        .card-content {
+          padding: 5px;
+        }
+        .bike-model {
+          font-size: 1em;
+        }
+        .model-year,
+        .price {
+          font-size: 0.9em;
+        }
+        .view{
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+      }
+      .card{
+        overflow: hidden;
+        border-radius: 20px;
+        border: 2px solid #000;
+      }
+  </style>
+</head>
+<body>
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide1" style="background-image: url('./image/bg-used.jpg');">
+        <h2>Royal Royce</h2>
+        <p>$ 00000000*</p>
+      </div>
+      <div class="swiper-slide swiper-slide1" style="background-image: url('./image/bg-used2_cleanup-fotor.png');">
+        <h2>Royal Royce</h2>
+        <p>$ 00000000*</p>
+      </div>
+      <div class="swiper-slide swiper-slide1" style="background-image: url('./image/bg-used.jpg');">
+        <h2>Royal Royce</h2>
+        <p>$ 00000000*</p>
+      </div>
+      <div class="swiper-slide swiper-slide1" style="background-image: url('./image/bg-used2_cleanup-fotor.png');">
+        <h2>Royal Royce</h2>
+        <p>$ 00000000*</p>
+      </div>
+      <div class="swiper-slide swiper-slide1" style="background-image: url('./image/bg-used.jpg');">
+        <h2>Royal Royce</h2>
+        <p>$ 00000000*</p>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="car-logos">
+    <div class="logo-container" style="flex-wrap: nowrap; overflow: scroll; width: 100%;">
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/bike-removebg-preview.png" alt="four wheeler">
+            <p>Two wheeler</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/auto-removebg-preview.png" alt="four wheeler">
+            <p>Three wheeler</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/car-removebg-preview.png" alt="four wheeler">
+            <p>four wheeler</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/bus2-removebg-preview.png" alt="four wheeler">
+            <p>Bus</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/cv-img-removebg-preview.png" alt="four wheeler">
+            <p>CV</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/tractor-removebg-preview.png" alt="four wheeler">
+            <p>Tractor</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/CE-removebg-preview.png" alt="four wheeler">
+            <p>CE</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/bike-removebg-preview.png" alt="four wheeler">
+            <p>E-category</p>
+        </div>
+        <div class="logo-box" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <img src="./image/Hybrid.png" alt="four wheeler">
+            <p>Hybrid vehicle</p>
+        </div>
+    </div>
+  </div>
+  <div class="swiper-container">
+    <div>
+      <ul class="tabs-menu tabed-menu-New catetabs-menu">
+        <li class="current" onclick="clickcatvec(this)">
+          <a
+            id="two-wheeler-tab"
+            data-toggle="tab"
+            role="button"
+            divattr="#two-wheeler"
+          >
+          SUV
+          </a>
+        </li>
+        <li class="">
+          <a
+            id="three-wheeler-tab"
+            data-toggle="tab"
+            role="button"
+            divattr="#three-wheeler"
+          >
+         Hatch Back
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" id="four-wheeler-tab" divattr="#four-wheeler">
+          
+            Sedan
+          </a>
+        </li>
+        <li
+          class="dropdown tt "
+          onclick="clickcatvec(this)"
+          id="CV-tab"
+        >
+          <a role="button" divattr="#CV">
+         Van
+          </a>
+        </li>
+        <li
+          class="tt "
+          onclick="clickcatvec(this)"
+          id="CE-tab"
+        >
+          <a role="button" divattr="#CE">
+          Cabriolet
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Tractor">
+           Coupe
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Bus">
+        Wagon
+          </a>
+        </li>
+        <li
+          class="dropdown tt "
+          onclick="clickcatvec(this)"
+          id="C-category-tab"
+        >
+          <a role="button" divattr="#C-category">
+           Luxury
+          </a>
+        </li>
+        <li class="tt" onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Hybrid">
+           Hybrid
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Convertible">
+       Convertible
+          </a>
+        </li>
+        <li
+          class="dropdown tt "
+          onclick="clickcatvec(this)"
+          id="Taxi-tab"
+        >
+          <a role="button" divattr="#Taxi">
+          Taxi
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content pt-3" id="myTabContent">
+      <!-- Two Wheelers Tab Content -->
+      <div
+        class="tab-pane fade show active"
+        id="two-wheeler"
+        role="tabpanel"
+        aria-labelledby="two-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bike.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Three Wheelers Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="three-wheeler"
+        role="tabpanel"
+        aria-labelledby="three-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Four Wheelers Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="four-wheeler"
+        role="tabpanel"
+        aria-labelledby="four-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- CV -->
+      <div
+        class="tab-pane fade"
+        id="CV"
+        role="tabpanel"
+        aria-labelledby="CV-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- CE -->
+      <div
+        class="tab-pane fade"
+        id="CE"
+        role="tabpanel"
+        aria-labelledby="CE-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Bus Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="new_Bus"
+        role="tabpanel"
+        aria-labelledby="bus-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Tractor Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="new_Tractor"
+        role="tabpanel"
+        aria-labelledby="tractor-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- E-Category -->
+      <div
+        class="tab-pane fade"
+        id="C-category"
+        role="tabpanel"
+        aria-labelledby="C-category-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Hybrid -->
+      <div
+        class="tab-pane fade"
+        id="new_Hybrid"
+        role="tabpanel"
+        aria-labelledby="Hybrid-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Convertible -->
+      <div
+        class="tab-pane fade"
+        id="new_Convertible"
+        role="tabpanel"
+        aria-labelledby="Convertible-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Taxi -->
+      <div
+        class="tab-pane fade"
+        id="Taxi"
+        role="tabpanel"
+        aria-labelledby="Taxi-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/e-ricsha.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">E-riksha Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-container">
+    <div>
+      <ul class="tabs-menu tabed-menu-New catetabs-menu">
+        <li class="current" onclick="clickcatvec(this)">
+          <a
+            id="two-wheeler-tab"
+            data-toggle="tab"
+            role="button"
+            divattr="#two-wheeler"
+          >
+          $ 1-5 Lakhs
+          </a>
+        </li>
+        <li class="">
+          <a
+            id="three-wheeler-tab"
+            data-toggle="tab"
+            role="button"
+            divattr="#three-wheeler"
+          >
+         $ 5-10 Lakhs
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" id="four-wheeler-tab" divattr="#four-wheeler">
+          $ 10-15 Lakhs
+          </a>
+        </li>
+        <li
+          class="dropdown tt "
+          onclick="clickcatvec(this)"
+          id="CV-tab"
+        >
+          <a role="button" divattr="#CV">
+            $ 15-20 Lakhs
+          </a>
+        </li>
+        <li
+          class="tt "
+          onclick="clickcatvec(this)"
+          id="CE-tab"
+        >
+          <a role="button" divattr="#CE">
+            $ 20-50 Lakhs
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Tractor">
+           $ 50-1 Crores
+          </a>
+        </li>
+        <li class="tt " onclick="clickcatvec(this)">
+          <a role="button" divattr="#new_Bus">
+      $ 1 Crore - Above
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content pt-3" id="myTabContent">
+      <!-- Two Wheelers Tab Content -->
+      <div
+        class="tab-pane fade show active"
+        id="two-wheeler"
+        role="tabpanel"
+        aria-labelledby="two-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car3.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bike Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Three Wheelers Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="three-wheeler"
+        role="tabpanel"
+        aria-labelledby="three-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/auto.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Auto Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Four Wheelers Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="four-wheeler"
+        role="tabpanel"
+        aria-labelledby="four-wheeler-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/car.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Four Wheeler Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- CV -->
+      <div
+        class="tab-pane fade"
+        id="CV"
+        role="tabpanel"
+        aria-labelledby="CV-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/cv-img.jpg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CV Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- CE -->
+      <div
+        class="tab-pane fade"
+        id="CE"
+        role="tabpanel"
+        aria-labelledby="CE-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/CE.jpeg" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">CE Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Bus Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="new_Bus"
+        role="tabpanel"
+        aria-labelledby="bus-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/bus.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">Bus Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+      <!-- Tractor Tab Content -->
+      <div
+        class="tab-pane fade"
+        id="new_Tractor"
+        role="tabpanel"
+        aria-labelledby="tractor-tab"
+      >
+      <div class="swiper2">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+    
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="./image/tractor.png" alt="Bike Image" class="bike-image" />
+              <div class="card-content">
+                <h2 class="bike-model text-center m-0">tractor Model</h2>
+                <p class="price text-center m-0">$15,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="car-logos">
+    <div class="logo-container">
+      <div class="logo-box">
+        <img src="./image/mercedes.jpg" alt="Car Logo">
+        <p>Mercedes</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/audi.jpg" alt="Car Logo">
+        <p>Audi</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/bmw.jpg" alt="Car Logo">
+        <p>BMW</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/force.jpg" alt="Car Logo">
+        <p>Force</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/hyundai.jpg" alt="Car Logo">
+        <p>Hyundai</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/lamborgini.jpg" alt="Car Logo">
+        <p>Lamborgini</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/mahindra.jpg" alt="Car Logo">
+        <p>Mahindra</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/maruti.jpg" alt="Car Logo">
+        <p>Maruti</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/mitsubishi.jpg" alt="Car Logo">
+        <p>Mitsubishi</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/nissan.jpg" alt="Car Logo">
+        <p>Nissan</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/ferrari.jpg" alt="Car Logo">
+        <p>Ferrari</p>
+      </div>
+      <div class="logo-box">
+        <img src="./image/renault.jpg" alt="Car Logo">
+        <p>Renault</p>
+      </div>
+    </div>
+   <button onclick="location.href=`four-wheeler-brand.html`" class="view-all">View All</button>
+  </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    const swiper1 = new Swiper('.swiper-container', {
+      loop: true,
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      effect: 'slide',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1.5,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 2.5,
+        },
+      },
+    });
+  </script>
+  <script>
+    const swiper2 = new Swiper(".swiper2", {
+      // Optional parameters
+      direction: "horizontal",
+      loop: false,
+      slidesPerView:'auto',
+      autoplay: {
+        delay: 1500,
+      },
+
+      // Remove pagination dots
+      pagination: false,
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+        spaceBetween:10
+        },
+      },
+    });
+    // Show both arrows after clicking next
+  </script>
+  <script>
+    $(document).ready(function () {
+      // Activate the first tab on page load
+      $("#four-wheeler-tab").tab("show");
+      // Handle tab click event
+      $(".tabs-menu a").on("click", function (e) {
+        e.preventDefault();
+        var target = $(this).attr("divattr");
+        $(".tab-pane").removeClass("show active");
+        $(target).addClass("show active");
+        // Scroll the clicked tab into view
+        $(this).get(0).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      });
+      // Handle tab click event for the tab container
+      $(".tab").on("click", function () {
+        var target = $(this).attr("divattr");
+        $(".tab-pane").removeClass("show active");
+        $(target).addClass("show active");
+        // Scroll the clicked tab into view
+        $(this).get(0).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      });
+    });
+    function toggleNavbar() {
+      $(".tt").toggleClass("active");
+    }
+  </script>
+</body>
+</html>
