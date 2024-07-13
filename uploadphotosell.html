@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Vehicle Image</title>
-   <style>
+    <title>Upload Vehicle Image</title>
+ <style>
     body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -40,6 +40,7 @@ h1 {
     color: #000080;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
+    margin: 10px;
 }
 
 .custom-file-upload:hover {
@@ -47,7 +48,7 @@ h1 {
     color: white;
 }
 
-#file-upload {
+#gallery-upload, #camera-upload {
     display: none;
 }
 
@@ -56,11 +57,12 @@ h1 {
 }
 
 #preview-img {
-    max-width: 100%;
-    height: auto;
+    width: 350px;
+    height: 350px;
     border: 2px solid #000080;
     border-radius: 10px;
     display: none;
+    object-fit: cover;
 }
 
 .submit-btn {
@@ -78,26 +80,33 @@ h1 {
     background-color: #000060;
 }
 
-   </style>
+ </style>
 </head>
 <body>
     <div class="container">
-        <h1>Post Your Vehicle Image</h1>
+        <h1>Upload Your Vehicle Image</h1>
         <form>
             <div class="upload-section">
-                <label for="file-upload" class="custom-file-upload">
-                    <input id="file-upload" type="file" accept="image/*" capture="camera">
-                    <span>Click to Upload or Capture Photo</span>
+                <label for="gallery-upload" class="custom-file-upload">
+                    <input id="gallery-upload" type="file" accept="image/*">
+                    <span>Upload from Gallery</span>
+                </label>
+                <label for="camera-upload" class="custom-file-upload">
+                    <input id="camera-upload" type="file" accept="image/*" capture="camera">
+                    <span>Capture with Camera</span>
                 </label>
             </div>
             <div class="preview">
                 <img id="preview-img" src="#" alt="Your Image" />
             </div>
-            <button type="submit" class="submit-btn">Post Image</button>
+            <button type="submit" class="submit-btn">Upload Image</button>
         </form>
     </div>
-   <script>
-    document.getElementById('file-upload').addEventListener('change', function(event) {
+<script>
+document.getElementById('gallery-upload').addEventListener('change', handleFileSelect);
+document.getElementById('camera-upload').addEventListener('change', handleFileSelect);
+
+function handleFileSelect(event) {
     const preview = document.getElementById('preview-img');
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -110,8 +119,8 @@ h1 {
     if (file) {
         reader.readAsDataURL(file);
     }
-});
+}
 
-   </script>
+</script>
 </body>
 </html>
