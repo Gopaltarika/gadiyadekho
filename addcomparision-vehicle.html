@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .swiper-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 10px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+        .swiper-container2 {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 20px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+        .swiper-slide1 {
+            background-repeat: no-repeat;
+            border-radius: 15px;
+            width: 100%;
+            background-size: 100% 100%;
+            padding: 15px;
+        }
+        .swiper-slide2 {
+            background-repeat: no-repeat;
+            height: 200px;
+            border-radius: 15px;
+            background-size: 100% 100%;
+            width: 100%;
+        }
+        .swiper-slide1 h2 {
+            font-size: 25px;
+            color: #fff;
+            margin: 0;
+        }
+        .swiper-slide1 p {
+            font-size: 20px;
+            color: #000;
+            margin: 0;
+        }
+        .swiper-pagination {
+            bottom: 8px !important;
+        }
+        .swiper-pagination-bullet {
+            background: #007bff;
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+            background: #ff4081;
+        }
+        .comparison-card {
+            max-width: 320px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .comparison-card .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            justify-content: space-around;
+        }
+        .comparison-card .circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            border: dashed #007bff;
+        }
+        .comparison-card .line {
+            height: 200px;
+            background-color: #ddd;
+            margin: 0 10px;
+            width: 2px;
+        }
+        .comparison-card .details {
+            flex-grow: 1;
+        }
+        .comparison-card .details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .comparison-card .spec-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+        /* vs */
+        .d-flex{
+            display: flex;
+            justify-content: space-around;
+        }
+        .mx-3{
+            margin-right: 12px;
+            margin-left: 12px;
+        }
+        .card{
+	border-radius: 10px;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.11);
+	background: #fff;
+}
+.col-12 img{
+    width: 100%;
+    border-radius: 8px;
+}
+.card1 {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 100%;
+        border: 2px solid rgb(57, 56, 56);
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .container {
+        max-width: 400px;
+        padding-left: 12px;
+        padding-right: 12px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .card-content1 {
+        padding: 10px;
+        font-weight: 600;
+      }
+
+      .card-title {
+        font-size: 24px;
+        color: #333;
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+
+      .card-price {
+        font-size: 1.2em;
+        color: #007bff;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+
+      .card-text {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 500;
+      }
+
+      .card-button {
+        background-color: #007bff;
+        width: 100%;
+        color: white;
+        border: none;
+        padding: 10px 10px;
+        /* text-transform: uppercase; */
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+      }
+
+      .card-button:hover {
+        background-color: red;
+      }
+      .pt-10 {
+        padding-top: 10px;
+      }
+      .text-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card{
+	border-radius: 10px;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.11);
+	background: #fff;
+}
+.card-content{
+	padding: 10px;
+}
+.card-title{font-size: 15px;font-weight: 700; margin-bottom: 8px;}
+.card-small{width: 200px;flex: 0 0 200px;}
+.card-thumb{position: relative;max-height: 140px;}
+.card-thumb a {
+	overflow: hidden;
+	display: block;
+	max-height: 140px;
+}
+.card-thumb img{width: 100%;border-radius: 10px}
+.card p {
+	color: #969696;
+	font-size: 12px;
+	margin-bottom: 0;
+	align-items: center;
+	display: flex;
+	gap: 4px;
+}
+.compare .card-thumb img{border-radius: 0px}
+.vs{width: 40px;height: 40px;background: #111;border-radius: 50px;display: flex; justify-content: center; align-items: center;color: #fff;position: absolute;right: -20px;top: 50%;transform: translateY(-50%);z-index: 3}
+.compare-card {
+	width: 100%;
+	min-width: 300px;
+}
+.compare-card .compare:first-child .card-thumb img{border-top-left-radius: 10px}
+.compare-card .compare:last-child .card-thumb img{border-top-right-radius: 10px}
+.symbol {
+	width: 22px;
+}
+.rating {
+	width: 68px;
+}
+.image-container {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+        }
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 22px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container2">
+            <div class=" swiper-slide2" style="background-image: url('./image/campare-banner-img1.jpg');"></div>
+    </div>
+    <div class="mx-3 pb-15">
+        <h3 class="mt-15 title bdr-left">Compare to buy the right Vehicle</h3>
+    </div>
+    <div class="comparison-card">
+    <div class="row">
+        <img src="./image/car3.jpg" style="width: 50%;" alt="">
+            <div class="line"></div>
+            <div class="circle">+</div>
+        </div>
+        <button class="spec-button">Compare your self</button>
+    </div>
+    <h3 class="mt-15 title bdr-left">Similar Vehicle for compare</h3>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide1" >
+                <div class="col-12 pt-10">
+                    <div class="card1">
+                      <img src="./image/car2.jpg" alt="Product Image" />
+                      <div class="card-content1">
+                        <div class="card-title">Marhindra Thar</div>
+                        <div class="card-price  text-flex ">
+                          <p style="margin-bottom: 0; margin-top: 5px !important">
+                            ₹199.99
+                          </p>
+                          <p
+                            style="
+                              font-size: 16px;
+                              font-weight: 600;
+                              text-decoration: underline;
+                              margin-bottom: 0;
+                              color: black;
+                              margin-top: 0;
+                            " onclick="location.href=`Changevariant.html`"
+                          >
+                           Change Variant
+                          </p>
+                        </div>
+                        <p
+                          style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                          "
+                        >
+                          Milage 17-19 / Deisel
+                        </p>
+                        <div class="card-text">
+                          <p style="font-size: 16px; font-weight: 600; margin-bottom: 0">
+                            702cc / Automatic
+                          </p>
+                        </div>
+                        <button class="card-button">Add to compare vehicle</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="swiper-slide swiper-slide1" >
+                <div class="col-12 pt-10">
+                    <div class="card1">
+                      <img src="./image/car2.jpg" alt="Product Image" />
+                      <div class="card-content1">
+                        <div class="card-title">Marhindra Thar</div>
+                        <div class="card-price  text-flex ">
+                          <p style="margin-bottom: 0; margin-top: 5px !important">
+                            ₹199.99
+                          </p>
+                          <p
+                            style="
+                              font-size: 16px;
+                              font-weight: 600;
+                              text-decoration: underline;
+                              margin-bottom: 0;
+                              color: black;
+                              margin-top: 0;
+                            " onclick="location.href=`Changevariant.html`"
+                          >
+                           Change Variant
+                          </p>
+                        </div>
+                        <p
+                          style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                          "
+                        >
+                          Milage 17-19 / Deisel
+                        </p>
+                        <div class="card-text">
+                          <p style="font-size: 16px; font-weight: 600; margin-bottom: 0">
+                            702cc / Automatic
+                          </p>
+                        </div>
+                        <button class="card-button">Add to compare vehicle</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="swiper-slide swiper-slide1" >
+                <div class="col-12 pt-10">
+                    <div class="card1">
+                      <img src="./image/car2.jpg" alt="Product Image" />
+                      <div class="card-content1">
+                        <div class="card-title">Marhindra Thar</div>
+                        <div class="card-price  text-flex ">
+                          <p style="margin-bottom: 0; margin-top: 5px !important">
+                            ₹199.99
+                          </p>
+                          <p
+                            style="
+                              font-size: 16px;
+                              font-weight: 600;
+                              text-decoration: underline;
+                              margin-bottom: 0;
+                              color: black;
+                              margin-top: 0;
+                            " onclick="location.href=`Changevariant.html`"
+                          >
+                           Change Variant
+                          </p>
+                        </div>
+                        <p
+                          style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                          "
+                        >
+                          Milage 17-19 / Deisel
+                        </p>
+                        <div class="card-text">
+                          <p style="font-size: 16px; font-weight: 600; margin-bottom: 0">
+                            702cc / Automatic
+                          </p>
+                        </div>
+                        <button class="card-button">Add to compare vehicle</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="swiper-slide swiper-slide1" >
+                <div class="col-12 pt-10">
+                    <div class="card1">
+                      <img src="./image/car2.jpg" alt="Product Image" />
+                      <div class="card-content1">
+                        <div class="card-title">Marhindra Thar</div>
+                        <div class="card-price  text-flex ">
+                          <p style="margin-bottom: 0; margin-top: 5px !important">
+                            ₹199.99
+                          </p>
+                          <p
+                            style="
+                              font-size: 16px;
+                              font-weight: 600;
+                              text-decoration: underline;
+                              margin-bottom: 0;
+                              color: black;
+                              margin-top: 0;
+                            " onclick="location.href=`Changevariant.html`"
+                          >
+                           Change Variant
+                          </p>
+                        </div>
+                        <p
+                          style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                          "
+                        >
+                          Milage 17-19 / Deisel
+                        </p>
+                        <div class="card-text">
+                          <p style="font-size: 16px; font-weight: 600; margin-bottom: 0">
+                            702cc / Automatic
+                          </p>
+                        </div>
+                        <button class="card-button">Add to compare vehicle</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="swiper-slide swiper-slide1" >
+                <div class="col-12 pt-10">
+                    <div class="card1">
+                      <img src="./image/car2.jpg" alt="Product Image" />
+                      <div class="card-content1">
+                        <div class="card-title">Marhindra Thar</div>
+                        <div class="card-price  text-flex ">
+                          <p style="margin-bottom: 0; margin-top: 5px !important">
+                            ₹199.99
+                          </p>
+                          <p
+                            style="
+                              font-size: 16px;
+                              font-weight: 600;
+                              text-decoration: underline;
+                              margin-bottom: 0;
+                              color: black;
+                              margin-top: 0;
+                            " onclick="location.href=`Changevariant.html`"
+                          >
+                           Change Variant
+                          </p>
+                        </div>
+                        <p
+                          style="
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                          "
+                        >
+                          Milage 17-19 / Deisel
+                        </p>
+                        <div class="card-text">
+                          <p style="font-size: 16px; font-weight: 600; margin-bottom: 0">
+                            702cc / Automatic
+                          </p>
+                        </div>
+                        <button class="card-button">Add to compare vehicle</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+        <hr style="height: 2px; width: 100%; background: #000;">
+        <h3 style="text-align: center; text-wrap: nowrap;">Most Popular Comparision</h3>
+        <hr style="height: 2px; width: 100%; background: #000;">
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide1 card d-flex compare-card">
+                <div class="compare">
+                  <div class="card-thumb">
+                    <span class="vs">VS</span>
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>  
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare">
+                  <div class="card-thumb">
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="swiper-slide swiper-slide1 card d-flex compare-card">
+                <div class="compare">
+                  <div class="card-thumb">
+                    <span class="vs">VS</span>
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare">
+                  <div class="card-thumb">
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="swiper-slide swiper-slide1 card d-flex compare-card">
+                <div class="compare">
+                  <div class="card-thumb">
+                    <span class="vs">VS</span>
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare">
+                  <div class="card-thumb">
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="swiper-slide swiper-slide1 card d-flex compare-card">
+                <div class="compare">
+                  <div class="card-thumb">
+                    <span class="vs">VS</span>
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare">
+                  <div class="card-thumb">
+                    <a href="#"><img src="image/car4.jpg" alt="mahindra"></a>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-title">Mahindra XUV 500</div>
+                    <div class="d-flex justify-content-between gap-10 align-items-center">
+                      <div class="price d-flex">₹<span class="price">8.50 Lakh</span></div>
+                     
+                    </div>
+                    <p>Onward Estimated Price</p>
+    
+                    <div class="d-flex gap-10 mb-15 justify-content-between">
+                      <p> Petrol</p>
+                      <p>₹ 80k</p>
+                      <p><span><img src="image/calendar.svg" alt="fuel"></span> 2018</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="swiper-container">
+        <img src="./image/e-riksha-comparesion-img.jpg" alt="" style="width: 100%;">
+    </div>
+    <div class="swiper-container">
+        <img src="./image/e-scooty-compare-img.jpg" alt="" style="width: 100%;">
+    </div>
+    <div class="swiper-container">
+        <img src="./image/bus-compare-img1.jpg" alt="" style="width: 100%;">
+    </div>
+    <div class="swiper-container">
+        <img src="./image/cv-campare-img1.jpg" alt="" style="width: 100%;">
+    </div>
+    <div class="swiper-container">
+        <img src="./image/two-wheeler-compare-img.jpg" alt="" style="width: 100%;">
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper1 = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 10,
+            effect: 'slide',
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1.5,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 2.5,
+                },
+            },
+        });
+    </script>
+</body>
+</html>
