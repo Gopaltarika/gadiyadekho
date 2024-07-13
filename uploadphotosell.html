@@ -4,123 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Vehicle Image</title>
- <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
 
-h1 {
-    color: #000080;
-}
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-.upload-section {
-    margin: 20px 0;
-}
+        .image-box {
+            width: 300px;
+            height: 320px;
+            border: 2px dashed #ccc;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
 
-.custom-file-upload {
-    border: 2px solid #000080;
-    border-radius: 30px;
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: #000080;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    margin: 10px;
-}
+        .plus-icon {
+            font-size: 48px;
+            color: #ccc;
+        }
 
-.custom-file-upload:hover {
-    background-color: #000080;
-    color: white;
-}
+        .add-image-text {
+            position: absolute;
+            bottom: 10px;
+            font-size: 18px;
+            color: #ccc;
+        }
 
-#gallery-upload, #camera-upload {
-    display: none;
-}
+        .hidden {
+            display: none;
+        }
 
-.preview {
-    margin: 20px 0;
-}
+        #upload-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-#preview-img {
-    width: 350px;
-    height: 350px;
-    border: 2px solid #000080;
-    border-radius: 10px;
-    display: none;
-    object-fit: cover;
-}
+        .swiper-container {
+            width: 100%;
+            height: 180px;
+            margin-top: 20px;
+            overflow: hidden;
+            padding: 10px;
+        }
 
-.submit-btn {
-    background-color: #000080;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
+        .swiper-slide {
+            position: relative;
+        }
 
-.submit-btn:hover {
-    background-color: #000060;
-}
+        .swiper-slide img {
+            width: 95%;
+            height: 180px;
+            border-radius: 4px;
+        }
 
- </style>
+        .delete-icon {
+            position: absolute;
+            top: 5px;
+            right: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            border-radius: 8px;
+        }
+
+        .popup button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Upload Your Vehicle Image</h1>
-        <form>
-            <div class="upload-section">
-                <label for="gallery-upload" class="custom-file-upload">
-                    <input id="gallery-upload" type="file" accept="image/*">
-                    <span>Upload from Gallery</span>
-                </label>
-                <label for="camera-upload" class="custom-file-upload">
-                    <input id="camera-upload" type="file" accept="image/*" capture="camera">
-                    <span>Capture with Camera</span>
-                </label>
+        <div class="card">
+            <h2>Upload Your Vehicle Image</h2>
+            <div class="image-box" id="image-box">
+                <div class="plus-icon">+</div>
+                <div class="add-image-text">Add Image</div>
             </div>
-            <div class="preview">
-                <img id="preview-img" src="#" alt="Your Image" />
-            </div>
-            <button type="submit" class="submit-btn">Upload Image</button>
-        </form>
+            <button id="upload-button" class="hidden">Upload Image</button>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="image-slider"></div>
+        </div>
     </div>
-<script>
-document.getElementById('gallery-upload').addEventListener('change', handleFileSelect);
-document.getElementById('camera-upload').addEventListener('change', handleFileSelect);
 
-function handleFileSelect(event) {
-    const preview = document.getElementById('preview-img');
-    const file = event.target.files[0];
-    const reader = new FileReader();
+    <div class="popup hidden" id="popup">
+        <button id="capture-button">Capture Image from Camera</button>
+        <button id="gallery-button">Upload Image from Gallery</button>
+    </div>
 
-    reader.onload = function(e) {
-        preview.src = e.target.result;
-        preview.style.display = 'block';
-    };
+    <input type="file" id="file-input" accept="image/*" capture="camera" class="hidden">
+    <input type="file" id="gallery-input" accept="image/*" multiple class="hidden">
 
-    if (file) {
-        reader.readAsDataURL(file);
-    }
-}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.getElementById('image-box').addEventListener('click', () => {
+            document.getElementById('popup').classList.remove('hidden');
+        });
 
-</script>
+        document.getElementById('capture-button').addEventListener('click', () => {
+            document.getElementById('file-input').click();
+            document.getElementById('popup').classList.add('hidden');
+        });
+
+        document.getElementById('gallery-button').addEventListener('click', () => {
+            document.getElementById('gallery-input').click();
+            document.getElementById('popup').classList.add('hidden');
+        });
+
+        document.getElementById('file-input').addEventListener('change', (event) => {
+            handleFiles(event.target.files);
+        });
+
+        document.getElementById('gallery-input').addEventListener('change', (event) => {
+            handleFiles(event.target.files);
+        });
+
+        function handleFiles(files) {
+            const imageSlider = document.getElementById('image-slider');
+            const uploadButton = document.getElementById('upload-button');
+            uploadButton.classList.remove('hidden');
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const slide = document.createElement('div');
+                    slide.classList.add('swiper-slide');
+
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'X';
+                    deleteButton.classList.add('delete-icon');
+                    deleteButton.addEventListener('click', () => {
+                        slide.remove();
+                    });
+
+                    slide.appendChild(img);
+                    slide.appendChild(deleteButton);
+                    imageSlider.appendChild(slide);
+
+                    swiper.update();  // Update swiper after adding new slides
+                }
+                reader.readAsDataURL(file);
+            });
+        }
+
+        document.getElementById('upload-button').addEventListener('click', () => {
+            alert('Images uploaded successfully!');
+            // You can add your image upload logic here
+        });
+
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 10,
+        });
+    </script>
 </body>
 </html>
