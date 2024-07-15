@@ -66,8 +66,10 @@
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-            height: 230px;
-            overflow: scroll;
+            height: 180px;
+            overflow-x: scroll;
+            display: flex;
+            justify-content: center;
         }
 
         .dropzone:hover {
@@ -83,7 +85,9 @@
             align-items: center;
             margin: 0px !important;
         }
-
+        .dropzone .dz-preview {
+          min-height: 70px !important;
+        }
         .dz-message .icon {
             font-size: 50px;
             margin-bottom: 15px;
