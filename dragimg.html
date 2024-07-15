@@ -11,16 +11,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             margin: 0;
+            height: 100vh;
             background-color: #f0f2f5;
         }
 
         .dropzone {
             border: 3px dashed #007bff;
             background: #ffffff;
-            padding: 40px;
-            width: 90%;
+            padding: 10px;
+            width: 100%;
             max-width: 600px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -49,19 +49,36 @@
             font-size: 16px;
             color: #555555;
         }
+        .align{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
     </style>
 </head>
 <body>
-    <form action="/file-upload" class="dropzone" id="myGreatDropzone">
-        <div class="dz-message">
-            <div class="icon">📁</div>
-            Drag & drop your files here or click to upload
-            <span>(Max file size: 2MB)</span>
-        </div>
-        <div class="fallback">
-            <input name="file" type="file" multiple />
-        </div>
-    </form>
+    <div class="align">
+        <form action="/file-upload" class="dropzone" id="myGreatDropzone">
+            <div class="dz-message">
+                <div class="icon">📁</div>
+                Upload Enterior Images
+                <span>(Max file size: 2MB)</span>
+            </div>
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+        <form action="/file-upload" class="dropzone" id="myGreatDropzone">
+            <div class="dz-message">
+                <div class="icon">📁</div>
+             upload Exterior Images
+                <span>(Max file size: 2MB)</span>
+            </div>
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+    </div>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script>
            Dropzone.options.myGreatDropzone = {
