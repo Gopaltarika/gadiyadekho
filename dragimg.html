@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Files</title>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+
+        .dropzone {
+            border: 3px dashed #007bff;
+            background: #ffffff;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .dropzone:hover {
+            background-color: #e9f7ff;
+            border-color: #0056b3;
+        }
+
+        .dz-message {
+            font-size: 20px;
+            color: #007bff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dz-message .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .dz-message span {
+            font-size: 16px;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <form action="/file-upload" class="dropzone" id="myGreatDropzone">
+        <div class="dz-message">
+            <div class="icon">📁</div>
+            Drag & drop your files here or click to upload
+            <span>(Max file size: 2MB)</span>
+        </div>
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+        </div>
+    </form>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script>
+           Dropzone.options.myGreatDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            accept: function(file, done) {
+                if (file.name === "justinbieber.jpg") {
+                    done("Naha, you don't.");
+                } else { 
+                    done(); 
+                }
+            }
+        };
+    </script>
+</body>
+</html>
