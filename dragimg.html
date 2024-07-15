@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Files</title>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,19 +13,61 @@
             justify-content: center;
             align-items: center;
             margin: 0;
-            height: 100vh;
+            flex-direction: column;
             background-color: #f0f2f5;
         }
-
+        .swiper-container {
+      width: 100%;
+      max-width: 330px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+    }
+    .swiper-slide1 {
+      background-repeat: no-repeat;
+      height: 150px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-size: cover;
+      padding: 15px;
+    }
+    .swiper-slide1 h2 {
+      font-size: 25px;
+      color: #fff;
+      margin: 0;
+    }
+    .swiper-slide1 p {
+      font-size: 20px;
+      color: #fff;
+      margin: 0;
+    }
+    .swiper-pagination {
+      bottom: 30px !important;
+    }
+    .swiper-pagination-bullet {
+      background: #007bff;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      background: #ff4081;
+    }
         .dropzone {
             border: 3px dashed #007bff;
             background: #ffffff;
             padding: 10px;
-            width: 100%;
+            width: 95%;
             max-width: 600px;
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            height: 230px;
+            overflow: scroll;
         }
 
         .dropzone:hover {
@@ -38,6 +81,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 0px !important;
         }
 
         .dz-message .icon {
@@ -53,10 +97,30 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            padding: 15px;
+            width: 93%;
+            align-items: center;
         }
     </style>
 </head>
 <body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/interior-img.jpg');">
+            <h2>interior</h2>
+          </div>
+          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/interior-img2.jpg');">
+            <h2>interior</h2>
+          </div>
+          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/car3.jpg');">
+            <h2>Exterior</h2>
+          </div>
+          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/car4.jpg');">
+            <h2>Exterior</h2>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     <div class="align">
         <form action="/file-upload" class="dropzone" id="myGreatDropzone">
             <div class="dz-message">
@@ -80,6 +144,37 @@
         </form>
     </div>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script>
+      const swiper1 = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+        },
+        effect: 'slide',
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1.5,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 2.5,
+          },
+        },
+      });
+    </script>
     <script>
            Dropzone.options.myGreatDropzone = {
             paramName: "file", // The name that will be used to transfer the file
