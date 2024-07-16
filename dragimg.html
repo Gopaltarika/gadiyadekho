@@ -66,7 +66,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
-            margin-top: 20px; /* Added margin for better spacing */
+            margin-top: 20px;
         }
         .gallery img {
             width: calc(33.33% - 10px);
@@ -118,6 +118,8 @@
     <!-- Gallery images will be added here -->
 </div>
 
+<input type="file" id="cameraInput" accept="image/*" capture="camera" style="display:none" onchange="handleCameraInput(event)">
+
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     const swiper = new Swiper('.swiper-container', {
@@ -136,44 +138,7 @@
     const gallery = document.getElementById('gallery');
 
     function takePhoto() {
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                const video = document.createElement('video');
-                video.srcObject = stream;
-                video.play();
-
-                const captureButton = document.createElement('button');
-                captureButton.textContent = 'Capture';
-                captureButton.style.position = 'fixed';
-                captureButton.style.bottom = '10px';
-                captureButton.style.left = '50%';
-                captureButton.style.transform = 'translateX(-50%)';
-                captureButton.style.padding = '10px';
-                captureButton.style.backgroundColor = '#000080';
-                captureButton.style.color = 'white';
-                captureButton.style.border = 'none';
-                captureButton.style.borderRadius = '5px';
-                captureButton.style.cursor = 'pointer';
-                captureButton.onclick = () => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-                    const img = canvas.toDataURL('image/png');
-                    addImageToSwiper(img);
-                    addImageToGallery(img, ++imageCount);
-
-                    stream.getTracks().forEach(track => track.stop());
-                    document.body.removeChild(video);
-                    document.body.removeChild(captureButton);
-                };
-
-                document.body.appendChild(video);
-                document.body.appendChild(captureButton);
-            })
-            .catch(err => console.error('Error accessing camera:', err));
+        document.getElementById('cameraInput').click();
     }
 
     function uploadImages() {
@@ -186,10 +151,19 @@
             for (let i = 0; i < files.length; i++) {
                 const src = URL.createObjectURL(files[i]);
                 addImageToSwiper(src);
-                addImageToGallery(src, i + 1);
+                addImageToGallery(src, ++imageCount);
             }
         };
         input.click();
+    }
+
+    function handleCameraInput(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const src = URL.createObjectURL(file);
+            addImageToSwiper(src);
+            addImageToGallery(src, ++imageCount);
+        }
     }
 
     function addImageToSwiper(src) {
