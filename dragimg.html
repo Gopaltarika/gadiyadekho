@@ -95,6 +95,22 @@
         .gallery img.selected::after {
             display: block;
         }
+        .upload-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+        .upload-text span {
+            font-size: 48px;
+        }
+        .upload-text p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #000080;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +118,10 @@
 <div class="card">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <!-- Swiper slides will be added here -->
+            <div class="swiper-slide upload-text">
+                <span>📁</span>
+                <p>Upload Images</p>
+            </div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
@@ -155,6 +174,7 @@
                 addImageToSwiper(src);
                 addImageToGallery(src, ++imageCount);
             }
+            removeUploadText();
         };
         input.click();
     }
@@ -165,6 +185,7 @@
             const src = URL.createObjectURL(file);
             addImageToSwiper(src);
             addImageToGallery(src, ++imageCount);
+            removeUploadText();
         }
     }
 
@@ -195,6 +216,13 @@
         selectedImages.forEach((img, index) => {
             img.setAttribute('data-count', index + 1);
         });
+    }
+
+    function removeUploadText() {
+        const uploadText = document.querySelector('.swiper-slide.upload-text');
+        if (uploadText) {
+            uploadText.remove();
+        }
     }
 
     // Load initial gallery images
