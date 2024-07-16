@@ -18,10 +18,12 @@
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+            overflow: hidden;
         }
         .swiper-container {
             width: 100%;
             height: 200px;
+            position: relative;
         }
         .swiper-slide {
             display: flex;
@@ -29,9 +31,16 @@
             align-items: center;
         }
         .swiper-slide img {
-            width: 100%;
-            height: auto;
+            width: 310px;
+            height: 230px;
             border-radius: 10px;
+        }
+        .swiper-pagination {
+            bottom: -38px;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #000080;
         }
         .count {
             text-align: right;
@@ -57,6 +66,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
+            margin-top: 20px; /* Added margin for better spacing */
         }
         .gallery img {
             width: calc(33.33% - 10px);
@@ -93,6 +103,8 @@
             <!-- Swiper slides will be added here -->
         </div>
         <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
     <div class="count">Images: <span id="image-count">0</span></div>
 </div>
@@ -114,13 +126,54 @@
             el: '.swiper-pagination',
             type: 'fraction',
         },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
     });
 
     let imageCount = 0;
     const gallery = document.getElementById('gallery');
 
     function takePhoto() {
-        // Function to take photo using the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                const video = document.createElement('video');
+                video.srcObject = stream;
+                video.play();
+
+                const captureButton = document.createElement('button');
+                captureButton.textContent = 'Capture';
+                captureButton.style.position = 'fixed';
+                captureButton.style.bottom = '10px';
+                captureButton.style.left = '50%';
+                captureButton.style.transform = 'translateX(-50%)';
+                captureButton.style.padding = '10px';
+                captureButton.style.backgroundColor = '#000080';
+                captureButton.style.color = 'white';
+                captureButton.style.border = 'none';
+                captureButton.style.borderRadius = '5px';
+                captureButton.style.cursor = 'pointer';
+                captureButton.onclick = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    const img = canvas.toDataURL('image/png');
+                    addImageToSwiper(img);
+                    addImageToGallery(img, ++imageCount);
+
+                    stream.getTracks().forEach(track => track.stop());
+                    document.body.removeChild(video);
+                    document.body.removeChild(captureButton);
+                };
+
+                document.body.appendChild(video);
+                document.body.appendChild(captureButton);
+            })
+            .catch(err => console.error('Error accessing camera:', err));
     }
 
     function uploadImages() {
@@ -131,8 +184,9 @@
         input.onchange = (e) => {
             const files = e.target.files;
             for (let i = 0; i < files.length; i++) {
-                addImageToSwiper(URL.createObjectURL(files[i]));
-                addImageToGallery(URL.createObjectURL(files[i]), i + 1);
+                const src = URL.createObjectURL(files[i]);
+                addImageToSwiper(src);
+                addImageToGallery(src, i + 1);
             }
         };
         input.click();
@@ -166,6 +220,16 @@
             img.setAttribute('data-count', index + 1);
         });
     }
+
+    // Load initial gallery images
+    document.addEventListener('DOMContentLoaded', () => {
+            const initialImages = [
+            // Add more image paths here
+        ];
+        initialImages.forEach((src, index) => {
+            addImageToGallery(src, index + 1);
+        });
+    });
 </script>
 
 </body>
