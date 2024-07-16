@@ -3,194 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Files</title>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <title>Upload Images Page</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            flex-direction: column;
-            background-color: #f0f2f5;
+            padding: 10px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         .swiper-container {
-      width: 100%;
-      max-width: 330px;
-      margin: 0 auto;
-      padding: 20px;
-      overflow: hidden;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      position: relative;
-    }
-    .swiper-slide1 {
-      background-repeat: no-repeat;
-      height: 150px;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-size: cover;
-      padding: 15px;
-    }
-    .swiper-slide1 h2 {
-      font-size: 25px;
-      color: #fff;
-      margin: 0;
-    }
-    .swiper-slide1 p {
-      font-size: 20px;
-      color: #fff;
-      margin: 0;
-    }
-    .swiper-pagination {
-      bottom: 30px !important;
-    }
-    .swiper-pagination-bullet {
-      background: #007bff;
-      opacity: 1;
-    }
-    .swiper-pagination-bullet-active {
-      background: #ff4081;
-    }
-        .dropzone {
-            border: 3px dashed #007bff;
-            background: #ffffff;
-            padding: 10px;
-            width: 95%;
-            max-width: 600px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-            height: 180px;
-            overflow-x: scroll;
+            width: 100%;
+            height: 200px;
+        }
+        .swiper-slide {
             display: flex;
             justify-content: center;
-        }
-
-        .dropzone:hover {
-            background-color: #e9f7ff;
-            border-color: #0056b3;
-        }
-
-        .dz-message {
-            font-size: 20px;
-            color: #007bff;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            margin: 0px !important;
         }
-        .dropzone .dz-preview {
-          min-height: 70px !important;
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
-        .dz-message .icon {
-            font-size: 50px;
-            margin-bottom: 15px;
+        .count {
+            text-align: right;
+            margin-top: 10px;
+            font-size: 14px;
         }
-
-        .dz-message span {
-            font-size: 16px;
-            color: #555555;
-        }
-        .align{
+        .buttons {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 15px;
-            width: 93%;
-            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #000080;
+            color: white;
+            font-size: 14px;
+            width: 45%;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .gallery img {
+            width: calc(33.33% - 10px);
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            position: relative;
+        }
+        .gallery img.selected {
+            border: 3px solid #000080;
+        }
+        .gallery img::after {
+            content: attr(data-count);
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-size: 12px;
+            display: none;
+        }
+        .gallery img.selected::after {
+            display: block;
         }
     </style>
 </head>
 <body>
+
+<div class="card">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/interior-img.jpg');">
-            <h2>interior</h2>
-          </div>
-          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/interior-img2.jpg');">
-            <h2>interior</h2>
-          </div>
-          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/car3.jpg');">
-            <h2>Exterior</h2>
-          </div>
-          <div class="swiper-slide swiper-slide1" style="background-image: url('./image/car4.jpg');">
-            <h2>Exterior</h2>
-          </div>
+            <!-- Swiper slides will be added here -->
         </div>
         <div class="swiper-pagination"></div>
-      </div>
-    <div class="align">
-        <form action="/file-upload" class="dropzone" id="myGreatDropzone">
-            <div class="dz-message">
-                <div class="icon">📁</div>
-                Upload Enterior Images
-                <span>(Max file size: 2MB)</span>
-            </div>
-            <div class="fallback">
-                <input name="file" type="file" multiple />
-            </div>
-        </form>
-        <form action="/file-upload" class="dropzone" id="myGreatDropzone">
-            <div class="dz-message">
-                <div class="icon">📁</div>
-             upload Exterior Images
-                <span>(Max file size: 2MB)</span>
-            </div>
-            <div class="fallback">
-                <input name="file" type="file" multiple />
-            </div>
-        </form>
     </div>
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script>
-      const swiper1 = new Swiper('.swiper-container', {
+    <div class="count">Images: <span id="image-count">0</span></div>
+</div>
+
+<div class="buttons">
+    <button onclick="takePhoto()">Take Photo</button>
+    <button onclick="uploadImages()">Upload Images</button>
+</div>
+
+<div class="gallery" id="gallery">
+    <!-- Gallery images will be added here -->
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-container', {
         loop: true,
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 10,
-        autoplay: {
-          delay: 2000,
-          disableOnInteraction: false,
-        },
-        effect: 'slide',
         pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
+            el: '.swiper-pagination',
+            type: 'fraction',
         },
-        breakpoints: {
-          640: {
-            slidesPerView: 1.5,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 2.5,
-          },
-        },
-      });
-    </script>
-    <script>
-           Dropzone.options.myGreatDropzone = {
-            paramName: "file", // The name that will be used to transfer the file
-            maxFilesize: 2, // MB
-            accept: function(file, done) {
-                if (file.name === "justinbieber.jpg") {
-                    done("Naha, you don't.");
-                } else { 
-                    done(); 
-                }
+    });
+
+    let imageCount = 0;
+    const gallery = document.getElementById('gallery');
+
+    function takePhoto() {
+        // Function to take photo using the camera
+    }
+
+    function uploadImages() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.multiple = true;
+        input.onchange = (e) => {
+            const files = e.target.files;
+            for (let i = 0; i < files.length; i++) {
+                addImageToSwiper(URL.createObjectURL(files[i]));
+                addImageToGallery(URL.createObjectURL(files[i]), i + 1);
             }
         };
-    </script>
+        input.click();
+    }
+
+    function addImageToSwiper(src) {
+        const slide = document.createElement('div');
+        slide.classList.add('swiper-slide');
+        const img = document.createElement('img');
+        img.src = src;
+        slide.appendChild(img);
+        swiper.appendSlide(slide);
+        imageCount++;
+        document.getElementById('image-count').innerText = imageCount;
+    }
+
+    function addImageToGallery(src, count) {
+        const img = document.createElement('img');
+        img.src = src;
+        img.setAttribute('data-count', count);
+        img.onclick = () => {
+            img.classList.toggle('selected');
+            updateSelectedCount();
+        };
+        gallery.appendChild(img);
+    }
+
+    function updateSelectedCount() {
+        const selectedImages = document.querySelectorAll('.gallery img.selected');
+        selectedImages.forEach((img, index) => {
+            img.setAttribute('data-count', index + 1);
+        });
+    }
+</script>
+
 </body>
 </html>
