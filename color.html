@@ -14,6 +14,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
+
     <style>
       * {
         margin: 0;
@@ -46,7 +48,7 @@
         font-size: 22px;
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
         color: #666;
         text-align: center;
         margin: 5px 0 20px;
@@ -79,11 +81,28 @@
         color: white;
         font-size: 16px;
       }
+      .color-circle2 {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        margin: 0 5px;
+        position: relative;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        border: 2px solid transparent;
+      }
+      .color-circle2.tick::after {
+        content: "✔";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 16px;
+      }
       .vehicle-card {
         width: 100%;
-     
         border-radius: 10px;
- 
         text-align: center;
         overflow: auto;
       }
@@ -98,8 +117,6 @@
         background-color: white;
         border-radius: 12px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        height: 80vh;
-        overflow: scroll;
       }
       .card {
         border: 2px solid #333 !important;
@@ -126,7 +143,7 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         transition: transform 0.3s, box-shadow 0.3s;
-        width: 280px;
+        width: 100%;
         text-align: center;
         margin: 4px;
       }
@@ -163,19 +180,15 @@
       .swiper-button-next::after {
         font-size: 16px;
       }
-
       .swiper-button-prev {
         left: 10px;
       }
-
       .swiper-button-next {
         right: 10px;
       }
-
       .swiper-button-next {
         display: block;
       }
-
       .swiper-button-prev {
         display: none;
       }
@@ -217,14 +230,139 @@
         border: 2px solid #000;
       }
       .compare-card img {
-        width: 100px;
-        height: 75px;
+        width: 175px;
+        height: 120px;
       }
       .compare-card p {
         margin: 0;
         text-align: start;
         font-weight: 700;
         color: #000;
+      }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        /* padding: 15px; */
+        border: 1px solid #888;
+        width: 95%;
+        overflow: hidden;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 15px 0 0 15px;
+        display: inline;
+      }
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .swiper2 {
+        width: 100%;
+        max-width: 1140px;
+        height: auto;
+        padding: 5px 0;
+        position: relative;
+      }
+      .card-slide img {
+        width: 100%;
+        height: 180px;
+      }
+      .card-slide:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .view {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        color: white;
+        width: 25px;
+        height: 25px;
+        transition: background-color 0.3s;
+      }
+      .swiper-button-prev:hover,
+      .swiper-button-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      .swiper-button-prev::after,
+      .swiper-button-next::after {
+        font-size: 16px;
+      }
+      .swiper-button-prev {
+        left: 10px;
+      }
+      .swiper-button-next {
+        right: -35px;
+      }
+      .swiper-button-next {
+        display: block;
+      }
+      .swiper-button-prev {
+        display: none;
+      }
+      .vs-container img {
+        width: 40px;
+        height: 3px;
+      }
+      .vs-container h3 {
+        font-size: 25px;
+        font-weight: 700;
+        color: rgb(15, 15, 55);
+        margin: 0 10px;
+      }
+      @media (max-width: 640px) {
+        .swiper {
+          padding: 0;
+          max-width: 356px;
+        }
+        .card-content {
+          padding: 0px;
+        }
+        .bike-model {
+          font-size: 1em;
+        }
+        .model-year,
+        .price {
+          font-size: 0.9em;
+        }
+        .view {
+          padding-top: 40px;
+          padding-bottom: 40px;
+        }
+        .vs-container img {
+          width: 80px;
+          height: 5px;
+        }
+        .vs-container h3 {
+          font-size: 25px;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -288,36 +426,36 @@
           <h4 class="text-center py-2 m-0">Black</h4>
         </div>
         <div class="card" id="white">
-          <img src="./image/car4.jpg" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/car4.jpg" alt="White" />
+          <h4 class="text-center py-2 m-0">White</h4>
         </div>
         <div class="card" id="green">
           <img src="./image/car3.jpg" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <h4 class="text-center py-2 m-0">Green</h4>
         </div>
         <div class="card" id="red">
-          <img src="./image/red-color.jpeg" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/red-color.jpeg" alt="Red" />
+          <h4 class="text-center py-2 m-0">Red</h4>
         </div>
         <div class="card" id="orange">
-          <img src="./image/orange-car.avif" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/orange-car.png" alt="Orange" />
+          <h4 class="text-center py-2 m-0">Orange</h4>
         </div>
         <div class="card" id="blue">
-          <img src="./image/blue-color.jpeg" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/blue-color.jpeg" alt="Blue" />
+          <h4 class="text-center py-2 m-0">Blue</h4>
         </div>
         <div class="card" id="grey">
-          <img src="./image/grey-car.jpeg" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/grey-car.jpeg" alt="Grey" />
+          <h4 class="text-center py-2 m-0">Grey</h4>
         </div>
         <div class="card" id="yellow">
-          <img src="./image/yellow-car.webp" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/yellow-car.png" alt="Yellow" />
+          <h4 class="text-center py-2 m-0">Yellow</h4>
         </div>
         <div class="card" id="light-blue">
-          <img src="./image/light-blue-car.png" alt="black" />
-          <h4 class="text-center py-2 m-0">Black</h4>
+          <img src="./image/light-blue-car.png" alt="Light black" />
+          <h4 class="text-center py-2 m-0">Light blue</h4>
         </div>
       </div>
       <div
@@ -435,36 +573,36 @@
         <div class="swiper-button-next"></div>
       </div>
       <div
-      style="
-        display: flex;
-        align-items: center;
-        margin: 0;
-        justify-content: center;
-        gap: 2px;
-        margin-bottom: 30px;
-      "
-      class="pt-2"
-    >
-      <hr style="width: 100%; background: #000; height: 2px; margin: 0px" />
-      <h5
-        class="text-center m-0"
-        style="font-size: 22px; font-weight: 700; text-wrap: nowrap"
-      >
-        Color comparing Vehicle
-      </h5>
-      <hr
         style="
-          width: 100%;
-          background: #000 !important;
-          height: 2px;
-          margin: 0px;
+          display: flex;
+          align-items: center;
+          margin: 0;
+          justify-content: center;
+          gap: 2px;
+          margin-bottom: 30px;
         "
-      />
-    </div>
+        class="pt-2"
+      >
+        <hr style="width: 100%; background: #000; height: 2px; margin: 0px" />
+        <h5
+          class="text-center m-0"
+          style="font-size: 22px; font-weight: 700; text-wrap: nowrap"
+        >
+          Color comparing Vehicle
+        </h5>
+        <hr
+          style="
+            width: 100%;
+            background: #000 !important;
+            height: 2px;
+            margin: 0px;
+          "
+        />
+      </div>
       <div class="compare-card">
         <div>
           <div class="d-flex align-items-center justify-content-around mb-3">
-            <img src="./image/car-removebg-preview.png" alt="car" />
+            <img class="image" onclick="myBtn()" src="./image/car4.jpg" alt="car" />
             <div>
               <p>vehicle modal</p>
               <p>$ 0000-00*</p>
@@ -473,34 +611,49 @@
           </div>
           <div class="vehicle-card">
             <div class="color-selector">
-              <div class="color-circle" style="background-color: black"></div>
-              <div class="color-circle" style="background-color: white"></div>
               <div
                 class="color-circle"
+                data-color="car2.jpg"
+                style="background-color: black"
+              ></div>
+              <div
+                class="color-circle"
+                data-color="car.jpg"
+                style="background-color: white"
+              ></div>
+              <div
+                class="color-circle"
+                data-color="car3.jpg"
                 style="background-color: rgb(17, 58, 12)"
               ></div>
               <div
                 class="color-circle"
+                data-color="red-color.jpeg"
                 style="background-color: rgb(252, 26, 26)"
               ></div>
               <div
                 class="color-circle"
+                data-color="orange-car.png"
                 style="background-color: rgb(242, 112, 5)"
               ></div>
               <div
                 class="color-circle"
+                data-color="blue-color.jpeg"
                 style="background-color: rgb(14, 49, 222)"
               ></div>
               <div
                 class="color-circle"
+                data-color="grey-car.jpeg"
                 style="background-color: rgba(3, 3, 3, 0.463)"
               ></div>
               <div
                 class="color-circle"
+                data-color="yellow-car.png"
                 style="background-color: rgb(238, 218, 0)"
               ></div>
               <div
                 class="color-circle"
+                data-color="light-blue-car.png"
                 style="background-color: rgb(2, 255, 196)"
               ></div>
             </div>
@@ -534,7 +687,11 @@
         </div>
         <div>
           <div class="d-flex align-items-center justify-content-around mb-3">
-            <img src="./image/car-removebg-preview.png" alt="car" />
+            <img
+              class="image" onclick="myBtn()"
+              src="./image/red-color.jpeg"
+              alt="car"
+            />
             <div>
               <p>vehicle modal</p>
               <p>$ 0000-00*</p>
@@ -543,34 +700,49 @@
           </div>
           <div class="vehicle-card">
             <div class="color-selector">
-              <div class="color-circle" style="background-color: black"></div>
-              <div class="color-circle" style="background-color: white"></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="car2.jpg"
+                style="background-color: black"
+              ></div>
+              <div
+                class="color-circle2"
+                data-color="car.jpg"
+                style="background-color: white"
+              ></div>
+              <div
+                class="color-circle2"
+                data-color="car3.jpg"
                 style="background-color: rgb(17, 58, 12)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="red-color.jpeg"
                 style="background-color: rgb(252, 26, 26)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="orange-car.png"
                 style="background-color: rgb(242, 112, 5)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="blue-color.jpeg"
                 style="background-color: rgb(14, 49, 222)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="grey-car.jpeg"
                 style="background-color: rgba(3, 3, 3, 0.463)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="yellow-car.png"
                 style="background-color: rgb(238, 218, 0)"
               ></div>
               <div
-                class="color-circle"
+                class="color-circle2"
+                data-color="light-blue-car.png"
                 style="background-color: rgb(2, 255, 196)"
               ></div>
             </div>
@@ -578,6 +750,201 @@
         </div>
       </div>
     </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="swiper2" style="width: 300px;">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/car.jpg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/car2.jpg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/car3.jpg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/red-color.jpeg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/orange-car.png"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/blue-color.jpeg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/grey-car.jpeg"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/yellow-car.png"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card-slide">
+                <img
+                  src="./image/light-blue-car.png"
+                  alt="Bike Image"
+                  class="bike-image"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="vs-container d-flex align-items-center justify-content-center">
+          <img src="./image/line1.jpg" alt="Line" />
+          <h3>Vs</h3>
+          <img src="./image/line2.jpg" alt="Line" />
+        </div>
+      <div class="swiper2" style="width: 300px;">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/car.jpg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/car2.jpg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/car3.jpg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/red-color.jpeg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/orange-car.png"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/blue-color.jpeg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/grey-car.jpeg"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/yellow-car.png"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card-slide">
+              <img
+                src="./image/light-blue-car.png"
+                alt="Bike Image"
+                class="bike-image"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      </div>
+    </div>
+    <!-- <i class="fas fa-image fa-broken" style="font-size: 100px; color: #ccc;"></i>
+<img style="width: 300px; height: 300px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQABAQAIu9QEAAAABJRU5ErkJggg==" alt="Broken Image">
+<img src="image-not-available.png" alt="Broken Image">
+<img style="width: 300px; height: 300px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQABAQAIu9QEAAAABJRU5ErkJggg==" alt="Broken Image 1"> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       const swiper = new Swiper(".swiper", {
@@ -591,25 +958,103 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        breakpoints: {
-          320: {
-            slidesPerView: 1.2,
-            spaceBetween: 10,
-          },
+        // Autoplay (optional)
+        autoplay: {
+          delay: 3000, // 3 seconds
+          disableOnInteraction: false,
         },
+        // Add additional configurations here if needed
       });
-      // Show both arrows after clicking next
-      document
-        .querySelector(".swiper-button-next")
-        .addEventListener("click", () => {
-          document.querySelector(".swiper-button-prev").style.display = "block";
+
+      // Handle color selection for compare-card
+      document.querySelectorAll(".color-circle").forEach((circle) => {
+        circle.addEventListener("click", function () {
+          // Remove the 'tick' class from all circles
+          document
+            .querySelectorAll(".color-circle")
+            .forEach((c) => c.classList.remove("tick"));
+
+          // Add 'tick' class to the selected circle
+          this.classList.add("tick");
+
+          // Update the compare-card image based on the selected color
+          const selectedColor = this.getAttribute("data-color"); // Use a data attribute to get the color name
+
+          // Update the source of the compare-card images
+          document.querySelectorAll(".compare-card .image").forEach((img) => {
+            img.src = `./image/${selectedColor}`; // Ensure you have corresponding images named car-black.jpg, car-white.jpg, etc.
+          });
         });
-      // Show both arrows after clicking prev
-      document
-        .querySelector(".swiper-button-prev")
-        .addEventListener("click", () => {
-          document.querySelector(".swiper-button-next").style.display = "block";
+      });
+      // Handle color selection for compare-card
+      document.querySelectorAll(".color-circle2").forEach((circle) => {
+        circle.addEventListener("click", function () {
+          // Remove the 'tick' class from all circles
+          document
+            .querySelectorAll(".color-circle2")
+            .forEach((c) => c.classList.remove("tick"));
+
+          // Add 'tick' class to the selected circle
+          this.classList.add("tick");
+
+          // Update the compare-card image based on the selected color
+          const selectedColor = this.getAttribute("data-color"); // Use a data attribute to get the color name
+
+          // Update the source of the compare-card images
+          document.querySelectorAll(".compare-card .image2").forEach((img) => {
+            img.src = `./image/${selectedColor}`; // Ensure you have corresponding images named car-black.jpg, car-white.jpg, etc.
+          });
         });
+      });
+    </script>
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+
+      // Get the button that opens the modal
+      var btn = document.querySelectorAll("myBtn");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal
+function myBtn() {
+  modal.style.display = "block";
+}
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+    <script>
+       const swiper2 = new Swiper(".swiper2", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: false,
+        // Remove pagination dots
+        // pagination: true,
+        // Navigation arrows
+        spaceBetween:15,
+        slidesPerView: 0.85,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // Autoplay (optional)
+        // autoplay: {
+        //   delay: 3000, // 3 seconds
+        //   disableOnInteraction: false,
+        // },
+        // Add additional configurations here if needed
+      });
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

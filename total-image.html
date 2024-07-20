@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs Example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(246, 246, 250);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+      .tabs {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .tab {
+        padding: 10px 17px;
+        cursor: pointer;
+        /* border: 2px solid darkblue; */
+        border-radius: 4px;
+        margin-right: 5px;
+        background: #fff;
+        margin-bottom: 10px;
+        color: darkblue;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      .tab.active {
+        background-color: darkblue;
+        color: white;
+      }
+      .tab-content {
+        display: none;
+
+        padding-top: 0;
+        border-radius: 0 0 5px 5px;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .car {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        height: 120px;
+        max-width: 400px;
+      }
+      .car-card {
+        max-width: 100px;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .car-card2 {
+        width: 100%;
+      }
+      .car-card img {
+        max-width: 100%;
+        height: 100px;
+        border-radius: 8px;
+      }
+      .car-info {
+        margin-top: 10px;
+        text-transform: capitalize;
+        font-weight: 600;
+        text-align: center;
+      }
+      .container {
+        border-radius: 12px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      
+        /* height: 140vh; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 9px;
+        box-sizing: border-box;
+        max-width: 400px;
+      }
+      span {
+       
+        font-weight: normal;
+        text-decoration: underline !important;
+        color: black !important;
+        font-weight: 600;
+        background: none !important;
+        font-size: 9px !important;
+        text-wrap: nowrap;
+      }
+
+      .section1 {
+        background: rgb(254, 255, 255);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        max-width: 370px;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+      }
+
+      .vs-container {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 0;
+      }
+
+      .vs-container img {
+        width: 40px;
+        height: 3px;
+      }
+
+      .vs-container h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(15, 15, 55);
+        margin: 0 10px;
+      }
+      .swiper-pagination-bullet-active {
+        background: white !important;
+      }
+
+      @media (max-width: 400px) {
+        .swiper {
+          height: 250px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        h2 {
+          font-size: 20px;
+          margin-top: 5px;
+        }
+
+        h3 {
+          font-size: 12px;
+        }
+
+        .vs-container img {
+          width: 25px;
+          height: 3px;
+        }
+        .vs-container h3 {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <img
+        src="./image/truck.jpg"
+        alt="truck"
+        style="width: 347px; height: 200px; border-radius: 4px"
+      />
+      <h3
+        style="margin: 0; font-size: 20px; font-weight: 700; padding-top: 10px"
+      >
+        Vehicle Model 1
+      </h3>
+      <p style="margin: 0; font-size: 18; font-weight: 600; padding-top: 10px">
+        $20000-30000
+      </p>
+      <div class="tabs">
+        <div class="tab active" data-tab="all">All</div>
+        <div class="tab" data-tab="interior">Interior</div>
+        <div class="tab" data-tab="exterior">Exterior</div>
+        <div class="tab" data-tab="engine">Engine</div>
+      </div>
+      <div class="tab-content active" id="tab-all">
+        <div class="car">
+          <div class="car-card2">
+            <img
+              src="./image/interior-img1.jpg"
+              alt="Car 1"
+              style="width: 100%; height: 180px; border-radius: 12px"
+            />
+          </div>
+          <div class="car-card2">
+            <img
+              src="./image/blue-color.jpeg"
+              alt="Car 2"
+              style="
+                width: 100%;
+                height: 180px;
+                border-radius: 12px;
+                margin-top: 10px;
+              "
+            />
+          </div>
+          <div class="car-card2">
+            <img
+              src="./assets/images/engine2.jpg"
+              alt="Car 3"
+              style="
+                width: 100%;
+                height: 180px;
+                border-radius: 12px;
+                margin-top: 10px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-interior">
+        <div class="car">
+          <div class="car-card2">
+            <img
+              src="./image/interior-img1.jpg"
+              alt="Car 1"
+              style="width: 100%; border-radius: 12px; height: 180px"
+            />
+            <img
+              src="./image/interior-img.jpg"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+            <img
+              src="./image/interior-img3.jpg"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-exterior">
+        <div class="car">
+          <div class="car-card2">
+            <img
+              src="./image/grey-car.jpeg"
+              alt="Car 1"
+              style="width: 100%; border-radius: 12px; height: 180px"
+            />
+            <img
+              src="./image/blue-color.jpeg"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+            <img
+              src="./image/yellow-car.png"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab-engine">
+        <div class="car">
+          <div class="car-card2">
+            <img
+              src="./assets/images/engine1.jpg"
+              alt="Car 1"
+              style="width: 100%; border-radius: 12px; height: 180px"
+            />
+            <img
+              src="./assets/images/engine2.jpg"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+            <img
+              src="./assets/images/engine3.avif"
+              alt="Car 1"
+              style="
+                width: 100%;
+                border-radius: 12px;
+                height: 180px;
+                margin-top: 10px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+      <h4
+        style="
+          text-align: center;
+          color: black;
+          margin-top: 140%;
+          font-size: 24px;
+          margin-bottom: 10px;
+        "
+      >
+        Comparision with Exterior
+      </h4>
+      <div
+        style="
+          background-color: rgb(200, 243, 243);
+          border-radius: 13px;
+          max-width: 370px;
+        "
+      >
+        <div class="section1">
+          <div
+            class="swiper exteriorSwiper"
+            style="margin-top: 0; margin-bottom: 0"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./assets/image/car1.jpg" alt="Slide 1" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/car2.jpg" alt="Slide 2" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/red-color.jpeg" alt="Slide 3" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 4" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/blue-color.jpeg" alt="Slide 5" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/yellow-car.png" alt="Slide 6" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 7" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/yellow-car.png" alt="Slide 8" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 9" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <h2 style="font-size: 14px; font-weight: 500">Vehicle Model</h2>
+            <h2 style="font-size: 15px; font-weight: 700">Vehicle Model</h2>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Price:</p>
+            <p style="font-size: 15px; font-weight: 700">$20000-30000</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Variant Name</p>
+            <p style="font-size: 11px; font-weight: 700">Variant Name</p>
+          </div>
+          <div
+            style="
+              padding-top: 8px;
+              font-weight: 600;
+              display: flex;
+              justify-content: center;
+              gap: 2px;
+            "
+          >
+            <span style="background-color: darkblue; color: white; padding: 5px"
+              >Sun Roof</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Wheel Cover</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Power Antenna </span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Wheel Cover</span
+            ><span
+              style="
+                background-color: darkblue;
+                border-radius: 2px;
+                padding: 5px;
+                color: white;
+              "
+              >Fog Light Front</span
+            >
+          </div>
+        </div>
+        <div class="vs-container">
+          <img src="./image/line1.jpg" alt="Line" />
+          <h3>Vs</h3>
+          <img src="./image/line2.jpg" alt="Line" />
+        </div>
+        <!-- Swiper Section for Comparison -->
+        <div class="section1">
+          <div
+            class="swiper comparisonSwiper"
+            style="margin-top: 0; margin-bottom: 0"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./image/car2.jpg" alt="Slide 1" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/car2.jpg" alt="Slide 2" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/red-color.jpeg" alt="Slide 3" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 4" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/blue-color.jpeg" alt="Slide 5" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/yellow-car.png" alt="Slide 6" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 7" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/yellow-car.png" alt="Slide 8" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/grey-car.jpeg" alt="Slide 9" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <h2 style="font-size: 14px; font-weight: 500">Vehicle Model</h2>
+            <h2 style="font-size: 15px; font-weight: 700">Vehicle Model</h2>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Price:</p>
+            <p style="font-size: 15px; font-weight: 700">$20000-30000</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Variant Name</p>
+            <p style="font-size: 15px; font-weight: 700">Variant Name</p>
+          </div>
+          <div
+            style="
+              padding-top: 8px;
+              font-weight: 600;
+              display: flex;
+              justify-content: center;
+              gap: 4px;
+            "
+          >
+            <span style="background-color: darkblue; color: white; padding: 5px"
+              >Sun Roof</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Wheel Cover</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Power Antenna </span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Wheel Cover</span
+            ><span
+              style="
+                background-color: darkblue;
+                border-radius: 2px;
+                padding: 5px;
+                color: white;
+              "
+              >Fog Light Front</span
+            >
+          </div>
+        </div>
+      </div>
+      <h4
+        style="
+          text-align: center;
+          color: black;
+          font-size: 24px;
+          margin-bottom: 10px;
+          margin-top: 40px;
+        "
+      >
+        Comparision with Interior
+      </h4>
+      <div
+        style="
+        background-color: rgb(200, 243, 243);
+          border-radius: 13px;
+          max-width: 370px;
+          margin-top: 10px;
+        "
+      >
+        <div class="section1">
+          <div
+            class="swiper exteriorSwiper"
+            style="margin-top: 0; margin-bottom: 0"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./image/interior-img1.jpg" alt="Slide 1" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 2" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img3.jpg" alt="Slide 3" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 4" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img2.jpg" alt="Slide 5" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 6" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img1.jpg" alt="Slide 7" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img3.jpg" alt="Slide 8" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 9" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <h2 style="font-size: 14px; font-weight: 500">Vehicle Model</h2>
+            <h2 style="font-size: 15px; font-weight: 700">Vehicle Model</h2>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Price:</p>
+            <p style="font-size: 15px; font-weight: 700">$20000-30000</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Variant Name</p>
+            <p style="font-size: 15px; font-weight: 700">Variant Name</p>
+          </div>
+          <div
+            style="
+              padding-top: 8px;
+              font-weight: 600;
+              display: flex;
+              justify-content: center;
+              gap: 4px;
+            "
+          >
+            <span style="background-color: darkblue; color: white; padding: 5px"
+              >Touch Screen</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Air Bags</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Location</span
+            ><span
+              style="background-color: darkblue; padding: 5px; color: white"
+              >Wheel Cover</span
+            ><span
+              style="
+                background-color: darkblue;
+                border-radius: 2px;
+                padding: 5px;
+                color: white;
+              "
+              >Speed Alert</span
+            >
+          </div>
+        </div>
+        <div class="vs-container">
+          <img src="./image/line1.jpg" alt="Line" />
+          <h3>Vs</h3>
+          <img src="./image/line2.jpg" alt="Line" />
+        </div>
+
+        <div class="section1">
+          <div
+            class="swiper comparisonSwiper"
+            style="margin-top: 0; margin-bottom: 0"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./image/interior-img2.jpg" alt="Slide 1" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 2" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img1.jpg" alt="Slide 3" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img3.jpg" alt="Slide 4" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img.jpg" alt="Slide 5" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img2.jpg" alt="Slide 6" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img1.jpg" alt="Slide 7" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img3.jpg" alt="Slide 8" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/interior-img1.jpg" alt="Slide 9" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <h2 style="font-size: 14px; font-weight: 500">Vehicle Model</h2>
+            <h2 style="font-size: 15px; font-weight: 700">Vehicle Model</h2>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Price:</p>
+            <p style="font-size: 15px; font-weight: 700">$20000-30000</p>
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <p>Variant Name</p>
+            <p style="font-size: 15px; font-weight: 700">Variant Name</p>
+          </div>
+          <div
+          style="
+            padding-top: 8px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+          "
+        >
+          <span style="background-color: darkblue; color: white; padding: 5px"
+            >Touch Screen</span
+          ><span
+            style="background-color: darkblue; padding: 5px; color: white"
+            >Air Bags</span
+          ><span
+            style="background-color: darkblue; padding: 5px; color: white"
+            >Location</span
+          ><span
+            style="background-color: darkblue; padding: 5px; color: white"
+            >Wheel Cover</span
+          ><span
+            style="
+              background-color: darkblue;
+              border-radius: 2px;
+              padding: 5px;
+              color: white;
+            "
+            >Speed Alert</span
+          >
+        </div>
+        </div>
+      </div>
+      <script>
+        // Function to handle tab switching
+        function switchTab(tabName) {
+          // Hide all tab contents
+          var tabContents = document.querySelectorAll(".tab-content");
+          tabContents.forEach(function (content) {
+            content.classList.remove("active");
+          });
+
+          // Show the selected tab content
+          var selectedTab = document.getElementById("tab-" + tabName);
+          if (selectedTab) {
+            selectedTab.classList.add("active");
+          }
+        }
+
+        // Add click event listeners to tabs
+        var tabs = document.querySelectorAll(".tab");
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            // Remove active class from all tabs
+            tabs.forEach(function (tab) {
+              tab.classList.remove("active");
+            });
+
+            // Add active class to the clicked tab
+            tab.classList.add("active");
+
+            // Switch to the corresponding tab content
+            var tabName = tab.getAttribute("data-tab");
+            switchTab(tabName);
+          });
+        });
+      </script>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      // Initialize exteriorSwiper
+      var exteriorSwiper = new Swiper(".exteriorSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      // Initialize comparisonSwiper
+      var comparisonSwiper = new Swiper(".comparisonSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>
